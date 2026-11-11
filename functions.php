@@ -15,6 +15,7 @@ require_once 'includes/shortcodes.php';
 require_once 'includes/meal_plan_archive.php';
 require_once 'includes/single_meal_plan.php';
 require_once 'includes/plan-actions.php';
+require_once 'includes/navigation.php';
 require_once 'includes/recipe_archive.php';
 require_once 'includes/single_recipe.php';
 require_once 'includes/single_meal.php';

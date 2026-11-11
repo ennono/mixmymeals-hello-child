@@ -170,5 +170,12 @@ return array(
 		'Caption of “%s”'                                 => 'Beschriftung von „%s“',
 		'A button without an icon cannot be shown as an icon alone. “Icon only” keeps the caption as the button’s name for screen readers and needs MixMyMeals 3.73.0.' => 'Ein Button ohne Icon kann nicht als Icon allein stehen. „Nur Icon“ behält die Beschriftung als Namen des Buttons für Screenreader und braucht MixMyMeals 3.73.0.',
 		'“Subscribe” leads to the subscribe form and therefore only appears while the section “Get this plan by e-mail” is on the page.' => 'Der Button „Abonnieren“ führt zum Anmeldeformular und erscheint deshalb nur, solange der Abschnitt „Diesen Plan per E-Mail erhalten“ auf der Seite steht.',
+		'Plan'                                            => 'Plan',
+		'Main sections'                                   => 'Hauptbereiche',
+		'Edit plan'                                       => 'Plan bearbeiten',
+		'Browse recipes'                                  => 'Rezepte ansehen',
+		'Pick a ready-made plan'                          => 'Fertigen Plan wählen',
+		'Your plan is still empty.'                       => 'Dein Plan ist noch leer.',
+		'Add recipes to your plan and your shopping list appears here.' => 'Leg Rezepte in deinen Plan, dann steht hier deine Einkaufsliste.',
 	),
 );

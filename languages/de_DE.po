@@ -774,3 +774,31 @@ msgstr "Ein Button ohne Icon kann nicht als Icon allein stehen. „Nur Icon“ b
 #: includes/theme-settings.php:484
 msgid "“Subscribe” leads to the subscribe form and therefore only appears while the section “Get this plan by e-mail” is on the page."
 msgstr "Der Button „Abonnieren“ führt zum Anmeldeformular und erscheint deshalb nur, solange der Abschnitt „Diesen Plan per E-Mail erhalten“ auf der Seite steht."
+
+#: includes/navigation.php
+msgid "Plan"
+msgstr "Plan"
+
+#: includes/navigation.php
+msgid "Main sections"
+msgstr "Hauptbereiche"
+
+#: page-templates/einkaufsliste.php
+msgid "Edit plan"
+msgstr "Plan bearbeiten"
+
+#: page-templates/einkaufsliste.php
+msgid "Browse recipes"
+msgstr "Rezepte ansehen"
+
+#: page-templates/einkaufsliste.php
+msgid "Pick a ready-made plan"
+msgstr "Fertigen Plan wählen"
+
+#: page-templates/einkaufsliste.php
+msgid "Your plan is still empty."
+msgstr "Dein Plan ist noch leer."
+
+#: page-templates/einkaufsliste.php
+msgid "Add recipes to your plan and your shopping list appears here."
+msgstr "Leg Rezepte in deinen Plan, dann steht hier deine Einkaufsliste."

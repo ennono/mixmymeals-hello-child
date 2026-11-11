@@ -773,3 +773,31 @@ msgstr ""
 #: single.php:132
 msgid "Next post"
 msgstr ""
+
+#: includes/navigation.php
+msgid "Plan"
+msgstr ""
+
+#: includes/navigation.php
+msgid "Main sections"
+msgstr ""
+
+#: page-templates/einkaufsliste.php
+msgid "Edit plan"
+msgstr ""
+
+#: page-templates/einkaufsliste.php
+msgid "Browse recipes"
+msgstr ""
+
+#: page-templates/einkaufsliste.php
+msgid "Pick a ready-made plan"
+msgstr ""
+
+#: page-templates/einkaufsliste.php
+msgid "Your plan is still empty."
+msgstr ""
+
+#: page-templates/einkaufsliste.php
+msgid "Add recipes to your plan and your shopping list appears here."
+msgstr ""

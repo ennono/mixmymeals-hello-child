@@ -419,7 +419,17 @@ Template: astra
     cursor: pointer;
     list-style: none;
     display: flex;
+    /* Umbrechen statt ueberlaufen: eine lange Produktangabe („ohne Marke
+       (Haehnchenbrust, Haehnchengeschnetzeltes)“) schob die Zeile auf dem
+       Handy ueber den Rand und machte die ganze Seite breiter als den
+       Bildschirm. Feste Leisten am unteren Rand rutschen dann aus dem Bild. */
+    flex-wrap: wrap;
     align-items: center;
+}
+
+.mmm-shopping-item details summary > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .mmm-shopping-item details summary::-webkit-details-marker {
@@ -6068,78 +6078,217 @@ button[class*="mmm-"]:focus-visible {
 }
 
 /* ==========================================================
-   Bodenleiste, solange der Planer nicht leer ist
+   Header: „Planer“ als erster Menuepunkt, mit Zaehler
 
-   Der Zaehler und der einzige Weg in den Planer sitzen im Header,
-   ganz oben auf Seiten, die ueber 20 000 px lang werden — die
-   schlechteste Stelle, die ein Daumen erreichen kann. Die Leiste
-   wiederholt beides dort, wo die Hand ohnehin ist, und
-   verschwindet mit dem leeren Planer von selbst.
+   Der Planer ist das Produkt und steht vorn. Er behaelt den Akzent des
+   frueheren Knopfs „Jetzt planen“ (HTML-Element im Header), ist aber ein
+   gewoehnlicher Menuepunkt: WordPress erzeugt die Adresse, es gibt
+   keinen von Hand eingetragenen Link mehr. Die Klasse mmm-menu-planner
+   und die Symbole setzt tools/redesign-setup.php.
    ========================================================== */
 
-.mmm-cart-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9998;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--mmm-s4);
-    /* Ueber der Hausleiste des Browsers, nicht darunter. */
-    padding: var(--mmm-s3) var(--mmm-s4) calc(var(--mmm-s3) + env(safe-area-inset-bottom, 0px));
-    background: var(--mmm-surface);
-    border-top: 1px solid var(--mmm-line);
-    box-shadow: 0 -2px 12px rgba(44, 42, 36, .10);
+.ast-builder-menu-1 .menu-link > i,
+.ast-builder-menu-mobile .menu-link > i {
+    margin-right: 6px;
 }
 
-.mmm-cart-bar__count {
-    font-weight: var(--mmm-fw-bold);
-    color: var(--mmm-ink);
-}
-
-.mmm-cart-bar__link {
-    /* Volles Tippziel, auch wenn die Beschriftung kurz ist. */
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    padding: 0 var(--mmm-s5);
-    background: var(--mmm-green-600);
-    color: #fff;
+.ast-builder-menu-1 .menu-item.mmm-menu-planner > .menu-link,
+.ast-builder-menu-1 .menu-item.mmm-menu-planner:hover > .menu-link,
+.ast-builder-menu-1 .menu-item.mmm-menu-planner:focus-within > .menu-link,
+.ast-builder-menu-1 .menu-item.mmm-menu-planner.current-menu-item > .menu-link {
+    margin-right: var(--mmm-s2);
+    background: var(--mmm-carrot-500);
+    color: #fff !important;
     font-weight: var(--mmm-fw-heavy);
-    border-radius: var(--mmm-r-pill);
-    text-decoration: none;
+    box-shadow: var(--mmm-shadow-carrot-sm);
 }
 
-.mmm-cart-bar__link:hover,
-.mmm-cart-bar__link:focus {
-    background: var(--mmm-green-500);
+.ast-builder-menu-1 .menu-item.mmm-menu-planner:hover > .menu-link,
+.ast-builder-menu-1 .menu-item.mmm-menu-planner:focus-within > .menu-link {
+    background: var(--mmm-carrot-600);
+}
+
+.ast-builder-menu-1 .menu-item.mmm-menu-planner > .menu-link i {
     color: #fff;
 }
 
-/* Leerer Planer, keine Leiste. Die Klasse setzt das Skript beim Zaehlen. */
-body.mmm-cart-empty .mmm-cart-bar {
+.ast-builder-menu-1 .mmm-menu-planner .mmm-cart-badge {
+    margin-left: var(--mmm-s2);
+}
+
+/* Leerer Plan, kein Zaehler. Die Klasse setzt das Skript beim Zaehlen. */
+body.mmm-cart-empty .mmm-menu-planner .mmm-cart-badge {
     display: none;
 }
 
-/* Am Schreibtisch ist der Header in Reichweite; dort waere die Leiste nur
-   eine zweite Navigation, die Platz nimmt. */
-@media (min-width: 545px) {
-    .mmm-cart-bar {
+/* ==========================================================
+   Tab-Leiste am unteren Rand (Handy und Tablet)
+
+   Plan, Rezepte, Einkaufsliste: die drei Schritte des Ablaufs dort, wo
+   der Daumen ist, auf jeder Seite und auch bei leerem Plan. Das Markup
+   kommt aus includes/navigation.php. Die Leiste gilt, solange Astra den
+   mobilen Header zeigt (bis 921px); am Schreibtisch steht dasselbe im
+   Header.
+
+   Sie ersetzt die Bodenleiste „Zum Planer“, die das Plugin nur bei
+   gefuelltem Plan einblendete (.mmm-cart-bar).
+   ========================================================== */
+
+:root {
+    --mmm-tabbar-h: 60px;
+}
+
+.mmm-tabbar,
+.mmm-cart-bar {
+    display: none;
+}
+
+@media (max-width: 921px) {
+
+    .mmm-tabbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9998;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        /* Ueber der Hausleiste des Browsers, nicht darunter. */
+        padding: 0 var(--mmm-s2) env(safe-area-inset-bottom, 0px);
+        background: var(--mmm-surface);
+        border-top: 1px solid var(--mmm-line);
+        box-shadow: 0 -2px 12px rgba(44, 42, 36, .10);
+    }
+
+    .mmm-tabbar__tab {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        min-height: var(--mmm-tabbar-h);
+        color: var(--mmm-ink-2);
+        font-family: var(--mmm-font-text);
+        font-size: .75rem;
+        font-weight: var(--mmm-fw-bold);
+        line-height: 1.2;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .mmm-tabbar__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 28px;
+        border-radius: var(--mmm-r-pill);
+        font-size: 1.1rem;
+        transition: background .15s;
+    }
+
+    .mmm-tabbar__tab:hover,
+    .mmm-tabbar__tab:focus,
+    .mmm-tabbar__tab[aria-current="page"] {
+        color: var(--mmm-green-700);
+    }
+
+    .mmm-tabbar__tab[aria-current="page"] .mmm-tabbar__icon {
+        background: var(--mmm-green-100);
+    }
+
+    .mmm-tabbar__tab:focus-visible {
+        outline: 2px solid var(--mmm-green-600);
+        outline-offset: -4px;
+        border-radius: var(--mmm-r-sm);
+    }
+
+    /* Zaehler des Plans, an der Ecke des Symbols. */
+    .mmm-tabbar__badge {
+        position: absolute;
+        top: 5px;
+        left: calc(50% + 8px);
+        min-width: 18px;
+        height: 18px;
+        padding: 0 5px;
+        border-radius: var(--mmm-r-pill);
+        background: var(--mmm-carrot-500);
+        color: #fff;
+        font-size: .6875rem;
+        box-shadow: 0 0 0 2px var(--mmm-surface);
+    }
+
+    /* Leerer Plan, kein Zaehler. Die Klasse setzt das Skript beim Zaehlen. */
+    body.mmm-cart-empty .mmm-tabbar__badge {
         display: none;
     }
-}
 
-/* Die Einblendung muss ueber der Leiste bleiben, nicht dahinter. */
-body:not(.mmm-cart-empty) .mmm-toast {
-    bottom: calc(var(--mmm-s4) + 64px + env(safe-area-inset-bottom, 0px));
-}
-
-@media (min-width: 545px) {
-    body:not(.mmm-cart-empty) .mmm-toast {
-        bottom: calc(var(--mmm-s4) + env(safe-area-inset-bottom, 0px));
+    /* Das Seitenende nicht unter der Leiste verstecken. */
+    body.mmm-has-tabbar {
+        padding-bottom: calc(var(--mmm-tabbar-h) + env(safe-area-inset-bottom, 0px));
     }
+
+    /* Die Speicherleiste des Planers sitzt auf der Tab-Leiste auf. */
+    body.mmm-has-tabbar .mmm-save-bar {
+        bottom: calc(var(--mmm-tabbar-h) + env(safe-area-inset-bottom, 0px));
+        padding-bottom: var(--mmm-s3);
+        box-shadow: none;
+    }
+
+    body.mmm-has-tabbar.mmm-save-bar-visible {
+        padding-bottom: calc(var(--mmm-tabbar-h) + 68px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Die Einblendung muss ueber der Leiste bleiben, nicht dahinter. */
+    body.mmm-has-tabbar .mmm-toast {
+        bottom: calc(var(--mmm-s4) + var(--mmm-tabbar-h) + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+/* ==========================================================
+   Seite „Einkaufsliste“ (page-templates/einkaufsliste.php)
+   ========================================================== */
+
+.mmm-shopping-page__back {
+    margin: 0 0 var(--mmm-s4);
+    font-weight: var(--mmm-fw-bold);
+}
+
+.mmm-shopping-page__back a {
+    text-decoration: none;
+}
+
+.mmm-shopping-page--empty {
+    padding: var(--mmm-s8) var(--mmm-s6);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r);
+    text-align: center;
+}
+
+.mmm-shopping-page--empty p {
+    margin: 0;
+}
+
+.mmm-shopping-page__empty-title {
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-xl);
+    font-weight: var(--mmm-fw-semibold);
+    color: var(--mmm-ink);
+}
+
+.mmm-shopping-page--empty .mmm-shopping-page__empty-title {
+    margin-bottom: var(--mmm-s2);
+}
+
+.mmm-shopping-page--empty .mmm-shopping-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--mmm-s3);
+    margin-top: var(--mmm-s5);
 }
 
 /* Tippziele im Planer und im Einplanen-Dialog. Gemessen bei 390px: der
