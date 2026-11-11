@@ -1,0 +1,10 @@
+# === macOS-Systemdateien ===
+.DS_Store
+
+# === Backup-/Editor-Dateien ===
+*~
+*.swp
+*.bak
+
+# === IDE ===
+.idea/

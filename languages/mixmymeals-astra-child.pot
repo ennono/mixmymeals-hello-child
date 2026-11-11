@@ -1,0 +1,775 @@
+# Copyright (C) 2026 Timo Fricke
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: MixMyMeals Astra Child 1.18.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/mixmymeals-astra-child\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-01T19:39:23+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: mixmymeals-astra-child\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "MixMyMeals Astra Child"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Child Theme für MixMyMeals auf Basis von Astra."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Timo Fricke"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://www.mixmymeals.de"
+msgstr ""
+
+#: 404.php:40
+msgid "Oops, this page is no longer on the plan."
+msgstr ""
+
+#: 404.php:44
+msgid "The link is probably old or has a typo in it. Nothing is lost — here is what is cooking right now."
+msgstr ""
+
+#: 404.php:49
+msgid "All meal plans"
+msgstr ""
+
+#: 404.php:52
+#: includes/archive-sections.php:350
+msgid "All recipes"
+msgstr ""
+
+#: 404.php:67
+#: search.php:101
+msgid "Fresh meal plans"
+msgstr ""
+
+#: functions.php:199
+msgid "Unassigned Recipes"
+msgstr ""
+
+#: functions.php:200
+msgid "Average nutrition per day and person"
+msgstr ""
+
+#: functions.php:201
+msgid "Shopping list"
+msgstr ""
+
+#: functions.php:568
+msgid "No recipes found in this category."
+msgstr ""
+
+#: functions.php:609
+#: functions.php:736
+msgid "Contact e-mail"
+msgstr ""
+
+#. translators: %s: platform name (e.g. Instagram).
+#: functions.php:634
+#, php-format
+msgid "%s URL"
+msgstr ""
+
+#: functions.php:657
+#: functions.php:778
+msgid "Website"
+msgstr ""
+
+#: includes/archive-sections.php:45
+msgid "Recipe archive"
+msgstr ""
+
+#: includes/archive-sections.php:46
+msgid "Meal plan archive"
+msgstr ""
+
+#: includes/archive-sections.php:68
+#: includes/archive-sections.php:104
+#: includes/blog.php:474
+msgid "Archive description"
+msgstr ""
+
+#: includes/archive-sections.php:73
+#: includes/archive-sections.php:109
+#: includes/blog.php:479
+msgid "Search form"
+msgstr ""
+
+#: includes/archive-sections.php:78
+msgid "Diet filter"
+msgstr ""
+
+#: includes/archive-sections.php:83
+msgid "Browse card"
+msgstr ""
+
+#: includes/archive-sections.php:87
+#: includes/blog.php:501
+msgid "List heading"
+msgstr ""
+
+#: includes/archive-sections.php:91
+#: includes/archive-sections.php:119
+#: includes/blog.php:505
+msgid "The list"
+msgstr ""
+
+#: includes/archive-sections.php:95
+#: includes/archive-sections.php:123
+#: includes/blog.php:509
+msgid "Pagination"
+msgstr ""
+
+#: includes/archive-sections.php:114
+#: includes/blog.php:484
+msgid "Category filter"
+msgstr ""
+
+#. translators: %s: the search term.
+#: includes/archive-sections.php:346
+#: includes/blog.php:1063
+#: search.php:61
+#, php-format
+msgid "Search results for “%s”"
+msgstr ""
+
+#. translators: %s: number of minutes.
+#: includes/blog.php:94
+#, php-format
+msgid "%s min read"
+msgid_plural "%s min read"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/blog.php:215
+#: includes/blog.php:380
+msgid "Blog"
+msgstr ""
+
+#: includes/blog.php:217
+msgid "Stands under the heading of the blog archive, the way the recipe and meal plan archives carry theirs. A category with its own description keeps that one."
+msgstr ""
+
+#: includes/blog.php:224
+msgid "Blog description"
+msgstr ""
+
+#: includes/blog.php:448
+msgid "Blog archive"
+msgstr ""
+
+#: includes/blog.php:489
+msgid "Browse rows"
+msgstr ""
+
+#: includes/blog.php:493
+msgid "All categories card"
+msgstr ""
+
+#: includes/blog.php:497
+msgid "Tag cloud"
+msgstr ""
+
+#: includes/blog.php:544
+msgid "Search posts"
+msgstr ""
+
+#: includes/blog.php:548
+msgid "Search posts…"
+msgstr ""
+
+#: includes/blog.php:551
+msgid "Search"
+msgstr ""
+
+#: includes/blog.php:556
+msgid "Reset"
+msgstr ""
+
+#: includes/blog.php:591
+msgid "Categories"
+msgstr ""
+
+#: includes/blog.php:593
+msgid "All"
+msgstr ""
+
+#. translators: %s: number of posts, already formatted.
+#: includes/blog.php:676
+#: includes/blog.php:865
+#, php-format
+msgid "Show all %s"
+msgid_plural "Show all %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/blog.php:796
+#: includes/blog.php:914
+msgid "Latest posts"
+msgstr ""
+
+#: includes/blog.php:915
+msgid "The most recently published posts — everything new lands here."
+msgstr ""
+
+#: includes/blog.php:980
+#: includes/recipe_archive.php:628
+msgid "All categories"
+msgstr ""
+
+#: includes/blog.php:981
+msgid "Every heading the blog is sorted under."
+msgstr ""
+
+#: includes/blog.php:1067
+msgid "All posts"
+msgstr ""
+
+#: includes/blog.php:1128
+#: single.php:78
+msgid "Tags"
+msgstr ""
+
+#: includes/blog.php:1152
+msgid "Newer"
+msgstr ""
+
+#: includes/blog.php:1153
+msgid "Older"
+msgstr ""
+
+#: includes/blog.php:1170
+msgid "Nothing matched that."
+msgstr ""
+
+#: includes/blog.php:1172
+msgid "Maybe a different word — or have a look at everything that is here:"
+msgstr ""
+
+#: includes/blog.php:1176
+msgid "Reset search"
+msgstr ""
+
+#: includes/blog.php:1180
+msgid "Nothing here yet."
+msgstr ""
+
+#: includes/blog.php:1182
+msgid "No posts under this heading. There is cooking elsewhere:"
+msgstr ""
+
+#: includes/blog.php:1186
+msgid "To the recipes"
+msgstr ""
+
+#: includes/blog.php:1189
+msgid "To the meal plans"
+msgstr ""
+
+#: includes/custom-sections.php:99
+#: includes/theme-settings.php:600
+msgid "Custom section"
+msgstr ""
+
+#: includes/plan-actions.php:36
+msgid "Icon + text"
+msgstr ""
+
+#: includes/plan-actions.php:37
+msgid "Icon only"
+msgstr ""
+
+#: includes/plan-actions.php:38
+msgid "Text only"
+msgstr ""
+
+#: includes/recipe_archive.php:30
+#: page-templates/planer.php:174
+msgid "Our Favorites"
+msgstr ""
+
+#: includes/recipe_archive.php:31
+msgid "Recipes we cook again and again and can particularly recommend to you."
+msgstr ""
+
+#: includes/recipe_archive.php:35
+#: page-templates/planer.php:173
+msgid "New recipes"
+msgstr ""
+
+#: includes/recipe_archive.php:36
+msgid "The most recently published recipes — everything new lands here."
+msgstr ""
+
+#: includes/recipe_archive.php:40
+msgid "Frequently Cooked"
+msgstr ""
+
+#: includes/recipe_archive.php:41
+msgid "These recipes have been on the meal plans most often so far."
+msgstr ""
+
+#: includes/recipe_archive.php:45
+msgid "Never cooked"
+msgstr ""
+
+#: includes/recipe_archive.php:46
+msgid "Nobody has planned these recipes yet — maybe your new favorite is among them."
+msgstr ""
+
+#: includes/recipe_archive.php:87
+msgid "Vegan recipes"
+msgstr ""
+
+#: includes/recipe_archive.php:88
+msgid "Dishes that can be cooked vegan — for some of them the product you buy decides."
+msgstr ""
+
+#: includes/recipe_archive.php:91
+msgid "Vegetarian recipes"
+msgstr ""
+
+#: includes/recipe_archive.php:92
+msgid "Dishes that can be cooked vegetarian — for some of them the product you buy decides."
+msgstr ""
+
+#: includes/recipe_archive.php:95
+msgid "Gluten-free recipes"
+msgstr ""
+
+#: includes/recipe_archive.php:96
+msgid "Dishes that can be cooked gluten-free — for some of them the product you buy decides."
+msgstr ""
+
+#: includes/recipe_archive.php:99
+msgid "Lactose-free recipes"
+msgstr ""
+
+#: includes/recipe_archive.php:100
+msgid "Dishes that can be cooked lactose-free — for some of them the product you buy decides."
+msgstr ""
+
+#. translators: %d: number of minutes.
+#: includes/recipe_archive.php:128
+#, php-format
+msgid "Ready in under %d minutes"
+msgstr ""
+
+#: includes/recipe_archive.php:131
+msgid "Recipes without a stated time are not listed here."
+msgstr ""
+
+#. translators: %d: number of minutes.
+#: includes/recipe_archive.php:317
+#, php-format
+msgid "under %d min"
+msgstr ""
+
+#. translators: %s: the search term.
+#: includes/recipe_archive.php:327
+#, php-format
+msgid "Title: %s"
+msgstr ""
+
+#: includes/recipe_archive.php:390
+msgid "Filtered by:"
+msgstr ""
+
+#. translators: %s: the filter that would be removed.
+#: includes/recipe_archive.php:404
+#, php-format
+msgid "Remove filter “%s”"
+msgstr ""
+
+#: includes/recipe_archive.php:414
+msgid "Clear all"
+msgstr ""
+
+#. translators: %s: the search term.
+#: includes/recipe_archive.php:495
+#, php-format
+msgid "No recipe matches “%s”"
+msgstr ""
+
+#: includes/recipe_archive.php:499
+msgid "No recipe matches these filters"
+msgstr ""
+
+#. translators: %s: comma separated list of ingredient names.
+#: includes/recipe_archive.php:508
+#, php-format
+msgid "We do not know these ingredients: %s"
+msgstr ""
+
+#. translators: %s: comma separated list of the active filters.
+#: includes/recipe_archive.php:519
+#, php-format
+msgid "Active: %s. Dropping one of them usually helps."
+msgstr ""
+
+#: includes/recipe_archive.php:526
+msgid "The title search looks at titles only. A shorter term, or a different word, often helps."
+msgstr ""
+
+#: includes/recipe_archive.php:531
+msgid "Show all recipes"
+msgstr ""
+
+#: includes/recipe_archive.php:630
+msgid "Browse the whole collection by course, cuisine or main ingredient."
+msgstr ""
+
+#: includes/search.php:41
+msgid "Recipes"
+msgstr ""
+
+#: includes/search.php:42
+msgid "Meal plans"
+msgstr ""
+
+#: includes/search.php:43
+#: includes/single-sections.php:83
+#: includes/single-sections.php:149
+#: includes/single-sections.php:373
+#: includes/single-sections.php:632
+msgid "Ingredients"
+msgstr ""
+
+#: includes/search.php:44
+msgid "Equipment"
+msgstr ""
+
+#: includes/shortcodes.php:17
+msgid "Inspiration"
+msgstr ""
+
+#: includes/shortcodes.php:18
+msgid "Feel like"
+msgstr ""
+
+#: includes/shortcodes.php:20
+msgid "Go to recipe"
+msgstr ""
+
+#: includes/shortcodes.php:25
+msgid "All Recipes"
+msgstr ""
+
+#: includes/single-sections.php:64
+msgid "Recipe page"
+msgstr ""
+
+#: includes/single-sections.php:65
+msgid "Meal page"
+msgstr ""
+
+#: includes/single-sections.php:66
+msgid "Meal plan page"
+msgstr ""
+
+#: includes/single-sections.php:79
+#: includes/single-sections.php:145
+#: includes/single-sections.php:203
+msgid "Feature image"
+msgstr ""
+
+#: includes/single-sections.php:87
+#: includes/single-sections.php:153
+#: includes/single-sections.php:223
+#: includes/single-sections.php:394
+#: includes/single-sections.php:650
+#: includes/single-sections.php:881
+msgid "Required Equipment"
+msgstr ""
+
+#: includes/single-sections.php:91
+#: includes/single-sections.php:157
+#: includes/single-sections.php:406
+#: includes/single-sections.php:662
+msgid "Cooking Instructions"
+msgstr ""
+
+#: includes/single-sections.php:95
+#: includes/single-sections.php:161
+#: includes/single-sections.php:199
+msgid "Author box"
+msgstr ""
+
+#: includes/single-sections.php:99
+#: includes/single-sections.php:165
+#: includes/single-sections.php:428
+#: includes/single-sections.php:684
+#: single-mmm_ingredient.php:36
+msgid "Nutrition Details"
+msgstr ""
+
+#: includes/single-sections.php:103
+#: includes/single-sections.php:169
+#: includes/single-sections.php:219
+#: includes/single-sections.php:458
+#: includes/single-sections.php:706
+#: includes/single-sections.php:847
+msgid "Product choice"
+msgstr ""
+
+#: includes/single-sections.php:107
+#: includes/single-sections.php:181
+#: includes/single-sections.php:231
+msgid "Editor content"
+msgstr ""
+
+#: includes/single-sections.php:111
+#: includes/single-sections.php:506
+msgid "Goes well with"
+msgstr ""
+
+#: includes/single-sections.php:115
+#: includes/single-sections.php:524
+msgid "Fits with"
+msgstr ""
+
+#: includes/single-sections.php:119
+#: includes/single-sections.php:542
+msgid "Included in these plans"
+msgstr ""
+
+#: includes/single-sections.php:123
+#: includes/single-sections.php:177
+#: includes/single-sections.php:554
+#: includes/single-sections.php:745
+#: single-mmm_ingredient.php:94
+msgid "Note"
+msgstr ""
+
+#: includes/single-sections.php:127
+#: includes/single-sections.php:574
+msgid "Cooked by You"
+msgstr ""
+
+#: includes/single-sections.php:131
+msgid "Ratings"
+msgstr ""
+
+#: includes/single-sections.php:173
+#: includes/single-sections.php:733
+msgid "How much did you eat?"
+msgstr ""
+
+#: includes/single-sections.php:207
+#: includes/single-sections.php:800
+msgid "Meals in this plan"
+msgstr ""
+
+#: includes/single-sections.php:211
+#: includes/single-sections.php:812
+msgid "Nutrition Overview"
+msgstr ""
+
+#: includes/single-sections.php:215
+#: includes/single-sections.php:824
+msgid "Shopping List"
+msgstr ""
+
+#: includes/single-sections.php:227
+#: includes/single-sections.php:900
+msgid "Get this plan by e-mail"
+msgstr ""
+
+#: includes/single-sections.php:460
+#: includes/single-sections.php:708
+msgid "The choice of a specific product can affect the nutrition of the dish."
+msgstr ""
+
+#: includes/single-sections.php:472
+#: includes/single-sections.php:720
+msgid "* The recipe assumes this product."
+msgstr ""
+
+#: includes/single-sections.php:849
+msgid "Some ingredients of this plan can be bought as more than one product. This is what each choice would do to the daily nutrition per person."
+msgstr ""
+
+#: includes/single-sections.php:861
+msgid "* The plan assumes this product."
+msgstr ""
+
+#: includes/single-sections.php:901
+msgid "Subscribe and get the meals of this plan sent to your inbox, day by day."
+msgstr ""
+
+#: includes/single_meal_plan.php:21
+msgid "For this plan no meals have been planned yet. Take a look at the other plans in the meantime."
+msgstr ""
+
+#. translators: %s: number of times the recipe was edited.
+#: includes/single_recipe.php:98
+#, php-format
+msgid "This recipe is actively maintained. It has already been revised %s times."
+msgstr ""
+
+#: includes/theme-settings.php:86
+#: includes/theme-settings.php:87
+#: includes/theme-settings.php:684
+msgid "Theme Settings"
+msgstr ""
+
+#. translators: %s: name of the single page, e.g. “Recipe page”.
+#: includes/theme-settings.php:135
+#, php-format
+msgid "Sections: %s"
+msgstr ""
+
+#: includes/theme-settings.php:139
+msgid "Drag the sections into the order they should appear in. Unticked sections stay off the page; sections that have nothing to show stay hidden anyway."
+msgstr ""
+
+#: includes/theme-settings.php:145
+msgid "Archive description, search form and filter sit inside the archive header as long as they stay at the top of this list. Drag one below another block and it leaves the header and appears at its new place instead."
+msgstr ""
+
+#: includes/theme-settings.php:153
+msgid "Order"
+msgstr ""
+
+#: includes/theme-settings.php:162
+msgid "Custom sections"
+msgstr ""
+
+#: includes/theme-settings.php:256
+msgid "Add section"
+msgstr ""
+
+#: includes/theme-settings.php:260
+msgid "New sections and removals take effect when you save. A section without a title and without text is not stored. Shortcodes in the text are executed on the page; an empty title means the section shows its text without a heading."
+msgstr ""
+
+#: includes/theme-settings.php:282
+#: includes/theme-settings.php:597
+msgid "Title"
+msgstr ""
+
+#: includes/theme-settings.php:305
+#: includes/theme-settings.php:598
+msgid "Remove"
+msgstr ""
+
+#: includes/theme-settings.php:394
+msgid "Buttons: Meal plan page"
+msgstr ""
+
+#: includes/theme-settings.php:396
+msgid "The buttons in the title block of a meal plan. Drag them into the order they should appear in; unticked buttons stay off the page."
+msgstr ""
+
+#: includes/theme-settings.php:403
+msgid "Buttons"
+msgstr ""
+
+#: includes/theme-settings.php:423
+msgid "The buttons appear here as soon as the site has a meal plan — the list is the plugin’s, including what add-ons contribute."
+msgstr ""
+
+#. translators: %s: name of the button, e.g. “Send via Email”.
+#: includes/theme-settings.php:456
+#, php-format
+msgid "Caption of “%s”"
+msgstr ""
+
+#: includes/theme-settings.php:482
+msgid "A button without an icon cannot be shown as an icon alone. “Icon only” keeps the caption as the button’s name for screen readers and needs MixMyMeals 3.73.0."
+msgstr ""
+
+#: includes/theme-settings.php:484
+msgid "“Subscribe” leads to the subscribe form and therefore only appears while the section “Get this plan by e-mail” is on the page."
+msgstr ""
+
+#: includes/theme-settings.php:595
+msgid "Move up"
+msgstr ""
+
+#: includes/theme-settings.php:596
+msgid "Move down"
+msgstr ""
+
+#: includes/theme-settings.php:599
+msgid "Really remove?"
+msgstr ""
+
+#: includes/theme-settings.php:688
+msgid "Settings this child theme adds on top of Astra."
+msgstr ""
+
+#: includes/theme-settings.php:718
+msgid "Unsaved changes!"
+msgstr ""
+
+#: includes/theme-settings.php:720
+msgid "Save now"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Planer mit Rezeptvorschlägen"
+msgstr ""
+
+#: page-templates/planer.php:81
+msgid "Save and subscribe to the plan"
+msgstr ""
+
+#: page-templates/planer.php:82
+msgid "Save plan"
+msgstr ""
+
+#. translators: %s: number of results.
+#: search.php:73
+#, php-format
+msgid "%s result"
+msgid_plural "%s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: search.php:88
+msgid "Nothing matched that. Maybe a different word — or have a look at what is cooking:"
+msgstr ""
+
+#. translators: 1: number of results, 2: group name, e.g. “Recipes”.
+#: search.php:162
+#, php-format
+msgid "Show all %1$s hits in %2$s"
+msgstr ""
+
+#: single-mmm_ingredient.php:71
+msgid "Used in these recipes"
+msgstr ""
+
+#: single.php:60
+msgid "Pages:"
+msgstr ""
+
+#: single.php:106
+msgid "Written by"
+msgstr ""
+
+#: single.php:122
+msgid "More posts"
+msgstr ""
+
+#: single.php:125
+msgid "Previous post"
+msgstr ""
+
+#: single.php:132
+msgid "Next post"
+msgstr ""

@@ -1,0 +1,16 @@
+<!--
+	Bewertungs-Mail, für einen beliebigen Trigger wählbar. Platzhalter: README.md
+	rating_links_html führt auf das Formular „Bewerten + Foto" und ist leer,
+	solange unter Einstellungen → Abos keine „Recipe Rating Page" gesetzt ist.
+-->
+<p style="{{ plan_number_line_style }}">{{ plan_number_html }}</p>
+<h1>Hat es dir geschmeckt?</h1>
+
+<p>{{ greeting }}</p>
+
+<p>wie haben dir die Rezepte aus „{{ plan }}" geschmeckt? Bewerte sie mit einem Klick und lade gleich ein Foto von deinem Teller hoch:</p>
+
+{{ rating_links_html }}
+
+<p>Danke! Deine Bewertung hilft anderen bei der Auswahl, und dein Foto erscheint nach kurzer Prüfung in der Galerie des Rezepts.</p>
+

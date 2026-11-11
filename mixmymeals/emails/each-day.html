@@ -1,0 +1,23 @@
+<!-- Trigger: Jeden Tag im Plan (each_day). Platzhalter: README.md -->
+<p style="{{ plan_number_line_style }}">{{ plan_number_html }}</p>
+<h1>Deine Mahlzeiten am {{ weekday }}</h1>
+
+<p>{{ greeting }}</p>
+
+<p>das steht heute auf deinem Plan:</p>
+
+{{ meal_list_html }}
+
+<h2>Nährwerte</h2>
+
+{{ nutrition_table_html }}
+
+<h2>Zutaten</h2>
+
+<p>Das brauchst du heute. Hast du alles da?</p>
+
+{{ day_ingredients_html }}
+
+<p><a href="{{ plan_url }}" style="{{ button_style }}">Zum Plan</a></p>
+
+<p style="{{ muted_style }}">Guten Appetit!</p>
