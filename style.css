@@ -9935,3 +9935,174 @@ body:not(.mmm-cart-empty) .mmm-plan-unassigned:not(:has(.mmm-plan-item)) {
         background: none;
     }
 }
+
+
+/* ==========================================================
+   Abnahme 12.11.2026: Naehrwerte im Planer eingeklappt, kompakte
+   Rezeptkarten am Handy, Tage-Auswahl in einer Zeile.
+   ========================================================== */
+
+/* Die Ueberschrift ist der Griff; daneben steht die Energie als Vorschau. */
+.mmm-planner-nutrition__fold-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--mmm-s3);
+    min-height: 48px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.mmm-planner-nutrition__fold-summary::-webkit-details-marker {
+    display: none;
+}
+
+.mmm-planner-nutrition__fold-summary .mmm-planner-nutrition__title {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    font-size: var(--mmm-font-lg);
+}
+
+.mmm-planner-nutrition__fold-value {
+    flex: 0 0 auto;
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    white-space: nowrap;
+}
+
+.mmm-planner-nutrition__fold-summary::after {
+    content: "";
+    flex: 0 0 auto;
+    width: 9px;
+    height: 9px;
+    margin: -4px 4px 0 0;
+    border-right: 2px solid var(--mmm-green-600);
+    border-bottom: 2px solid var(--mmm-green-600);
+    transform: rotate(45deg);
+    transition: transform .15s ease;
+}
+
+.mmm-planner-nutrition__fold[open] > .mmm-planner-nutrition__fold-summary::after {
+    margin-top: 4px;
+    transform: rotate(-135deg);
+}
+
+.mmm-planner-nutrition__fold[open] > .mmm-planner-nutrition__fold-summary {
+    margin-bottom: var(--mmm-s3);
+}
+
+.mmm-planner-nutrition__fold-summary:focus-visible {
+    outline: 2px solid var(--mmm-green-500);
+    outline-offset: 4px;
+    border-radius: var(--mmm-r-sm, 6px);
+}
+
+/* Rezeptliste am Handy: Bild links, das Wesentliche rechts. Eine Karte
+   war 750 px hoch, zwanzig davon 15.000 px. Beschreibung und Schlagworte
+   stehen auf der Rezeptseite. */
+@media (max-width: 544px) {
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe {
+        margin-bottom: var(--mmm-s3);
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .blog-layout-5 {
+        display: grid;
+        grid-template-columns: 104px minmax(0, 1fr);
+        align-items: start;
+        gap: 0 var(--mmm-s3);
+        padding: var(--mmm-s3);
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-l-blog-featured-section.post-thumb {
+        width: 104px !important;
+        margin: 0;
+        padding: 0;
+        border-radius: var(--mmm-r-md, 12px);
+        overflow: hidden;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-thumb-img-content img {
+        display: block;
+        width: 104px;
+        height: 104px;
+        min-height: 0;
+        object-fit: cover;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-content {
+        width: auto !important;
+        min-width: 0;
+        padding: 0 !important;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-l-no-thumb .post-content {
+        grid-column: 1 / -1;
+        padding-left: 0 !important;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-l-excerpt-container,
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .entry-content > p {
+        display: none;
+    }
+}
+
+/* 3, 5 und 7 Tage passen bei 375 px nebeneinander. */
+@media (max-width: 420px) {
+    .mmm-plan-start__field:not(.mmm-plan-start__field--wide) .mmm-plan-start__chips {
+        flex-wrap: nowrap;
+        gap: 6px;
+    }
+
+    .mmm-plan-start__field:not(.mmm-plan-start__field--wide) .mmm-plan-start__chip span {
+        min-width: 42px;
+        padding: 0 var(--mmm-s2);
+    }
+}
+
+.mmm-planner-nutrition__fold-value::before {
+    content: "Ø ";
+}
+
+@media (max-width: 544px) {
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-l-blog-featured-section.post-thumb,
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-thumb-img-content,
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-thumb-img-content a {
+        display: block;
+        align-self: start;
+        height: 104px !important;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-thumb-img-content img {
+        width: 104px !important;
+        height: 104px !important;
+        min-height: 0 !important;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .entry-title {
+        margin: 0 0 4px;
+        font-size: var(--mmm-font-md, 1.05rem);
+        line-height: 1.25;
+    }
+
+    /* Sterne und Schnitt genuegen; die Zahl der Stimmen bricht hier um. */
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-rating {
+        margin: 0 0 6px;
+        font-size: var(--mmm-font-sm);
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-rating__count,
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-meta__item--category {
+        display: none;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-recipe-archive-item-meta {
+        gap: 6px;
+        margin: 0 0 var(--mmm-s2);
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-recipe-archive-item-meta .mmm-meta__item {
+        min-height: 0;
+        padding: 3px 9px;
+        font-size: var(--mmm-font-xs);
+    }
+}
