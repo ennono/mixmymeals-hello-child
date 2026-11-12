@@ -830,3 +830,15 @@ msgstr "Weiter"
 #: includes/layout.php
 msgid "Skip to content"
 msgstr "Zum Inhalt springen"
+
+msgid "Your week"
+msgstr "Deine Woche"
+
+msgid "Show more"
+msgstr "Mehr laden"
+
+msgid "Loading…"
+msgstr "Lädt…"
+
+msgid "To the shopping list"
+msgstr "Zur Einkaufsliste"

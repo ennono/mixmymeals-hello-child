@@ -53,7 +53,7 @@ if ( ! function_exists( 'mmm_shopping_page_body' ) ) {
 					. '<i class="fa-solid fa-pen" aria-hidden="true"></i> '
 					. esc_html__( 'Edit plan', 'mixmymeals-hello-child' ) . '</a></p>';
 
-			return '<div class="mmm-shopping-page">' . $back
+			return '<div class="mmm-shopping-page" data-shopping-check>' . $back
 				. do_shortcode( '[mmm_planner_shopping_list]' ) . '</div>';
 		}
 

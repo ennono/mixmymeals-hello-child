@@ -97,6 +97,27 @@ if ( ! function_exists( 'mmm_planer_save_section' ) ) {
  * (11): Die Shortcodes durchlaufen damit exakt dieselbe Filterkette wie zuvor
  * im Editorinhalt und werden identisch gerendert.
  */
+if ( ! function_exists( 'mmm_planer_next_step' ) ) {
+	/**
+	 * Der nächste Schritt nach dem Planen: zur Einkaufsliste. Erscheint nur
+	 * bei gefülltem Plan (CSS über body.mmm-cart-empty).
+	 *
+	 * @return string
+	 */
+	function mmm_planer_next_step(): string {
+
+		$url = function_exists( 'mmm_shopping_list_page_url' ) ? mmm_shopping_list_page_url() : '';
+
+		if ( '' === $url ) {
+			return '';
+		}
+
+		return '<div class="mmm-planer-next"><a class="mmm-btn mmm-btn--primary mmm-planer-next__link" href="' . esc_url( $url ) . '">'
+			. '<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> '
+			. esc_html__( 'To the shopping list', 'mixmymeals-hello-child' ) . '</a></div>';
+	}
+}
+
 add_filter(
 	'the_content',
 	static function ( $content ) {
@@ -124,9 +145,9 @@ add_filter(
 		$parts = array(
 			$tag( 'mmm_meal_plan_builder' ),
 			$tag( 'mmm_planner_nutrition' ),
-			// Die Einkaufsliste des entstehenden Plans, genauso live: was
-			// für den Plan einzukaufen ist, schon bevor er gespeichert wird.
-			$tag( 'mmm_planner_shopping_list' ),
+			// Die Einkaufsliste ist ein eigener Schritt auf einer eigenen
+			// Seite (Abhaken im Laden). Hier steht nur der Weg dorthin.
+			mmm_planer_next_step(),
 			(string) $content,
 		);
 

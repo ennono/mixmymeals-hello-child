@@ -8380,3 +8380,1558 @@ body .mmm-l-archive-title {
     font-size: 48px !important;
     line-height: 1.1 !important;
 }
+
+/* ==========================================================
+   REDESIGN: Einplanen mit einem Tipp (Tages-Auswahl)
+
+   Ein Blatt von unten am Handy, ein Dialog in der Mitte am Schreibtisch.
+   Sieben Tage als grosse Tippflaechen; das Markup baut frontend.js.
+   ========================================================== */
+
+.mmm-day-sheet-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgba(44, 42, 36, 0);
+    transition: background-color .2s ease;
+}
+
+.mmm-day-sheet-backdrop.is-open {
+    background: rgba(44, 42, 36, .45);
+}
+
+.mmm-day-sheet {
+    width: 100%;
+    max-width: 520px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: var(--mmm-s5) var(--mmm-s5) calc(var(--mmm-s5) + env(safe-area-inset-bottom, 0px));
+    background: var(--mmm-surface);
+    border-radius: var(--mmm-r-lg) var(--mmm-r-lg) 0 0;
+    box-shadow: var(--mmm-shadow-lg);
+    transform: translateY(100%);
+    transition: transform .22s ease;
+}
+
+.mmm-day-sheet-backdrop.is-open .mmm-day-sheet {
+    transform: none;
+}
+
+.mmm-day-sheet__recipe {
+    margin: 0 0 2px;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mmm-day-sheet__title {
+    margin: 0 0 var(--mmm-s4);
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-2xl);
+    font-weight: var(--mmm-fw-semibold);
+    line-height: 1.2;
+    color: var(--mmm-ink);
+}
+
+.mmm-day-sheet__days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.mmm-day-chip {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0;
+    font-family: var(--mmm-font-display);
+    font-size: 1.05em;
+    font-weight: var(--mmm-fw-semibold);
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-50);
+    border: 1.5px solid var(--mmm-green-100);
+    border-radius: var(--mmm-r-sm);
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, transform .1s ease;
+}
+
+.mmm-day-chip:hover,
+.mmm-day-chip:focus-visible {
+    background: var(--mmm-green-100);
+    border-color: var(--mmm-green-500);
+    color: var(--mmm-green-700);
+    outline: none;
+}
+
+.mmm-day-chip:active {
+    transform: scale(.96);
+}
+
+.mmm-day-chip--today {
+    background: var(--mmm-green-600);
+    border-color: var(--mmm-green-600);
+    color: #fff;
+}
+
+.mmm-day-chip--today:hover,
+.mmm-day-chip--today:focus-visible {
+    background: var(--mmm-green-700);
+    border-color: var(--mmm-green-700);
+    color: #fff;
+}
+
+.mmm-day-chip__today {
+    font-family: var(--mmm-font-text);
+    font-size: 10px;
+    font-weight: var(--mmm-fw-bold);
+    line-height: 1;
+    opacity: .9;
+}
+
+.mmm-day-chip.is-busy,
+.mmm-day-sheet__noday.is-busy {
+    opacity: .6;
+}
+
+.mmm-day-sheet__msg:empty {
+    display: none;
+}
+
+.mmm-day-sheet__foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--mmm-s2);
+    margin-top: var(--mmm-s4);
+}
+
+.mmm-day-sheet__noday,
+.mmm-day-sheet__more {
+    min-height: 44px;
+    padding: 0 var(--mmm-s3);
+    font: inherit;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    background: none;
+    border: 0;
+    border-radius: var(--mmm-r-pill);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.mmm-day-sheet__noday:hover,
+.mmm-day-sheet__more:hover,
+.mmm-day-sheet__noday:focus-visible,
+.mmm-day-sheet__more:focus-visible {
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-50);
+}
+
+@media (min-width: 700px) {
+    .mmm-day-sheet-backdrop {
+        align-items: center;
+    }
+
+    .mmm-day-sheet {
+        border-radius: var(--mmm-r-lg);
+        transform: translateY(12px);
+        opacity: 0;
+        transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .mmm-day-sheet-backdrop.is-open .mmm-day-sheet {
+        opacity: 1;
+    }
+}
+
+/* Ein eingeplantes Rezept sagt das auch an seinem Knopf. */
+.mmm-recipe-actions__item--cart.is-planned::after {
+    content: " \2713";
+}
+
+/* ==========================================================
+   REDESIGN: Rezeptwahl im Planer („+ Rezept“)
+   ========================================================== */
+
+body.mmm-sheet-open {
+    overflow: hidden;
+}
+
+.mmm-picker {
+    display: flex;
+    flex-direction: column;
+    height: 88vh;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.mmm-picker__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--mmm-s3);
+}
+
+.mmm-picker__head .mmm-day-sheet__title {
+    margin-bottom: var(--mmm-s3);
+}
+
+.mmm-picker__close {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--mmm-ink-2);
+    background: var(--mmm-cream-2);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mmm-picker__close:hover,
+.mmm-picker__close:focus-visible {
+    color: var(--mmm-ink);
+    background: var(--mmm-line);
+}
+
+.mmm-picker__search {
+    width: 100%;
+    height: 48px;
+    padding: 0 var(--mmm-s4);
+    font: inherit;
+    color: var(--mmm-ink);
+    background: var(--mmm-cream);
+    border: 1.5px solid var(--mmm-line-2);
+    border-radius: var(--mmm-r-pill);
+}
+
+.mmm-picker__search:focus {
+    outline: none;
+    border-color: var(--mmm-green-500);
+    background: var(--mmm-surface);
+}
+
+.mmm-picker__hint {
+    margin: var(--mmm-s3) 0 0;
+    font-size: var(--mmm-font-xs);
+    font-weight: var(--mmm-fw-bold);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--mmm-ink-3);
+}
+
+.mmm-picker__list {
+    flex: 1;
+    min-height: 0;
+    margin: var(--mmm-s2) calc(-1 * var(--mmm-s5)) 0;
+    padding: 0 var(--mmm-s5) var(--mmm-s5);
+    overflow-y: auto;
+    list-style: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mmm-picker__list[aria-busy="true"] {
+    opacity: .5;
+}
+
+.mmm-picker__list li {
+    margin: 0;
+    border-bottom: 1px solid var(--mmm-line);
+}
+
+.mmm-picker__list li:last-child {
+    border-bottom: 0;
+}
+
+.mmm-picker__item {
+    display: flex;
+    align-items: center;
+    gap: var(--mmm-s3);
+    width: 100%;
+    min-height: 72px;
+    padding: var(--mmm-s2) 0;
+    font: inherit;
+    text-align: left;
+    color: var(--mmm-ink);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.mmm-picker__item:hover,
+.mmm-picker__item:focus-visible {
+    color: var(--mmm-green-700);
+    background: none;
+    outline: none;
+}
+
+.mmm-picker__thumb {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: var(--mmm-r-sm);
+    background: var(--mmm-cream-2);
+}
+
+.mmm-picker__text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mmm-picker__name {
+    font-weight: var(--mmm-fw-bold);
+    line-height: 1.25;
+}
+
+.mmm-picker__meta {
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+}
+
+.mmm-picker__plus {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    line-height: 1;
+    color: #fff;
+    background: var(--mmm-green-600);
+    border-radius: 50%;
+}
+
+.mmm-picker__item.is-busy .mmm-picker__plus {
+    background: var(--mmm-ink-3);
+}
+
+.mmm-picker__empty {
+    padding: var(--mmm-s6) 0;
+    color: var(--mmm-ink-2);
+    text-align: center;
+}
+
+@media (min-width: 700px) {
+    .mmm-picker {
+        height: min(640px, 82vh);
+    }
+}
+
+/* ==========================================================
+   REDESIGN: Planer kompakt
+
+   Eine Karte zeigt Bild, Titel und Portionen. Tag, Mahlzeit, Ernaehrung und
+   „wer isst mit“ liegen hinter „Anpassen“. Jeder Tag hat „+ Rezept“. Die
+   sieben Starttag-Kaestchen ersetzt eine Auswahl.
+   ========================================================== */
+
+.mmm-plan-day {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: var(--mmm-s3);
+    margin-bottom: var(--mmm-s4);
+}
+
+.mmm-plan-day > * {
+    grid-column: 1 / -1;
+}
+
+.mmm-plan-day > .mmm-plan-day-title {
+    grid-column: 1;
+    margin: 0;
+}
+
+.mmm-plan-day > .mmm-plan-day-add {
+    grid-column: 2;
+}
+
+.mmm-plan-day > .mmm-plan-day-box {
+    margin-top: var(--mmm-s2);
+}
+
+/* Die Auswahl oben ersetzt die sieben Kaestchen; sie bleiben fuer das
+   Speichern im Markup. */
+.mmm-plan-day-start {
+    display: none !important;
+}
+
+.mmm-plan-day-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 var(--mmm-s3);
+    font: inherit;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-heavy, 800);
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-50);
+    border: 1px solid var(--mmm-green-100);
+    border-radius: var(--mmm-r-pill);
+    cursor: pointer;
+}
+
+.mmm-plan-day-add:hover,
+.mmm-plan-day-add:focus-visible {
+    color: #fff;
+    background: var(--mmm-green-600);
+    border-color: var(--mmm-green-600);
+    outline: none;
+}
+
+/* Ein leerer Tag ist eine schmale Zeile, kein leerer Kasten mit Anleitung. */
+.mmm-plan-days .mmm-plan-day-list {
+    min-height: 0;
+    padding: var(--mmm-s2);
+    gap: var(--mmm-s2);
+}
+
+.mmm-plan-days .mmm-plan-day-list:not(:has(.mmm-plan-item)) {
+    padding: 0;
+    border-color: transparent;
+}
+
+.mmm-plan-days .mmm-plan-day-list.drop-target {
+    min-height: 56px;
+    border-color: var(--mmm-green-500);
+}
+
+.mmm-plan-days .mmm-plan-day-hint {
+    display: none !important;
+}
+
+/* „Nicht zugeordnet“ erscheint nur, wenn es solche Rezepte gibt. */
+.mmm-plan-unassigned:not(:has(.mmm-plan-item)) .mmm-plan-unassigned__title {
+    display: none;
+}
+
+.mmm-plan-unassigned:not(:has(.mmm-plan-item)):not(:has(.mmm-plan-empty)) {
+    display: none;
+}
+
+.mmm-plan-unassigned:not(:has(.mmm-plan-item)) .mmm-plan-day-list {
+    border: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+/* Karte */
+.mmm-plan-item {
+    align-items: flex-start;
+    gap: var(--mmm-s3);
+    padding: var(--mmm-s2);
+}
+
+.mmm-plan-item-drag {
+    display: none;
+}
+
+.mmm-plan-item-thumb {
+    width: 64px;
+    height: 64px;
+}
+
+.mmm-plan-item-content {
+    gap: 6px;
+}
+
+.mmm-plan-item-title {
+    font-size: var(--mmm-font-md);
+    line-height: 1.25;
+}
+
+.mmm-plan-item-quick {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--mmm-s2);
+}
+
+.mmm-plan-item-quick__servings {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+}
+
+.mmm-plan-item-quick .mmm-plan-item-servings {
+    width: 56px;
+    height: 32px;
+    padding: 0 4px;
+}
+
+.mmm-plan-item-more__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 32px;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-green-700);
+    cursor: pointer;
+    list-style: none;
+}
+
+.mmm-plan-item-more__toggle::-webkit-details-marker {
+    display: none;
+}
+
+.mmm-plan-item-more__toggle::after {
+    content: "\25BE";
+    font-size: .9em;
+    transition: transform .15s ease;
+}
+
+.mmm-plan-item-more[open] > .mmm-plan-item-more__toggle::after {
+    transform: rotate(180deg);
+}
+
+.mmm-plan-item-more[open] {
+    padding-top: 2px;
+}
+
+.mmm-plan-item-more > .mmm-plan-item-controls {
+    margin: var(--mmm-s2) 0;
+}
+
+.mmm-plan-builder[aria-busy="true"] {
+    opacity: .6;
+    transition: opacity .15s ease;
+}
+
+/* Starttag */
+.mmm-plan-startday {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--mmm-s2);
+    margin: 0 0 var(--mmm-s4);
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+}
+
+.mmm-plan-startday__select {
+    width: auto;
+    height: 36px;
+    padding: 0 var(--mmm-s3);
+    font: inherit;
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink);
+    background-color: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r-pill);
+}
+
+body.mmm-cart-empty .mmm-plan-startday {
+    display: none;
+}
+
+/* Naechster Schritt */
+.mmm-planer-next {
+    display: flex;
+    justify-content: center;
+    margin: var(--mmm-s6) 0 0;
+}
+
+.mmm-planer-next__link {
+    min-height: 52px;
+    padding-inline: var(--mmm-s8);
+    font-size: var(--mmm-font-lg);
+}
+
+body.mmm-cart-empty .mmm-planer-next {
+    display: none;
+}
+
+/* Am Schreibtisch: die Woche als sieben Spalten. */
+@media (min-width: 1200px) {
+
+    .site-content > .mmm-l-container:has(.mmm-plan-builder) {
+        max-width: 1340px;
+    }
+
+    .mmm-plan-days {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: var(--mmm-s3);
+        align-items: start;
+    }
+
+    .mmm-plan-days .mmm-plan-day {
+        padding: 0;
+        margin: 0;
+        row-gap: var(--mmm-s2);
+    }
+
+    .mmm-plan-days .mmm-plan-day::before,
+    .mmm-plan-days .mmm-plan-day::after {
+        display: none;
+    }
+
+    .mmm-plan-days .mmm-plan-day-title {
+        font-size: var(--mmm-font-lg);
+    }
+
+    .mmm-plan-days .mmm-plan-day-add {
+        min-height: 30px;
+        padding: 0 10px;
+    }
+
+    .mmm-plan-days .mmm-plan-day-add__label {
+        display: none;
+    }
+
+    .mmm-plan-days .mmm-plan-day-box {
+        min-height: 140px;
+        padding: var(--mmm-s2);
+        background: var(--mmm-cream);
+        border: 1px solid var(--mmm-line);
+        border-radius: var(--mmm-r);
+    }
+
+    .mmm-plan-days .mmm-plan-day-list,
+    .mmm-plan-days .mmm-plan-day-list:not(:has(.mmm-plan-item)) {
+        min-height: 60px;
+        padding: 0;
+        border: 0;
+    }
+
+    .mmm-plan-days .mmm-plan-item {
+        flex-direction: column;
+        position: relative;
+    }
+
+    .mmm-plan-days .mmm-plan-item-thumb {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .mmm-plan-days .mmm-plan-item-content {
+        width: 100%;
+    }
+
+    .mmm-plan-days .mmm-plan-item-title {
+        font-size: .95em;
+    }
+
+    .mmm-plan-days .mmm-plan-item-remove {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(255, 255, 255, .92);
+        border-radius: 50%;
+    }
+
+    .mmm-plan-days .mmm-plan-item-quick__unit {
+        display: none;
+    }
+
+    .mmm-plan-days .mmm-plan-item-controls select {
+        width: 100%;
+    }
+
+    .mmm-plan-days .mmm-plan-day-nutrition {
+        font-size: .85em;
+    }
+}
+
+/* ==========================================================
+   REDESIGN: Einstiegsfrage ([mmm_plan_start])
+   ========================================================== */
+
+.mmm-plan-start {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--mmm-s4) var(--mmm-s5);
+    width: 100%;
+    max-width: 520px;
+    margin: 0;
+    padding: var(--mmm-s5);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r-lg);
+    box-shadow: var(--mmm-shadow-md);
+    text-align: left;
+}
+
+.mmm-plan-start__field {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.mmm-plan-start__field--wide,
+.mmm-plan-start__actions,
+.mmm-plan-start__msg {
+    grid-column: 1 / -1;
+}
+
+.mmm-plan-start__label {
+    display: block;
+    margin: 0 0 var(--mmm-s2);
+    padding: 0;
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-lg);
+    font-weight: var(--mmm-fw-semibold);
+    color: var(--mmm-ink);
+}
+
+.mmm-plan-start__stepper {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: var(--mmm-cream);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r-pill);
+}
+
+.mmm-plan-start__step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 22px;
+    font-weight: var(--mmm-fw-bold);
+    line-height: 1;
+    color: var(--mmm-green-700);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mmm-plan-start__step:hover,
+.mmm-plan-start__step:focus-visible {
+    color: #fff;
+    background: var(--mmm-green-600);
+    border-color: var(--mmm-green-600);
+    outline: none;
+}
+
+.mmm-plan-start__people {
+    width: 44px;
+    height: 40px;
+    padding: 0;
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-xl);
+    font-weight: var(--mmm-fw-semibold);
+    text-align: center;
+    color: var(--mmm-ink);
+    background: none;
+    border: 0;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.mmm-plan-start__people::-webkit-outer-spin-button,
+.mmm-plan-start__people::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.mmm-plan-start__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mmm-s2);
+}
+
+.mmm-plan-start__chip {
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+}
+
+.mmm-plan-start__chip input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.mmm-plan-start__chip span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 44px;
+    padding: 0 var(--mmm-s4);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    background: var(--mmm-cream);
+    border: 1.5px solid var(--mmm-line);
+    border-radius: var(--mmm-r-pill);
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.mmm-plan-start__chip:hover span {
+    border-color: var(--mmm-green-500);
+}
+
+.mmm-plan-start__chip input:checked + span {
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-100);
+    border-color: var(--mmm-green-600);
+}
+
+.mmm-plan-start__chip input[type="checkbox"]:checked + span {
+    color: var(--mmm-carrot-600);
+    background: var(--mmm-carrot-100);
+    border-color: var(--mmm-carrot-500);
+    text-decoration: line-through;
+}
+
+.mmm-plan-start__chip input:focus-visible + span {
+    outline: 2px solid var(--mmm-green-600);
+    outline-offset: 2px;
+}
+
+.mmm-plan-start__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mmm-s2);
+}
+
+.mmm-plan-start__submit {
+    width: 100%;
+    min-height: 54px;
+    padding: 0 var(--mmm-s6);
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-xl);
+    font-weight: var(--mmm-fw-semibold);
+    color: #fff;
+    background: var(--mmm-carrot-500);
+    border: 0;
+    border-radius: var(--mmm-r-pill);
+    box-shadow: var(--mmm-shadow-carrot);
+    cursor: pointer;
+    transition: background-color .15s ease, transform .1s ease;
+}
+
+.mmm-plan-start__submit:hover,
+.mmm-plan-start__submit:focus-visible {
+    color: #fff;
+    background: var(--mmm-carrot-600);
+}
+
+.mmm-plan-start__submit:active {
+    transform: translateY(1px);
+}
+
+.mmm-plan-start__submit.is-busy {
+    opacity: .7;
+}
+
+.mmm-plan-start__note {
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+    text-align: center;
+}
+
+.mmm-plan-start__msg:empty {
+    display: none;
+}
+
+@media (max-width: 420px) {
+    .mmm-plan-start {
+        padding: var(--mmm-s4);
+        gap: var(--mmm-s4) var(--mmm-s3);
+    }
+}
+
+/* ==========================================================
+   REDESIGN: Wochenplan als Seitenspalte (Schreibtisch)
+   ========================================================== */
+
+.mmm-side-plan {
+    display: none;
+}
+
+@media (min-width: 1360px) {
+
+    .mmm-side-plan {
+        display: block;
+        position: fixed;
+        top: 150px;
+        left: calc(50% + 490px + 14px);
+        z-index: 40;
+        width: min(230px, calc(50vw - 490px - 28px));
+    }
+
+    .mmm-side-plan__box {
+        background: var(--mmm-surface);
+        border: 1px solid var(--mmm-line);
+        border-radius: var(--mmm-r);
+        box-shadow: var(--mmm-shadow-md);
+        overflow: hidden;
+    }
+
+    .mmm-side-plan__toggle {
+        display: flex;
+        align-items: center;
+        gap: var(--mmm-s2);
+        padding: var(--mmm-s3) var(--mmm-s4);
+        font-family: var(--mmm-font-display);
+        font-weight: var(--mmm-fw-semibold);
+        color: var(--mmm-ink);
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .mmm-side-plan__toggle::-webkit-details-marker {
+        display: none;
+    }
+
+    .mmm-side-plan__toggle i {
+        color: var(--mmm-green-600);
+    }
+
+    .mmm-side-plan__toggle::after {
+        content: "\25BE";
+        margin-left: auto;
+        color: var(--mmm-ink-3);
+        transition: transform .15s ease;
+    }
+
+    .mmm-side-plan__box[open] > .mmm-side-plan__toggle::after {
+        transform: rotate(180deg);
+    }
+
+    .mmm-side-plan .mmm-mini-plan {
+        max-height: calc(100vh - 260px);
+        padding: 0 var(--mmm-s4) var(--mmm-s4);
+        overflow-y: auto;
+    }
+
+    .mmm-side-plan .mmm-mini-plan__title {
+        display: none;
+    }
+}
+
+.mmm-mini-plan__days {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mmm-mini-plan__day {
+    display: flex;
+    gap: var(--mmm-s2);
+    margin: 0;
+    padding: 6px 0;
+    font-size: var(--mmm-font-sm);
+    line-height: 1.3;
+    border-top: 1px solid var(--mmm-line);
+}
+
+.mmm-mini-plan__day:first-child {
+    border-top: 0;
+}
+
+.mmm-mini-plan__label {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--mmm-fw-heavy, 800);
+    font-size: 11px;
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-50);
+    border-radius: 50%;
+}
+
+.mmm-mini-plan__day.is-today .mmm-mini-plan__label {
+    color: #fff;
+    background: var(--mmm-green-600);
+}
+
+.mmm-mini-plan__day.is-free .mmm-mini-plan__label {
+    color: var(--mmm-ink-3);
+    background: var(--mmm-cream-2);
+}
+
+.mmm-mini-plan__items {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 4px;
+    color: var(--mmm-ink-3);
+}
+
+.mmm-mini-plan__item {
+    color: var(--mmm-ink);
+    text-decoration: none;
+    font-weight: var(--mmm-fw-bold);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.mmm-mini-plan__item:hover {
+    color: var(--mmm-green-700);
+}
+
+.mmm-mini-plan__empty {
+    margin: 0;
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+}
+
+.mmm-mini-plan__open {
+    display: block;
+    margin-top: var(--mmm-s3);
+    padding: 8px var(--mmm-s3);
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-heavy, 800);
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: var(--mmm-carrot-500);
+    border-radius: var(--mmm-r-pill);
+}
+
+.mmm-mini-plan__open:hover,
+.mmm-mini-plan__open:focus-visible {
+    color: #fff;
+    background: var(--mmm-carrot-600);
+}
+
+/* ==========================================================
+   REDESIGN: Einkaufsliste zum Abhaken
+   ========================================================== */
+
+.mmm-shop-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 6px var(--mmm-s3);
+    margin: 0 0 var(--mmm-s4);
+    padding: var(--mmm-s3) var(--mmm-s4);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r);
+    box-shadow: var(--mmm-shadow-sm);
+}
+
+.mmm-shop-bar__text {
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink);
+}
+
+.mmm-shop-bar__track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: 6px;
+    overflow: hidden;
+    background: var(--mmm-cream-2);
+    border-radius: 3px;
+}
+
+.mmm-shop-bar__fill {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--mmm-green-600);
+    border-radius: 3px;
+    transition: width .25s ease;
+}
+
+.mmm-shop-bar__reset {
+    min-height: 32px;
+    padding: 0 var(--mmm-s3);
+    font: inherit;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    background: none;
+    border: 1px solid var(--mmm-line-2);
+    border-radius: var(--mmm-r-pill);
+    cursor: pointer;
+}
+
+.mmm-shop-bar__reset:hover,
+.mmm-shop-bar__reset:focus-visible {
+    color: var(--mmm-ink);
+    background: var(--mmm-cream-2);
+}
+
+[data-shopping-check].is-complete .mmm-shop-bar__text {
+    color: var(--mmm-green-700);
+}
+
+[data-shopping-check] .mmm-shopping-list-items {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    list-style: none;
+}
+
+[data-shopping-check] .mmm-shopping-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: var(--mmm-s3);
+    padding-block: 6px;
+}
+
+[data-shopping-check] .mmm-shopping-item > details,
+[data-shopping-check] .mmm-shopping-item > :not(.mmm-shop-check):not(.mmm-shop-have) {
+    min-width: 0;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.mmm-shop-check {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin-top: 4px;
+    padding: 0;
+    background: var(--mmm-surface);
+    border: 2px solid var(--mmm-line-2);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background-color .12s ease, border-color .12s ease;
+}
+
+.mmm-shop-check:hover,
+.mmm-shop-check:focus-visible {
+    background: var(--mmm-surface);
+    border-color: var(--mmm-green-500);
+    outline: none;
+}
+
+.mmm-shop-check[aria-checked="true"] {
+    background: var(--mmm-green-600);
+    border-color: var(--mmm-green-600);
+}
+
+.mmm-shop-check[aria-checked="true"]::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 8px;
+    height: 14px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.mmm-shop-have {
+    grid-column: 3;
+    grid-row: 1;
+    min-height: 32px;
+    margin-top: 4px;
+    padding: 0 10px;
+    font: inherit;
+    font-size: var(--mmm-font-xs);
+    font-weight: var(--mmm-fw-bold);
+    white-space: nowrap;
+    color: var(--mmm-ink-2);
+    background: var(--mmm-cream);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r-pill);
+    cursor: pointer;
+}
+
+.mmm-shop-have:hover,
+.mmm-shop-have:focus-visible {
+    color: var(--mmm-ink);
+    background: var(--mmm-cream-2);
+}
+
+.mmm-shop-have[aria-pressed="true"] {
+    color: var(--mmm-carrot-600);
+    background: var(--mmm-carrot-100);
+    border-color: var(--mmm-carrot-500);
+}
+
+/* Erledigtes und Vorhandenes rutscht ans Ende seiner Abteilung. */
+[data-shopping-check] .mmm-shopping-item.is-done,
+[data-shopping-check] .mmm-shopping-item.is-have {
+    order: 2;
+}
+
+[data-shopping-check] .mmm-shopping-item.is-done summary,
+[data-shopping-check] .mmm-shopping-item.is-have summary,
+[data-shopping-check] .mmm-shopping-item.is-done .mmm-shopping-item-name,
+[data-shopping-check] .mmm-shopping-item.is-have .mmm-shopping-item-name {
+    color: var(--mmm-ink-3);
+    text-decoration: line-through;
+}
+
+[data-shopping-check] .mmm-shopping-item.is-done .mmm-shop-have {
+    visibility: hidden;
+}
+
+@media print {
+    .mmm-shop-bar,
+    .mmm-shop-have,
+    .mmm-tabbar,
+    .mmm-side-plan {
+        display: none !important;
+    }
+}
+
+/* ==========================================================
+   REDESIGN: Rezepte finden (Archiv)
+
+   Ein Suchfeld mit Knopf in einer Zeile, Filter als wischbare Reihen,
+   Einleitung unter den Ergebnissen, „Mehr laden“.
+   ========================================================== */
+
+.post-type-archive-mmm_recipe .mmm-l-archive-description,
+.tax-mmm_recipe_category .mmm-l-archive-description,
+.tax-mmm_recipe_tag .mmm-l-archive-description {
+    padding-top: var(--mmm-s5);
+    padding-bottom: var(--mmm-s3);
+}
+
+.mmm-archive-search {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--mmm-s2);
+}
+
+.mmm-archive-search .mmm-archive-search__text {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+.mmm-archive-search .mmm-archive-search__submit {
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0;
+}
+
+@media (max-width: 921px) {
+
+    .mmm-archive-filters {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: var(--mmm-s2);
+        margin-inline: -20px;
+        padding-inline: 20px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mmm-archive-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mmm-archive-filters > * {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .mmm-archive-filters a {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0 var(--mmm-s4);
+        background: var(--mmm-surface);
+        border: 1px solid var(--mmm-line);
+        border-radius: var(--mmm-r-pill);
+    }
+
+    .mmm-archive-filters a.active {
+        color: var(--mmm-green-700);
+        background: var(--mmm-green-100);
+        border-color: var(--mmm-green-600);
+    }
+
+    .mmm-archive-filters a.active::after,
+    .mmm-archive-filters a::after {
+        display: none;
+    }
+
+    .mmm-archive-filters__label {
+        font-size: var(--mmm-font-xs);
+        text-transform: uppercase;
+        letter-spacing: .06em;
+    }
+}
+
+.mmm-archive-intro {
+    margin: var(--mmm-s8) 0 0;
+    padding: var(--mmm-s5);
+    color: var(--mmm-ink-2);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r);
+}
+
+.mmm-archive-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.mmm-load-more {
+    display: flex;
+    justify-content: center;
+    margin: var(--mmm-s6) 0;
+}
+
+.mmm-load-more__btn {
+    min-width: 220px;
+    min-height: 52px;
+    cursor: pointer;
+}
+
+.mmm-load-more__btn.is-busy {
+    opacity: .6;
+}
+
+/* Nachschliff Planer und Blaetter */
+.mmm-plan-item .mmm-plan-item-thumb {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+}
+
+.mmm-plan-unassigned:not(:has(.mmm-plan-item)) {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    border: 0;
+}
+
+.mmm-plan-builder .mmm-plan-startday {
+    margin-top: var(--mmm-s4);
+}
+
+input[type="search"].mmm-picker__search {
+    border-radius: var(--mmm-r-pill);
+    border: 1.5px solid var(--mmm-line-2);
+}
+
+.mmm-day-sheet__foot {
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.mmm-day-sheet__noday,
+.mmm-day-sheet__more {
+    padding: 0 var(--mmm-s2);
+    text-align: left;
+    line-height: 1.25;
+}
+
+.mmm-day-sheet__more {
+    text-align: right;
+}
+
+.mmm-day-chip:focus-visible {
+    box-shadow: 0 0 0 3px rgba(92, 158, 46, .35);
+}
+
+body:not(.mmm-cart-empty) .mmm-plan-unassigned:not(:has(.mmm-plan-item)) {
+    display: none;
+}
+
+@media (max-width: 921px) {
+    .post-type-archive-mmm_recipe .mmm-l-archive-description,
+    .tax-mmm_recipe_category .mmm-l-archive-description,
+    .tax-mmm_recipe_tag .mmm-l-archive-description {
+        padding-top: var(--mmm-s4);
+    }
+
+    .post-type-archive-mmm_recipe #primary,
+    .tax-mmm_recipe_category #primary,
+    .tax-mmm_recipe_tag #primary {
+        margin-top: var(--mmm-s4);
+    }
+}
+
+@media (min-width: 1200px) {
+    .mmm-plan-days .mmm-plan-item .mmm-plan-item-thumb {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .mmm-plan-days .mmm-plan-item .mmm-plan-item-remove {
+        width: 28px;
+        height: 28px;
+        min-width: 0;
+        padding: 0;
+        font-size: 18px;
+        line-height: 1;
+        color: var(--mmm-carrot-600);
+        border: 1px solid var(--mmm-line);
+    }
+}
+
+/* Karte im Planer unterhalb der Spaltenansicht: Bild, daneben Titel mit
+   Portionen und „Anpassen“, rechts das ×. Der Inhalt ist wieder ein Block
+   (frueher per display:contents aufgeloest, als alle Felder offen standen). */
+@media (max-width: 1199px) {
+
+    .mmm-plan-item {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) 40px;
+        grid-template-areas: "thumb content remove";
+        align-items: start;
+        column-gap: 0;
+        row-gap: 0;
+    }
+
+    .mmm-plan-item .mmm-plan-item-thumb {
+        grid-area: thumb;
+        min-width: 64px;
+        margin-right: var(--mmm-s3);
+    }
+
+    .mmm-plan-item .mmm-plan-item-content {
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .mmm-plan-item .mmm-plan-item-title,
+    .mmm-plan-item .mmm-plan-item-controls,
+    .mmm-plan-item .mmm-plan-item-eaters {
+        grid-area: auto;
+        grid-column: auto;
+        padding-right: 0;
+    }
+
+    .mmm-plan-item .mmm-plan-item-remove {
+        grid-area: remove;
+        width: 36px;
+        height: 36px;
+        min-width: 0;
+        justify-self: end;
+    }
+
+    /* Die Karte ist der Rahmen; der gestrichelte Kasten darum kostete am
+       Handy zweimal Rand. */
+    .mmm-plan-days .mmm-plan-day-list,
+    .mmm-plan-days .mmm-plan-day-list:not(:has(.mmm-plan-item)) {
+        padding: 0;
+        border: 0;
+    }
+
+    .mmm-plan-days .mmm-plan-day-box {
+        margin-top: var(--mmm-s2);
+    }
+}
+
+.mmm-plan-builder .mmm-plan-startday {
+    margin: 0 0 var(--mmm-s3);
+}
+
+/* Elementor-Seiten in voller Breite behalten am Handy den Seitenrand. */
+@media (max-width: 921px) {
+    .elementor-template-full-width .site-content > .mmm-l-container {
+        padding: 0 20px;
+    }
+}
+
+/* Feinschliff: Eingabefelder der neuen Teile gegen die Grundregeln fuer
+   Formularfelder, und mehr Platz fuer die Karte am Handy. */
+.mmm-plan-start input[type="number"].mmm-plan-start__people {
+    width: 44px;
+    min-height: 0;
+    height: 40px;
+    padding: 0;
+    color: var(--mmm-ink);
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+@media (max-width: 1199px) {
+
+    .mmm-plan-builder .mmm-plan-days .mmm-plan-day .mmm-plan-day-list {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .mmm-plan-builder .mmm-plan-days .mmm-plan-day {
+        padding-left: 26px;
+    }
+
+    .mmm-plan-item .mmm-plan-item-title {
+        font-size: 1em;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+    }
+}
+
+@media (max-width: 544px) {
+    /* Der Planer nutzt am Handy die Breite: der weisse Kasten um die Seite
+       behaelt nur einen schmalen Innenrand. */
+    article:has(.mmm-plan-builder),
+    .mmm-l-article-single:has(.mmm-plan-builder) {
+        padding-inline: var(--mmm-s4) !important;
+    }
+}
+
+/* Unter jedem Tag steht nur die Energie; alle Werte des Plans zeigt der
+   Naehrwert-Kasten darunter. Acht Zeilen je Tag machten die Woche am Handy
+   um ein Drittel laenger. */
+.mmm-plan-days .mmm-plan-day-nutrition__list > li:nth-child(n+3) {
+    display: none;
+}
+
+.mmm-plan-days .mmm-plan-day-nutrition {
+    margin-top: 6px;
+    padding: 0;
+    font-size: var(--mmm-font-sm);
+}
+
+@media (max-width: 1199px) {
+    .mmm-plan-builder .mmm-plan-days .mmm-plan-day-box {
+        padding: 0;
+        border: 0;
+        background: none;
+    }
+}

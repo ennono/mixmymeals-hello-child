@@ -25,6 +25,7 @@ require_once 'includes/archive-sections.php';
 require_once 'includes/custom-sections.php';
 require_once 'includes/search.php';
 require_once 'includes/blog.php';
+require_once 'includes/redesign.php';
 
 /**
  * Enqueue styles.

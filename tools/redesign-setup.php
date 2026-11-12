@@ -291,3 +291,35 @@ if ( ! get_theme_mod( 'custom_logo' ) ) {
 }
 
 WP_CLI::success( 'Navigation des Redesigns eingerichtet. Einkaufsliste: ' . get_permalink( $mmm_shopping_id ) . ' | Menüs: ' . $mmm_main_menu . ', ' . $mmm_mobile_menu . ', ' . $mmm_footer_menu );
+
+/* ----------------------------------------------------------
+ * Gespeicherte Besucher-Pläne nicht mehr listen
+ * ---------------------------------------------------------- */
+// Pläne ohne Autor stammen aus dem Planer eines Gastes. Sie bleiben über
+// ihren Link erreichbar, erscheinen aber nicht mehr im Archiv und im
+// Schaufenster. Neue Pläne markiert das Plugin beim Speichern selbst.
+if ( is_callable( array( 'Mixmymeals_Post_Types', 'set_unlisted' ) ) ) {
+
+	$mmm_guest_plans = get_posts(
+		array(
+			'post_type'      => 'mmm_meal_plan',
+			'post_status'    => 'publish',
+			'author'         => 0,
+			'author__in'     => array( 0 ),
+			'fields'         => 'ids',
+			'posts_per_page' => -1,
+		)
+	);
+
+	$mmm_marked = 0;
+
+	foreach ( $mmm_guest_plans as $mmm_plan_id ) {
+		if ( 0 === (int) get_post_field( 'post_author', $mmm_plan_id ) && ! Mixmymeals_Post_Types::is_unlisted( (int) $mmm_plan_id ) ) {
+			Mixmymeals_Post_Types::set_unlisted( (int) $mmm_plan_id, true );
+			++$mmm_marked;
+		}
+	}
+
+	WP_CLI::log( 'Besucher-Pläne als ungelistet markiert: ' . $mmm_marked );
+}
+

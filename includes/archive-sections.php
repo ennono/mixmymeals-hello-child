@@ -281,6 +281,13 @@ function mmm_render_archive_hero_sections(): void {
  * Hinweis).
  */
 function mmm_archive_section_description(): void {
+
+	// Auf der ungefilterten Rezeptübersicht steht die Einleitung unter den
+	// Ergebnissen (includes/redesign.php), nicht im Kopf.
+	if ( function_exists( 'mmm_is_plain_recipe_archive' ) && mmm_is_plain_recipe_archive() ) {
+		return;
+	}
+
 	mmm_print_archive_description_from_option();
 }
 
