@@ -21,7 +21,7 @@ function mmm_render_meal_plan_meals(
 	// steht im Theme, weil er zur Ansprache der Seite gehört.
 	$mmm_empty_text = __(
 		'For this plan no meals have been planned yet. Take a look at the other plans in the meantime.',
-		'mixmymeals-astra-child'
+		'mixmymeals-hello-child'
 	);
 
 	echo do_shortcode( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode output is already escaped.

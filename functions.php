@@ -1,15 +1,16 @@
 <?php
 /**
- * MixMyMeals Astra Child Theme functions and definitions
+ * MixMyMeals Hello Child Theme functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  * @since 1.0.0
  */
 
-define( 'CHILD_THEME_MIXMYMEALS_ASTRA_CHILD_VERSION', '1.18.3' );
+define( 'MMM_CHILD_THEME_VERSION', '2.0.0' );
 
+require_once 'includes/layout.php';
 require_once 'includes/theme-settings.php';
 require_once 'includes/shortcodes.php';
 require_once 'includes/meal_plan_archive.php';
@@ -43,16 +44,44 @@ function child_enqueue_styles() {
 	$mmm_css     = get_stylesheet_directory() . '/style.css';
 	$mmm_version = file_exists( $mmm_css )
 		? (string) filemtime( $mmm_css )
-		: CHILD_THEME_MIXMYMEALS_ASTRA_CHILD_VERSION;
+		: MMM_CHILD_THEME_VERSION;
+
+	/*
+	 * Schriften und Grundregeln kommen aus dem Child-Theme selbst (bis 1.x
+	 * lieferte beides Astra): assets/fonts/fonts.css und assets/css/base.css.
+	 * style.css baut darauf auf und wird deshalb danach geladen.
+	 */
+	$mmm_dir = get_stylesheet_directory();
+	$mmm_uri = get_stylesheet_directory_uri();
+
+	foreach ( array(
+		'mmm-fonts' => '/assets/fonts/fonts.css',
+		'mmm-base'  => '/assets/css/base.css',
+	) as $mmm_handle => $mmm_file ) {
+		wp_enqueue_style(
+			$mmm_handle,
+			$mmm_uri . $mmm_file,
+			array(),
+			file_exists( $mmm_dir . $mmm_file ) ? (string) filemtime( $mmm_dir . $mmm_file ) : MMM_CHILD_THEME_VERSION
+		);
+	}
 
 	wp_enqueue_style(
-		'mixmymeals-astra-child-theme-css',
-		get_stylesheet_directory_uri() . '/' . mmm_stylesheet_file( $mmm_css ),
-		array( 'astra-theme-css' ),
+		'mixmymeals-hello-child-theme-css',
+		$mmm_uri . '/' . mmm_stylesheet_file( $mmm_css ),
+		array( 'mmm-fonts', 'mmm-base' ),
 		$mmm_version,
 		'all'
 	);
 }
+
+/*
+ * Die eigenen Grundregeln ersetzen die von Hello Elementor (reset.css und
+ * theme.css): zwei Sätze Element-Regeln übereinander ergäben ein Mischbild,
+ * und die Seiten sollen aussehen wie vor dem Wechsel des Eltern-Themes.
+ */
+add_filter( 'hello_elementor_enqueue_style', '__return_false' );
+add_filter( 'hello_elementor_enqueue_theme_style', '__return_false' );
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 /**
@@ -108,14 +137,14 @@ add_action( 'wp_enqueue_scripts', 'mixmymeals_enqueue_fontawesome_local' );
 /**
  * Load text domain.
  */
-function mixmymeals_astra_child_load_textdomain() {
+function mmm_child_load_textdomain() {
 	load_child_theme_textdomain(
-		'mixmymeals-astra-child',
+		'mixmymeals-hello-child',
 		get_stylesheet_directory() . '/languages'
 	);
 }
-add_action( 'after_setup_theme', 'mixmymeals_astra_child_load_textdomain' );
-// add_action( 'init', 'mixmymeals_astra_child_load_textdomain' );
+add_action( 'after_setup_theme', 'mmm_child_load_textdomain' );
+// add_action( 'init', 'mmm_child_load_textdomain' );
 
 /**
  * Bootstrap.
@@ -125,65 +154,65 @@ if ( class_exists( 'mixmymeals' ) ) {
 
 	// ... add meta to posts in meal plan archive:
 	add_action(
-		'astra_blog_archive_title_meta_after',
+		'mmm_card_meta_after',
 		'mmm_add_meta_to_meal_plan_archive_posts',
 		20
 	);
 
 	// ... add weekday overview, in one row with the plan's number, to posts in meal plan archive:
 	add_action(
-		'astra_blog_archive_title_before',
+		'mmm_card_title_before',
 		'mmm_add_weekdays_and_number_to_meal_plan_archive_posts',
 		20
 	);
 
 	// ... add meal type overview to posts in meal plan archive:
 	add_action(
-		'astra_blog_archive_title_before',
+		'mmm_card_title_before',
 		'mmm_add_meal_type_overview_meal_plan_archive_posts',
 		30
 	);
 
 	// ... add thumbnails to posts in meal plan archive:
 	add_action(
-		'astra_blog_archive_title_after',
+		'mmm_card_title_after',
 		'mmm_add_thumbnails_to_meal_plan_archive_posts',
 		20
 	);
 
 	// ... add meta to posts in a recipe archive:
 	add_action(
-		'astra_blog_archive_title_meta_after',
+		'mmm_card_meta_after',
 		'mmm_add_meta_to_recipe_archive_posts',
 		20
 	);
 
 	// ... add the average rating below the meta in a recipe archive:
 	add_action(
-		'astra_blog_archive_title_after',
+		'mmm_card_title_after',
 		'mmm_add_rating_to_recipe_archive_posts',
 		25
 	);
 
 	// ... add the cart action below the description in a recipe archive:
 	add_action(
-		'astra_entry_content_after',
+		'mmm_card_content_after',
 		'mmm_add_actions_to_recipe_archive_posts',
 		20
 	);
 
 	// ... add search form above the recipe/meal plan archive list:
-	// Hooked to astra_after_archive_title (not _description): the active Astra
+	// Hooked to mmm_after_archive_title (not _description): the active Astra
 	// banner layout fires the title hook reliably, the description hook does not.
 	add_action(
-		'astra_after_archive_title',
+		'mmm_after_archive_title',
 		'mmm_add_archive_search_to_archive',
 		30
 	);
 
 	// ... add recipe category terms below the recipe archive list:
 	add_action(
-		'astra_primary_content_bottom',
+		'mmm_primary_content_bottom',
 		'mmm_add_recipe_category_terms_to_recipe_archive',
 		20
 	);
@@ -210,13 +239,13 @@ if ( class_exists( 'mixmymeals' ) ) {
 
 	// ... print the archive descriptions:
 	add_action(
-		'astra_after_archive_title',
+		'mmm_after_archive_title',
 		'mmm_print_archive_description_from_option'
 	);
 
 	// ... print the archive descriptions:
 	add_action(
-		'astra_after_archive_description',
+		'mmm_after_archive_description',
 		'mmm_print_meal_plan_category_filter'
 	);
 
@@ -239,9 +268,9 @@ if ( class_exists( 'mixmymeals' ) ) {
 function mmm_planner_heading( $text, $key ) {
 
 	$headings = array(
-		'unassigned' => __( 'Unassigned Recipes', 'mixmymeals-astra-child' ),
-		'nutrition'  => __( 'Average nutrition per day and person', 'mixmymeals-astra-child' ),
-		'shopping'   => __( 'Shopping list', 'mixmymeals-astra-child' ),
+		'unassigned' => __( 'Unassigned Recipes', 'mixmymeals-hello-child' ),
+		'nutrition'  => __( 'Average nutrition per day and person', 'mixmymeals-hello-child' ),
+		'shopping'   => __( 'Shopping list', 'mixmymeals-hello-child' ),
 	);
 
 	return $headings[ $key ] ?? $text;
@@ -504,29 +533,7 @@ function mmm_use_meal_plan_archive_as_home_page( $wp_query ) {
 }
 */
 
-/**
- * Essensplan-Redesign: Layout der Plan-Detailansicht.
- * Volle Breite, keine Sidebar, kein Astra-Seitentitel (eigener Hero).
- */
-function mmm_meal_plan_page_layout( $layout ) {
-	if (
-		is_singular( array( 'mmm_meal_plan', 'mmm_recipe', 'mmm_meal', 'mmm_ingredient', 'mmm_equipment' ) )
-		|| is_post_type_archive( array( 'mmm_ingredient', 'mmm_equipment' ) )
-		// Beiträge und ihre Archive: volle Breite wie der Rest der Seite. Die
-		// Beitragsseite hat nie eine Seitenleiste gehabt, hier steht es nun.
-		|| is_singular( 'post' )
-		|| ( function_exists( 'mmm_blog_is_post_archive' ) && mmm_blog_is_post_archive() )
-	) {
-		return 'no-sidebar';
-	}
-	return $layout;
-}
-add_filter( 'astra_page_layout', 'mmm_meal_plan_page_layout' );
 
-function mmm_meal_plan_content_layout( $layout ) {
-	return is_singular( array( 'mmm_meal_plan', 'mmm_recipe', 'mmm_meal', 'mmm_ingredient', 'mmm_equipment', 'post' ) ) ? 'page-builder' : $layout;
-}
-add_filter( 'astra_get_content_layout', 'mmm_meal_plan_content_layout' );
 
 /**
  * Adds a shared body class to every recipe archive — the post-type archive as
@@ -573,70 +580,8 @@ function mmm_clear_tax_archive_description( $description ) {
 }
 add_filter( 'get_the_archive_description', 'mmm_clear_tax_archive_description' );
 
-/**
- * Forces recipe category/tag archives to use Astra's legacy archive header
- * (the .ast-archive-description hero) instead of the dynamic "posts structure"
- * banner.
- *
- * The recipe post-type archive already falls back to the legacy header (its
- * post type is empty when the banner hook fires, so Astra's dynamic banner
- * bails out). On taxonomy archives the post type resolves to mmm_recipe, so the
- * dynamic banner renders .ast-archive-entry-banner instead and the legacy title
- * is disabled — which the theme's hero styling and hooks do not target. Turning
- * the dynamic banner off here makes the taxonomy archives render the identical
- * legacy hero as the recipe archive.
- *
- * @param bool $apply Whether to render the dynamic hero banner.
- * @return bool
- */
-function mmm_force_legacy_hero_on_recipe_tax( $apply ) {
-	if ( is_tax( array( 'mmm_recipe_category', 'mmm_recipe_tag' ) ) ) {
-		return false;
-	}
-	return $apply;
-}
-add_filter( 'astra_apply_hero_header_banner', 'mmm_force_legacy_hero_on_recipe_tax' );
 
-/**
- * Keeps the recipe-specific empty-state message on recipe category/tag archives
- * after removing the custom taxonomy-mmm_recipe_category.php template (those
- * archives now use Astra's archive.php, which shows a generic "nothing found"
- * message via Astra's content-none template part).
- *
- * @param array $strings Astra's default UI strings.
- * @return array
- */
-function mmm_recipe_tax_no_results_message( $strings ) {
-	if ( is_tax( array( 'mmm_recipe_category', 'mmm_recipe_tag' ) ) ) {
-		$strings['string-content-nothing-found-message'] = __( 'No recipes found in this category.', 'mixmymeals-astra-child' );
-	}
-	return $strings;
-}
-add_filter( 'astra_default_strings', 'mmm_recipe_tax_no_results_message' );
 
-function mmm_meal_plan_disable_astra_title( $enabled ) {
-	return is_singular( array( 'mmm_meal_plan', 'mmm_recipe', 'mmm_meal', 'mmm_ingredient', 'mmm_equipment', 'post' ) ) ? false : $enabled;
-}
-
-/**
- * Astras Beitragsmeta auf der Einzelansicht abhängen.
- *
- * Autor, Datum und Kommentarzahl stehen dort als eigene Zeile unter dem Titel.
- * single.php zeigt dieselben Angaben als Chips im Hero — beides wäre dasselbe
- * zweimal, in zwei Schriften.
- *
- * `astra_single_post_meta` filtert das fertige Markup, nicht eine Liste von
- * Bestandteilen: Astra kennt keinen Filter auf die Einzelteile, und die
- * naheliegenden Namen (`astra_single_post_meta_items`) gibt es dort nicht.
- *
- * @param string $markup Astras Meta-Zeile.
- * @return string
- */
-function mmm_blog_single_meta( $markup ) {
-	return is_singular( 'post' ) ? '' : $markup;
-}
-add_filter( 'astra_single_post_meta', 'mmm_blog_single_meta' );
-add_filter( 'astra_the_title_enabled', 'mmm_meal_plan_disable_astra_title' );
 
 /**
  * Social / contact platforms shown in the recipe author box.
@@ -650,7 +595,7 @@ add_filter( 'astra_the_title_enabled', 'mmm_meal_plan_disable_astra_title' );
 function mmm_author_social_platforms() {
 	return array(
 		'mmm_public_email' => array(
-			'label' => __( 'Contact e-mail', 'mixmymeals-astra-child' ),
+			'label' => __( 'Contact e-mail', 'mixmymeals-hello-child' ),
 			'icon'  => 'fa-solid fa-envelope',
 			'type'  => 'email',
 		),
@@ -710,7 +655,7 @@ function mmm_author_contactmethods( $methods ) {
 		$methods[ $key ] = 'email' === $cfg['type']
 			? $cfg['label']
 			/* translators: %s: platform name (e.g. Instagram). */
-			: sprintf( __( '%s URL', 'mixmymeals-astra-child' ), $cfg['label'] );
+			: sprintf( __( '%s URL', 'mixmymeals-hello-child' ), $cfg['label'] );
 	}
 	return $methods;
 }
@@ -733,7 +678,7 @@ function mmm_author_social_links_html( $author_id ) {
 		$links[] = array(
 			'href'  => esc_url( $website ),
 			'icon'  => 'fa-solid fa-globe',
-			'label' => __( 'Website', 'mixmymeals-astra-child' ),
+			'label' => __( 'Website', 'mixmymeals-hello-child' ),
 		);
 	}
 
@@ -812,7 +757,7 @@ function mmm_author_social_link_from_address( $address ) {
 		return array(
 			'href'  => 'mailto:' . antispambot( $address ),
 			'icon'  => 'fa-solid fa-envelope',
-			'label' => __( 'Contact e-mail', 'mixmymeals-astra-child' ),
+			'label' => __( 'Contact e-mail', 'mixmymeals-hello-child' ),
 		);
 	}
 
@@ -854,7 +799,7 @@ function mmm_author_social_link_from_address( $address ) {
 	return array(
 		'href'  => $href,
 		'icon'  => 'fa-solid fa-globe',
-		'label' => '' !== $host ? $host : __( 'Website', 'mixmymeals-astra-child' ),
+		'label' => '' !== $host ? $host : __( 'Website', 'mixmymeals-hello-child' ),
 	);
 }
 

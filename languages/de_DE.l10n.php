@@ -1,14 +1,14 @@
 <?php
 return array(
-	'domain'             => 'mixmymeals-astra-child',
+	'domain'             => 'mixmymeals-hello-child',
 	'plural-forms'       => 'nplurals=2; plural=n != 1;',
 	'language'           => 'de_DE',
-	'project-id-version' => 'MixMyMeals Astra Child',
+	'project-id-version' => 'MixMyMeals Hello Child',
 	'pot-creation-date'  => '2026-09-26T08:02:03+00:00',
 	'po-revision-date'   => '2026-01-23 15:37+0000',
 	'x-generator'        => 'Loco https://localise.biz/',
 	'messages'           => array(
-		'MixMyMeals Astra Child'                          => 'MixMyMeals Astra Child',
+		'MixMyMeals Hello Child'                          => 'MixMyMeals Hello Child',
 		'Child Theme für MixMyMeals auf Basis von Astra.' => 'Child-Theme für MixMyMeals auf Basis von Astra.',
 		'Timo Fricke'                                     => 'Timo Fricke',
 		'https://www.mixmymeals.de'                       => 'https://www.mixmymeals.de',
@@ -177,5 +177,12 @@ return array(
 		'Pick a ready-made plan'                          => 'Fertigen Plan wählen',
 		'Your plan is still empty.'                       => 'Dein Plan ist noch leer.',
 		'Add recipes to your plan and your shopping list appears here.' => 'Leg Rezepte in deinen Plan, dann steht hier deine Einkaufsliste.',
+		'Home'                                            => 'Start',
+		'404 Not found'                                   => '404 Nicht gefunden',
+		'Breadcrumb'                                      => 'Navigationspfad',
+		'Nothing found here.'                             => 'Hier wurde nichts gefunden.',
+		'Previous'                                        => 'Zurück',
+		'Next'                                            => 'Weiter',
+		'Skip to content'                                 => 'Zum Inhalt springen',
 	),
 );

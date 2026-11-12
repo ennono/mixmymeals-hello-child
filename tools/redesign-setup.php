@@ -2,27 +2,28 @@
 /**
  * Richtet die Navigation des Redesigns in der Datenbank ein.
  *
- *     wp eval-file wp-content/themes/mixmymeals-astra-child/tools/redesign-setup.php
- *     wp eval-file wp-content/themes/mixmymeals-astra-child/tools/redesign-setup.php rollback
+ *     wp eval-file wp-content/themes/mixmymeals-hello-child/tools/redesign-setup.php
+ *     wp eval-file wp-content/themes/mixmymeals-hello-child/tools/redesign-setup.php rollback
  *
- * Menüs, Seiten und der Aufbau des Astra-Headers liegen in der Datenbank und
- * reisen nicht mit dem Theme. Dieses Skript stellt sie her, damit derselbe
- * Stand auf jeder Kopie der Seite entsteht, statt von Hand nachgeklickt zu
- * werden. Es lässt sich beliebig oft ausführen.
+ * Menüs und Seiten liegen in der Datenbank und reisen nicht mit dem Theme.
+ * Dieses Skript stellt sie her, damit derselbe Stand auf jeder Kopie der
+ * Seite entsteht, statt von Hand nachgeklickt zu werden. Es lässt sich
+ * beliebig oft ausführen. Das Theme muss dabei aktiv sein.
  *
  * Was es tut:
  *  - legt die Seite „Einkaufsliste“ an (Template einkaufsliste.php, noindex),
- *  - baut drei eigene Menüs (Haupt, Mobil, Footer) und weist sie den
- *    Menüpositionen zu; die bisherigen Menüs bleiben unverändert bestehen,
- *  - ordnet den Astra-Header: Desktop Logo links, Menü und Suche rechts;
- *    mobil Logo, Suche, Menü-Knopf. Der Knopf „Jetzt planen“ (HTML 1)
- *    entfällt, „Planer“ ist der erste Menüpunkt und trägt den Zähler.
+ *  - baut drei eigene Menüs (Haupt, Mobil, Footer); die bisherigen Menüs
+ *    bleiben unverändert bestehen,
+ *  - weist Haupt- und Footer-Menü den Menüpositionen von Hello Elementor zu
+ *    (menu-1, menu-2) und übernimmt das Logo des vorherigen Themes.
  *
- * Beim ersten Lauf merkt es sich die bisherigen Zuweisungen und den bisherigen
- * Header-Aufbau; „rollback“ stellt genau diese wieder her. Seite und Menüs
- * bleiben dabei bestehen, sie stören nicht.
+ * Header und Footer selbst sind Vorlagen im Theme Builder von Elementor Pro;
+ * ihre Menü-Widgets greifen über den Namen auf diese Menüs zu.
  *
- * @package MixMyMeals Astra Child
+ * Beim ersten Lauf merkt es sich die bisherigen Menüzuweisungen; „rollback“
+ * stellt genau diese wieder her. Seite und Menüs bleiben dabei bestehen.
+ *
+ * @package MixMyMeals Hello Child
  */
 
 // Ein Werkzeug, keine Seite: eine mit dem Theme hochgeladene Kopie darf
@@ -32,8 +33,7 @@ if ( 'cli' !== PHP_SAPI || ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 }
 
 $mmm_mode       = isset( $args[0] ) ? (string) $args[0] : 'apply';
-$mmm_backup_key = 'mmm_redesign_nav_backup';
-$mmm_astra_key  = defined( 'ASTRA_THEME_SETTINGS' ) ? ASTRA_THEME_SETTINGS : 'astra-settings';
+$mmm_backup_key = 'mmm_redesign_nav_backup_' . get_stylesheet();
 
 /* ----------------------------------------------------------
  * Zurück auf den Stand vor dem ersten Lauf
@@ -47,17 +47,9 @@ if ( 'rollback' === $mmm_mode ) {
 	}
 
 	set_theme_mod( 'nav_menu_locations', (array) $mmm_backup['nav_menu_locations'] );
-
-	$mmm_astra = (array) get_option( $mmm_astra_key, array() );
-	foreach ( array( 'header-desktop-items', 'header-mobile-items' ) as $mmm_key ) {
-		if ( isset( $mmm_backup[ $mmm_key ] ) ) {
-			$mmm_astra[ $mmm_key ] = $mmm_backup[ $mmm_key ];
-		}
-	}
-	update_option( $mmm_astra_key, $mmm_astra );
 	delete_option( $mmm_backup_key );
 
-	WP_CLI::success( 'Menüzuweisungen und Header-Aufbau zurückgesetzt. Seite und Redesign-Menüs bestehen weiter.' );
+	WP_CLI::success( 'Menüzuweisungen zurückgesetzt. Seite und Redesign-Menüs bestehen weiter.' );
 	return;
 }
 
@@ -72,15 +64,11 @@ kses_remove_filters();
 /* ----------------------------------------------------------
  * Bisherigen Stand merken (nur beim ersten Lauf)
  * ---------------------------------------------------------- */
-$mmm_astra = (array) get_option( $mmm_astra_key, array() );
-
 if ( ! is_array( get_option( $mmm_backup_key ) ) ) {
 	add_option(
 		$mmm_backup_key,
 		array(
-			'nav_menu_locations'   => (array) get_theme_mod( 'nav_menu_locations', array() ),
-			'header-desktop-items' => $mmm_astra['header-desktop-items'] ?? null,
-			'header-mobile-items'  => $mmm_astra['header-mobile-items'] ?? null,
+			'nav_menu_locations' => (array) get_theme_mod( 'nav_menu_locations', array() ),
 		),
 		'',
 		false
@@ -234,7 +222,8 @@ if ( 0 === $mmm_planner_id ) {
 
 // Die rechtlichen Seiten übernimmt das neue Footer-Menü aus dem bisherigen.
 $mmm_legal        = array();
-$mmm_old_footer   = (int) ( $mmm_backup['nav_menu_locations']['footer_menu'] ?? 0 );
+$mmm_old_menu     = wp_get_nav_menu_object( 'Footer Menü' );
+$mmm_old_footer   = $mmm_old_menu ? (int) $mmm_old_menu->term_id : 0;
 $mmm_old_footer_i = $mmm_old_footer ? wp_get_nav_menu_items( $mmm_old_footer ) : array();
 
 foreach ( (array) $mmm_old_footer_i as $mmm_old ) {
@@ -285,28 +274,20 @@ $mmm_footer_menu = $mmm_build_menu(
 	)
 );
 
-$mmm_locations                = (array) get_theme_mod( 'nav_menu_locations', array() );
-$mmm_locations['primary']     = $mmm_main_menu;
-$mmm_locations['mobile_menu'] = $mmm_mobile_menu;
-$mmm_locations['footer_menu'] = $mmm_footer_menu;
+$mmm_locations           = (array) get_theme_mod( 'nav_menu_locations', array() );
+$mmm_locations['menu-1'] = $mmm_main_menu;
+$mmm_locations['menu-2'] = $mmm_footer_menu;
 set_theme_mod( 'nav_menu_locations', $mmm_locations );
 
 /* ----------------------------------------------------------
- * Aufbau des Astra-Headers
+ * Logo des vorherigen Themes übernehmen
  * ---------------------------------------------------------- */
-$mmm_astra = (array) get_option( $mmm_astra_key, array() );
-
-if ( isset( $mmm_astra['header-desktop-items']['primary'] ) ) {
-	$mmm_astra['header-desktop-items']['primary']['primary_center'] = array();
-	$mmm_astra['header-desktop-items']['primary']['primary_right']  = array( 'menu-1', 'search' );
+if ( ! get_theme_mod( 'custom_logo' ) ) {
+	$mmm_logo = (int) get_option( 'site_logo' );
+	if ( $mmm_logo && wp_attachment_is_image( $mmm_logo ) ) {
+		set_theme_mod( 'custom_logo', $mmm_logo );
+		WP_CLI::log( 'Logo übernommen (Anhang ' . $mmm_logo . ').' );
+	}
 }
 
-if ( isset( $mmm_astra['header-mobile-items']['primary'] ) ) {
-	$mmm_astra['header-mobile-items']['primary']['primary_center'] = array();
-	$mmm_astra['header-mobile-items']['primary']['primary_right']  = array( 'search', 'mobile-trigger' );
-	$mmm_astra['header-mobile-items']['popup']['popup_content']    = array( 'mobile-menu' );
-}
-
-update_option( $mmm_astra_key, $mmm_astra );
-
-WP_CLI::success( 'Navigation des Redesigns eingerichtet. Einkaufsliste: ' . get_permalink( $mmm_shopping_id ) );
+WP_CLI::success( 'Navigation des Redesigns eingerichtet. Einkaufsliste: ' . get_permalink( $mmm_shopping_id ) . ' | Menüs: ' . $mmm_main_menu . ', ' . $mmm_mobile_menu . ', ' . $mmm_footer_menu );

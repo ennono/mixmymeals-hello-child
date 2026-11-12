@@ -91,7 +91,7 @@ function mmm_render_recipe_edit_count() {
 		'<p class="mmm-recipe-edit-count">%s</p>',
 		sprintf(
 			/* translators: %s: number of times the recipe was edited. */
-			esc_html__( 'This recipe is actively maintained. It has already been revised %s times.', 'mixmymeals-astra-child' ),
+			esc_html__( 'This recipe is actively maintained. It has already been revised %s times.', 'mixmymeals-hello-child' ),
 			'<span class="mmm-edit-count">' . esc_html( $mmm_edit_count ) . '</span>'
 		)
 	);

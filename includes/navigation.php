@@ -12,7 +12,7 @@
  * aus einer Einstellung, damit keine Stelle eine andere Adresse kennt als die
  * Seite selbst.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -61,7 +61,7 @@ function mmm_tabbar_items(): array {
 	if ( '' !== $planner ) {
 		$items['plan'] = array(
 			'url'     => $planner,
-			'label'   => __( 'Plan', 'mixmymeals-astra-child' ),
+			'label'   => __( 'Plan', 'mixmymeals-hello-child' ),
 			'icon'    => 'fa-calendar-days',
 			'current' => is_page_template( 'page-templates/planer.php' ),
 			'badge'   => true,
@@ -72,7 +72,7 @@ function mmm_tabbar_items(): array {
 	if ( $recipes ) {
 		$items['recipes'] = array(
 			'url'     => (string) $recipes,
-			'label'   => __( 'Recipes', 'mixmymeals-astra-child' ),
+			'label'   => __( 'Recipes', 'mixmymeals-hello-child' ),
 			'icon'    => 'fa-bowl-food',
 			'current' => is_post_type_archive( 'mmm_recipe' )
 				|| is_singular( 'mmm_recipe' )
@@ -85,7 +85,7 @@ function mmm_tabbar_items(): array {
 	if ( '' !== $shopping ) {
 		$items['shopping'] = array(
 			'url'     => $shopping,
-			'label'   => __( 'Shopping list', 'mixmymeals-astra-child' ),
+			'label'   => __( 'Shopping list', 'mixmymeals-hello-child' ),
 			'icon'    => 'fa-cart-shopping',
 			'current' => is_page_template( 'page-templates/einkaufsliste.php' ),
 			'badge'   => false,
@@ -113,7 +113,7 @@ function mmm_render_tabbar(): void {
 		return;
 	}
 
-	echo '<nav class="mmm-tabbar" aria-label="' . esc_attr__( 'Main sections', 'mixmymeals-astra-child' ) . '">';
+	echo '<nav class="mmm-tabbar" aria-label="' . esc_attr__( 'Main sections', 'mixmymeals-hello-child' ) . '">';
 
 	foreach ( $items as $key => $item ) {
 		printf(

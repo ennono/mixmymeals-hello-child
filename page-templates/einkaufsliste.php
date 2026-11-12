@@ -12,7 +12,7 @@
  * ([mmm_planner_shopping_list]), also dieselbe, die der Planer zeigt. Die
  * Seite hängt am Plan des Besuchers (Cookie) und gehört nicht in den Index.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -51,7 +51,7 @@ if ( ! function_exists( 'mmm_shopping_page_body' ) ) {
 				? ''
 				: '<p class="mmm-shopping-page__back"><a href="' . esc_url( $planner ) . '">'
 					. '<i class="fa-solid fa-pen" aria-hidden="true"></i> '
-					. esc_html__( 'Edit plan', 'mixmymeals-astra-child' ) . '</a></p>';
+					. esc_html__( 'Edit plan', 'mixmymeals-hello-child' ) . '</a></p>';
 
 			return '<div class="mmm-shopping-page">' . $back
 				. do_shortcode( '[mmm_planner_shopping_list]' ) . '</div>';
@@ -62,19 +62,19 @@ if ( ! function_exists( 'mmm_shopping_page_body' ) ) {
 		$recipes = post_type_exists( 'mmm_recipe' ) ? get_post_type_archive_link( 'mmm_recipe' ) : false;
 		if ( $recipes ) {
 			$links .= '<a class="mmm-btn mmm-btn--primary" href="' . esc_url( $recipes ) . '">'
-				. esc_html__( 'Browse recipes', 'mixmymeals-astra-child' ) . '</a>';
+				. esc_html__( 'Browse recipes', 'mixmymeals-hello-child' ) . '</a>';
 		}
 
 		$plans = post_type_exists( 'mmm_meal_plan' ) ? get_post_type_archive_link( 'mmm_meal_plan' ) : false;
 		if ( $plans ) {
 			$links .= '<a class="mmm-btn mmm-btn--ghost" href="' . esc_url( $plans ) . '">'
-				. esc_html__( 'Pick a ready-made plan', 'mixmymeals-astra-child' ) . '</a>';
+				. esc_html__( 'Pick a ready-made plan', 'mixmymeals-hello-child' ) . '</a>';
 		}
 
 		return '<div class="mmm-shopping-page mmm-shopping-page--empty">'
 			. '<p class="mmm-shopping-page__empty-title">'
-			. esc_html__( 'Your plan is still empty.', 'mixmymeals-astra-child' ) . '</p>'
-			. '<p>' . esc_html__( 'Add recipes to your plan and your shopping list appears here.', 'mixmymeals-astra-child' ) . '</p>'
+			. esc_html__( 'Your plan is still empty.', 'mixmymeals-hello-child' ) . '</p>'
+			. '<p>' . esc_html__( 'Add recipes to your plan and your shopping list appears here.', 'mixmymeals-hello-child' ) . '</p>'
 			. ( '' === $links ? '' : '<p class="mmm-shopping-page__actions">' . $links . '</p>' )
 			. '</div>';
 	}
@@ -96,19 +96,11 @@ add_filter(
 get_header();
 ?>
 
-<?php if ( astra_page_layout() === 'left-sidebar' ) { ?>
-	<?php get_sidebar(); ?>
-<?php } ?>
-
-	<div id="primary" <?php astra_primary_class(); ?>>
-		<?php astra_primary_content_top(); ?>
-		<?php astra_content_page_loop(); ?>
-		<?php astra_primary_content_bottom(); ?>
+	<div id="primary" <?php mmm_primary_class(); ?>>
+		<?php mmm_primary_content_top(); ?>
+		<?php mmm_content_page_loop(); ?>
+		<?php mmm_primary_content_bottom(); ?>
 	</div><!-- #primary -->
-
-<?php if ( astra_page_layout() === 'right-sidebar' ) { ?>
-	<?php get_sidebar(); ?>
-<?php } ?>
 
 <?php
 get_footer();

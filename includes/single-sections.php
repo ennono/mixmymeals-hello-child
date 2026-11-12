@@ -12,7 +12,7 @@
  * dass ein Abschnitt ohne Inhalt gar nichts ausgibt. Ein ausgeblendeter
  * Abschnitt ist etwas anderes: er hätte Inhalt, soll aber nicht erscheinen.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -62,9 +62,9 @@ function mmm_single_section_types(): array {
 	return (array) apply_filters(
 		'mmm_single_section_types',
 		array(
-			'recipe' => __( 'Recipe page', 'mixmymeals-astra-child' ),
-			'meal'   => __( 'Meal page', 'mixmymeals-astra-child' ),
-			'plan'   => __( 'Meal plan page', 'mixmymeals-astra-child' ),
+			'recipe' => __( 'Recipe page', 'mixmymeals-hello-child' ),
+			'meal'   => __( 'Meal page', 'mixmymeals-hello-child' ),
+			'plan'   => __( 'Meal plan page', 'mixmymeals-hello-child' ),
 		)
 	);
 }
@@ -77,59 +77,59 @@ function mmm_single_section_types(): array {
 function mmm_recipe_sections(): array {
 	return array(
 		'feature_image'   => array(
-			'label'  => __( 'Feature image', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Feature image', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_feature_image',
 		),
 		'ingredients'     => array(
-			'label'  => __( 'Ingredients', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Ingredients', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_ingredients',
 		),
 		'equipment'       => array(
-			'label'  => __( 'Required Equipment', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Required Equipment', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_equipment',
 		),
 		'steps'           => array(
-			'label'  => __( 'Cooking Instructions', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Cooking Instructions', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_steps',
 		),
 		'author'          => array(
-			'label'  => __( 'Author box', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Author box', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_author',
 		),
 		'nutrition'       => array(
-			'label'  => __( 'Nutrition Details', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Nutrition Details', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_nutrition',
 		),
 		'product_impact'  => array(
-			'label'  => __( 'Product choice', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Product choice', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_product_impact',
 		),
 		'content'         => array(
-			'label'  => __( 'Editor content', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Editor content', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_content',
 		),
 		'related'         => array(
-			'label'  => __( 'Goes well with', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Goes well with', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_related',
 		),
 		'related_reverse' => array(
-			'label'  => __( 'Fits with', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Fits with', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_related_reverse',
 		),
 		'plans'           => array(
-			'label'  => __( 'Included in these plans', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Included in these plans', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_plans',
 		),
 		'note'            => array(
-			'label'  => __( 'Note', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Note', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_note',
 		),
 		'photos'          => array(
-			'label'  => __( 'Cooked by You', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Cooked by You', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_photos',
 		),
 		'ratings'         => array(
-			'label'  => __( 'Ratings', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Ratings', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_recipe_section_ratings',
 		),
 	);
@@ -143,43 +143,43 @@ function mmm_recipe_sections(): array {
 function mmm_meal_sections(): array {
 	return array(
 		'feature_image'  => array(
-			'label'  => __( 'Feature image', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Feature image', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_feature_image',
 		),
 		'ingredients'    => array(
-			'label'  => __( 'Ingredients', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Ingredients', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_ingredients',
 		),
 		'equipment'      => array(
-			'label'  => __( 'Required Equipment', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Required Equipment', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_equipment',
 		),
 		'steps'          => array(
-			'label'  => __( 'Cooking Instructions', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Cooking Instructions', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_steps',
 		),
 		'author'         => array(
-			'label'  => __( 'Author box', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Author box', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_author',
 		),
 		'nutrition'      => array(
-			'label'  => __( 'Nutrition Details', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Nutrition Details', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_nutrition',
 		),
 		'product_impact' => array(
-			'label'  => __( 'Product choice', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Product choice', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_product_impact',
 		),
 		'calculator'     => array(
-			'label'  => __( 'How much did you eat?', 'mixmymeals-astra-child' ),
+			'label'  => __( 'How much did you eat?', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_calculator',
 		),
 		'note'           => array(
-			'label'  => __( 'Note', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Note', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_note',
 		),
 		'content'        => array(
-			'label'  => __( 'Editor content', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Editor content', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_meal_section_content',
 		),
 	);
@@ -197,39 +197,39 @@ function mmm_meal_sections(): array {
 function mmm_plan_sections(): array {
 	return array(
 		'author'         => array(
-			'label'  => __( 'Author box', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Author box', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_author',
 		),
 		'feature_image'  => array(
-			'label'  => __( 'Feature image', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Feature image', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_feature_image',
 		),
 		'meals'          => array(
-			'label'  => __( 'Meals in this plan', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Meals in this plan', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_meals',
 		),
 		'nutrition'      => array(
-			'label'  => __( 'Nutrition Overview', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Nutrition Overview', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_nutrition',
 		),
 		'shopping_list'  => array(
-			'label'  => __( 'Shopping List', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Shopping List', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_shopping_list',
 		),
 		'product_impact' => array(
-			'label'  => __( 'Product choice', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Product choice', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_product_impact',
 		),
 		'equipment'      => array(
-			'label'  => __( 'Required Equipment', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Required Equipment', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_equipment',
 		),
 		'subscribe'      => array(
-			'label'  => __( 'Get this plan by e-mail', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Get this plan by e-mail', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_subscribe',
 		),
 		'content'        => array(
-			'label'  => __( 'Editor content', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Editor content', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_plan_section_content',
 		),
 	);
@@ -421,7 +421,7 @@ function mmm_recipe_section_ingredients(): void {
 	}
 	?>
 	<section class="mmm-recipe-section">
-		<?php mmm_single_section_head( __( 'Ingredients', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Ingredients', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo $ingredients; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
 		<?php // Zutaten gesichtet — hier entscheidet man, ob es auf den Plan soll. ?>
@@ -442,7 +442,7 @@ function mmm_recipe_section_equipment(): void {
 	}
 	?>
 	<section class="mmm-recipe-section">
-		<?php mmm_single_section_head( __( 'Required Equipment', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Required Equipment', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo $equipment; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</section>
 	<?php
@@ -454,7 +454,7 @@ function mmm_recipe_section_equipment(): void {
 function mmm_recipe_section_steps(): void {
 	?>
 	<section class="mmm-recipe-section">
-		<?php mmm_single_section_head( __( 'Cooking Instructions', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Cooking Instructions', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_recipe_steps_for_a_single_recipe(); ?>
 
 		<?php // Nach der Zubereitung: zweiter Einstieg in den Planer. ?>
@@ -476,7 +476,7 @@ function mmm_recipe_section_author(): void {
 function mmm_recipe_section_nutrition(): void {
 	?>
 	<section class="mmm-recipe-section">
-		<?php mmm_single_section_head( __( 'Nutrition Details', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Nutrition Details', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_nutrition_table_for_a_single_recipe(); ?>
 
 		<?php // Nährwerte gesehen — letzter Einstieg auf dem Weg nach unten. ?>
@@ -506,9 +506,9 @@ function mmm_recipe_section_product_impact(): void {
 	}
 	?>
 	<section class="mmm-recipe-section">
-		<?php mmm_single_section_head( __( 'Product choice', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Product choice', 'mixmymeals-hello-child' ) ); ?>
 		<p class="mmm-product-impact__intro">
-			<?php esc_html_e( 'The choice of a specific product can affect the nutrition of the dish.', 'mixmymeals-astra-child' ); ?>
+			<?php esc_html_e( 'The choice of a specific product can affect the nutrition of the dish.', 'mixmymeals-hello-child' ); ?>
 		</p>
 		<?php echo $impact; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php
@@ -520,7 +520,7 @@ function mmm_recipe_section_product_impact(): void {
 		if ( str_contains( $impact, 'mmm-product-impact__ref-mark' ) ) :
 			?>
 			<p class="mmm-product-impact__legend">
-				<?php esc_html_e( '* The recipe assumes this product.', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( '* The recipe assumes this product.', 'mixmymeals-hello-child' ); ?>
 			</p>
 		<?php endif; ?>
 	</section>
@@ -554,7 +554,7 @@ function mmm_recipe_section_related(): void {
 	}
 	?>
 	<section class="mmm-recipe-section mmm-recipe-related">
-		<?php mmm_single_section_head( __( 'Goes well with', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Goes well with', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo $related; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</section>
 	<?php
@@ -572,7 +572,7 @@ function mmm_recipe_section_related_reverse(): void {
 	}
 	?>
 	<section class="mmm-recipe-section mmm-recipe-related mmm-recipe-related--reverse">
-		<?php mmm_single_section_head( __( 'Fits with', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Fits with', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo $related; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</section>
 	<?php
@@ -590,7 +590,7 @@ function mmm_recipe_section_plans(): void {
 	}
 	?>
 	<section class="mmm-recipe-section mmm-recipe-plans-section">
-		<?php mmm_single_section_head( __( 'Included in these plans', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Included in these plans', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo $plans; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</section>
 	<?php
@@ -602,7 +602,7 @@ function mmm_recipe_section_plans(): void {
 function mmm_recipe_section_note(): void {
 	?>
 	<section class="mmm-meal-section">
-		<?php mmm_single_section_head( __( 'Note', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Note', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_recipe_disclaimer_for_a_single_recipe(); ?>
 		<?php mmm_render_recipe_edit_count(); ?>
 	</section>
@@ -622,7 +622,7 @@ function mmm_recipe_section_photos(): void {
 	}
 	?>
 	<section class="mmm-recipe-section mmm-recipe-photos">
-		<?php mmm_single_section_head( __( 'Cooked by You', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Cooked by You', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo $photos; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</section>
 	<?php
@@ -681,7 +681,7 @@ function mmm_meal_section_feature_image(): void {
 function mmm_meal_section_ingredients(): void {
 	?>
 	<section class="mmm-meal-section">
-		<?php mmm_single_section_head( __( 'Ingredients', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Ingredients', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_ingredients_a_single_meal(); ?>
 	</section>
 	<?php
@@ -699,7 +699,7 @@ function mmm_meal_section_equipment(): void {
 	}
 	?>
 	<section class="mmm-meal-section">
-		<?php mmm_single_section_head( __( 'Required Equipment', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Required Equipment', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo $equipment; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</section>
 	<?php
@@ -711,7 +711,7 @@ function mmm_meal_section_equipment(): void {
 function mmm_meal_section_steps(): void {
 	?>
 	<section class="mmm-meal-section">
-		<?php mmm_single_section_head( __( 'Cooking Instructions', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Cooking Instructions', 'mixmymeals-hello-child' ) ); ?>
 		<?php
 		mmm_render_cook_mode_button_for_a_single_meal();
 		mmm_render_scaled_recipe_steps_for_a_single_meal();
@@ -733,7 +733,7 @@ function mmm_meal_section_author(): void {
 function mmm_meal_section_nutrition(): void {
 	?>
 	<section class="mmm-meal-section">
-		<?php mmm_single_section_head( __( 'Nutrition Details', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Nutrition Details', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_meal_nutrition_table_for_a_single_meal(); ?>
 	</section>
 	<?php
@@ -755,9 +755,9 @@ function mmm_meal_section_product_impact(): void {
 	}
 	?>
 	<section class="mmm-meal-section">
-		<?php mmm_single_section_head( __( 'Product choice', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Product choice', 'mixmymeals-hello-child' ) ); ?>
 		<p class="mmm-product-impact__intro">
-			<?php esc_html_e( 'The choice of a specific product can affect the nutrition of the dish.', 'mixmymeals-astra-child' ); ?>
+			<?php esc_html_e( 'The choice of a specific product can affect the nutrition of the dish.', 'mixmymeals-hello-child' ); ?>
 		</p>
 		<?php echo $impact; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php
@@ -769,7 +769,7 @@ function mmm_meal_section_product_impact(): void {
 		if ( str_contains( $impact, 'mmm-product-impact__ref-mark' ) ) :
 			?>
 			<p class="mmm-product-impact__legend">
-				<?php esc_html_e( '* The recipe assumes this product.', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( '* The recipe assumes this product.', 'mixmymeals-hello-child' ); ?>
 			</p>
 		<?php endif; ?>
 	</section>
@@ -782,7 +782,7 @@ function mmm_meal_section_product_impact(): void {
 function mmm_meal_section_calculator(): void {
 	?>
 	<section class="mmm-meal-section">
-		<?php mmm_single_section_head( __( 'How much did you eat?', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'How much did you eat?', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_meal_calculator_for_a_single_meal(); ?>
 	</section>
 	<?php
@@ -794,7 +794,7 @@ function mmm_meal_section_calculator(): void {
 function mmm_meal_section_note(): void {
 	?>
 	<section class="mmm-meal-section">
-		<?php mmm_single_section_head( __( 'Note', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Note', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_recipe_disclaimer_for_a_single_meal(); ?>
 	</section>
 	<?php
@@ -850,7 +850,7 @@ function mmm_plan_section_feature_image(): void {
 function mmm_plan_section_meals(): void {
 	?>
 	<section class="mmm-plan-section">
-		<?php mmm_single_section_head( __( 'Meals in this plan', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Meals in this plan', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_meal_plan_meals(); ?>
 	</section>
 	<?php
@@ -862,7 +862,7 @@ function mmm_plan_section_meals(): void {
 function mmm_plan_section_nutrition(): void {
 	?>
 	<section class="mmm-plan-section">
-		<?php mmm_single_section_head( __( 'Nutrition Overview', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Nutrition Overview', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo do_shortcode( '[mmm_nutrition_overview_for_a_single_meal_plan]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</section>
 	<?php
@@ -874,7 +874,7 @@ function mmm_plan_section_nutrition(): void {
 function mmm_plan_section_shopping_list(): void {
 	?>
 	<section class="mmm-plan-section">
-		<?php mmm_single_section_head( __( 'Shopping List', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Shopping List', 'mixmymeals-hello-child' ) ); ?>
 		<?php mmm_render_meal_plan_shopping_list(); ?>
 	</section>
 	<?php
@@ -897,9 +897,9 @@ function mmm_plan_section_product_impact(): void {
 	}
 	?>
 	<section class="mmm-plan-section">
-		<?php mmm_single_section_head( __( 'Product choice', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Product choice', 'mixmymeals-hello-child' ) ); ?>
 		<p class="mmm-product-impact__intro">
-			<?php esc_html_e( 'Some ingredients of this plan can be bought as more than one product. This is what each choice would do to the daily nutrition per person.', 'mixmymeals-astra-child' ); ?>
+			<?php esc_html_e( 'Some ingredients of this plan can be bought as more than one product. This is what each choice would do to the daily nutrition per person.', 'mixmymeals-hello-child' ); ?>
 		</p>
 		<?php echo $impact; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php
@@ -911,7 +911,7 @@ function mmm_plan_section_product_impact(): void {
 		if ( str_contains( $impact, 'mmm-product-impact__ref-mark' ) ) :
 			?>
 			<p class="mmm-product-impact__legend">
-				<?php esc_html_e( '* The plan assumes this product.', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( '* The plan assumes this product.', 'mixmymeals-hello-child' ); ?>
 			</p>
 		<?php endif; ?>
 	</section>
@@ -931,7 +931,7 @@ function mmm_plan_section_equipment(): void {
 	}
 	?>
 	<section class="mmm-plan-section">
-		<?php mmm_single_section_head( __( 'Required Equipment', 'mixmymeals-astra-child' ) ); ?>
+		<?php mmm_single_section_head( __( 'Required Equipment', 'mixmymeals-hello-child' ) ); ?>
 		<?php echo $equipment; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode output is already escaped. ?>
 	</section>
 	<?php
@@ -967,8 +967,8 @@ function mmm_plan_section_subscribe(): void {
 		: '';
 	?>
 	<section class="mmm-plan-section"<?php echo '' !== $mmm_anchor ? ' id="' . esc_attr( $mmm_anchor ) . '"' : ''; ?>>
-		<?php mmm_single_section_head( __( 'Get this plan by e-mail', 'mixmymeals-astra-child' ) ); ?>
-		<p class="mmm-subscribe-intro"><?php esc_html_e( 'Subscribe and get the meals of this plan sent to your inbox, day by day.', 'mixmymeals-astra-child' ); ?></p>
+		<?php mmm_single_section_head( __( 'Get this plan by e-mail', 'mixmymeals-hello-child' ) ); ?>
+		<p class="mmm-subscribe-intro"><?php esc_html_e( 'Subscribe and get the meals of this plan sent to your inbox, day by day.', 'mixmymeals-hello-child' ); ?></p>
 		<?php echo $subscribe; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode output is already escaped. ?>
 	</section>
 	<?php

@@ -26,23 +26,23 @@ function mmm_recipe_browse_views() {
 	return array(
 		'fav'      => array(
 			'mmm_favorite_recipes',
-			__( 'Our Favorites', 'mixmymeals-astra-child' ),
-			__( 'Recipes we cook again and again and can particularly recommend to you.', 'mixmymeals-astra-child' ),
+			__( 'Our Favorites', 'mixmymeals-hello-child' ),
+			__( 'Recipes we cook again and again and can particularly recommend to you.', 'mixmymeals-hello-child' ),
 		),
 		'new'      => array(
 			'mmm_new_recipes',
-			__( 'New recipes', 'mixmymeals-astra-child' ),
-			__( 'The most recently published recipes — everything new lands here.', 'mixmymeals-astra-child' ),
+			__( 'New recipes', 'mixmymeals-hello-child' ),
+			__( 'The most recently published recipes — everything new lands here.', 'mixmymeals-hello-child' ),
 		),
 		'popular'  => array(
 			'mmm_popular_recipes',
-			__( 'Frequently Cooked', 'mixmymeals-astra-child' ),
-			__( 'These recipes have been on the meal plans most often so far.', 'mixmymeals-astra-child' ),
+			__( 'Frequently Cooked', 'mixmymeals-hello-child' ),
+			__( 'These recipes have been on the meal plans most often so far.', 'mixmymeals-hello-child' ),
 		),
 		'uncooked' => array(
 			'mmm_uncooked_recipes',
-			__( 'Never cooked', 'mixmymeals-astra-child' ),
-			__( 'Nobody has planned these recipes yet — maybe your new favorite is among them.', 'mixmymeals-astra-child' ),
+			__( 'Never cooked', 'mixmymeals-hello-child' ),
+			__( 'Nobody has planned these recipes yet — maybe your new favorite is among them.', 'mixmymeals-hello-child' ),
 		),
 	);
 }
@@ -83,20 +83,20 @@ function mmm_recipe_diet_views() {
 
 	return array(
 		'vegan'        => array(
-			__( 'Vegan recipes', 'mixmymeals-astra-child' ),
-			__( 'Dishes that can be cooked vegan — for some of them the product you buy decides.', 'mixmymeals-astra-child' ),
+			__( 'Vegan recipes', 'mixmymeals-hello-child' ),
+			__( 'Dishes that can be cooked vegan — for some of them the product you buy decides.', 'mixmymeals-hello-child' ),
 		),
 		'vegetarian'   => array(
-			__( 'Vegetarian recipes', 'mixmymeals-astra-child' ),
-			__( 'Dishes that can be cooked vegetarian — for some of them the product you buy decides.', 'mixmymeals-astra-child' ),
+			__( 'Vegetarian recipes', 'mixmymeals-hello-child' ),
+			__( 'Dishes that can be cooked vegetarian — for some of them the product you buy decides.', 'mixmymeals-hello-child' ),
 		),
 		'gluten_free'  => array(
-			__( 'Gluten-free recipes', 'mixmymeals-astra-child' ),
-			__( 'Dishes that can be cooked gluten-free — for some of them the product you buy decides.', 'mixmymeals-astra-child' ),
+			__( 'Gluten-free recipes', 'mixmymeals-hello-child' ),
+			__( 'Dishes that can be cooked gluten-free — for some of them the product you buy decides.', 'mixmymeals-hello-child' ),
 		),
 		'lactose_free' => array(
-			__( 'Lactose-free recipes', 'mixmymeals-astra-child' ),
-			__( 'Dishes that can be cooked lactose-free — for some of them the product you buy decides.', 'mixmymeals-astra-child' ),
+			__( 'Lactose-free recipes', 'mixmymeals-hello-child' ),
+			__( 'Dishes that can be cooked lactose-free — for some of them the product you buy decides.', 'mixmymeals-hello-child' ),
 		),
 	);
 }
@@ -124,10 +124,10 @@ function mmm_recipe_time_views() {
 		$mmm_views[ $mmm_minutes ] = array(
 			sprintf(
 				/* translators: %d: number of minutes. */
-				__( 'Ready in under %d minutes', 'mixmymeals-astra-child' ),
+				__( 'Ready in under %d minutes', 'mixmymeals-hello-child' ),
 				$mmm_minutes
 			),
-			__( 'Recipes without a stated time are not listed here.', 'mixmymeals-astra-child' ),
+			__( 'Recipes without a stated time are not listed here.', 'mixmymeals-hello-child' ),
 		);
 	}
 
@@ -313,7 +313,7 @@ function mmm_filter_label( $mmm_kind, $mmm_value ) {
 		case 'time':
 			return sprintf(
 				/* translators: %d: number of minutes. */
-				__( 'under %d min', 'mixmymeals-astra-child' ),
+				__( 'under %d min', 'mixmymeals-hello-child' ),
 				(int) $mmm_value
 			);
 
@@ -323,7 +323,7 @@ function mmm_filter_label( $mmm_kind, $mmm_value ) {
 		case 'title':
 			return sprintf(
 				/* translators: %s: the search term. */
-				__( 'Title: %s', 'mixmymeals-astra-child' ),
+				__( 'Title: %s', 'mixmymeals-hello-child' ),
 				$mmm_value
 			);
 
@@ -386,7 +386,7 @@ function mmm_print_active_filter_chips() {
 
 	?>
 	<div class="mmm-active-filters">
-		<span class="mmm-active-filters__label"><?php esc_html_e( 'Filtered by:', 'mixmymeals-astra-child' ); ?></span>
+		<span class="mmm-active-filters__label"><?php esc_html_e( 'Filtered by:', 'mixmymeals-hello-child' ); ?></span>
 		<?php foreach ( $mmm_filters as $mmm_filter ) : ?>
 			<?php
 			$mmm_label = mmm_filter_label( $mmm_filter['kind'], $mmm_filter['value'] );
@@ -396,7 +396,7 @@ function mmm_print_active_filter_chips() {
 			}
 
 			/* translators: %s: the filter that would be removed. */
-			$mmm_remove_title = sprintf( __( 'Remove filter “%s”', 'mixmymeals-astra-child' ), $mmm_label );
+			$mmm_remove_title = sprintf( __( 'Remove filter “%s”', 'mixmymeals-hello-child' ), $mmm_label );
 			?>
 			<a class="mmm-active-filters__chip mmm-active-filters__chip--<?php echo esc_attr( $mmm_filter['kind'] ); ?>"
 				href="<?php echo esc_url( $mmm_filter['url'] ); ?>"
@@ -407,7 +407,7 @@ function mmm_print_active_filter_chips() {
 		<?php endforeach; ?>
 		<?php if ( count( $mmm_filters ) > 1 && $mmm_reset ) : ?>
 			<a class="mmm-active-filters__reset" href="<?php echo esc_url( $mmm_reset ); ?>">
-				<?php esc_html_e( 'Clear all', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( 'Clear all', 'mixmymeals-hello-child' ); ?>
 			</a>
 		<?php endif; ?>
 	</div>
@@ -443,7 +443,7 @@ function mmm_unknown_ingredient_tokens() {
  * can be dropped on its own — so one link doing a worse version of the same
  * thing beside it would only be a second thing to read.
  */
-add_action( 'astra_after_archive_description', 'mmm_print_active_filter_chips', 5 );
+add_action( 'mmm_after_archive_description', 'mmm_print_active_filter_chips', 5 );
 
 /**
  * The active archive search term, or '' when nobody is searching.
@@ -488,11 +488,11 @@ function mmm_render_recipe_search_empty_state( $mmm_term ) {
 			if ( '' !== $mmm_term ) {
 				printf(
 					/* translators: %s: the search term. */
-					esc_html__( 'No recipe matches “%s”', 'mixmymeals-astra-child' ),
+					esc_html__( 'No recipe matches “%s”', 'mixmymeals-hello-child' ),
 					esc_html( $mmm_term )
 				);
 			} else {
-				esc_html_e( 'No recipe matches these filters', 'mixmymeals-astra-child' );
+				esc_html_e( 'No recipe matches these filters', 'mixmymeals-hello-child' );
 			}
 			?>
 		</h2>
@@ -501,7 +501,7 @@ function mmm_render_recipe_search_empty_state( $mmm_term ) {
 				<?php
 				printf(
 					/* translators: %s: comma separated list of ingredient names. */
-					esc_html__( 'We do not know these ingredients: %s', 'mixmymeals-astra-child' ),
+					esc_html__( 'We do not know these ingredients: %s', 'mixmymeals-hello-child' ),
 					esc_html( implode( ', ', $mmm_unknown ) )
 				);
 				?>
@@ -512,19 +512,19 @@ function mmm_render_recipe_search_empty_state( $mmm_term ) {
 				<?php
 				printf(
 					/* translators: %s: comma separated list of the active filters. */
-					esc_html__( 'Active: %s. Dropping one of them usually helps.', 'mixmymeals-astra-child' ),
+					esc_html__( 'Active: %s. Dropping one of them usually helps.', 'mixmymeals-hello-child' ),
 					esc_html( implode( ', ', $mmm_filters ) )
 				);
 				?>
 			</p>
 		<?php else : ?>
 			<p class="mmm-archive-empty__text">
-				<?php esc_html_e( 'The title search looks at titles only. A shorter term, or a different word, often helps.', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( 'The title search looks at titles only. A shorter term, or a different word, often helps.', 'mixmymeals-hello-child' ); ?>
 			</p>
 		<?php endif; ?>
 		<p class="mmm-archive-empty__actions">
 			<a class="mmm-archive-empty__reset" href="<?php echo esc_url( get_post_type_archive_link( 'mmm_recipe' ) ); ?>">
-				<?php esc_html_e( 'Show all recipes', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( 'Show all recipes', 'mixmymeals-hello-child' ); ?>
 			</a>
 		</p>
 	</section>
@@ -620,9 +620,9 @@ function mmm_render_recipe_category_terms_card() {
 	// Wrap in a card so the term list isn't bare on the background
 	// (scoped class — the same list is also used unboxed in the footer).
 	echo '<section id="mmm-all-categories" class="mmm-archive-terms">'
-		. '<h2 class="mmm-archive-terms__title">' . esc_html__( 'All categories', 'mixmymeals-astra-child' ) . '</h2>'
+		. '<h2 class="mmm-archive-terms__title">' . esc_html__( 'All categories', 'mixmymeals-hello-child' ) . '</h2>'
 		. '<p class="mmm-browse-note">'
-		. esc_html__( 'Browse the whole collection by course, cuisine or main ingredient.', 'mixmymeals-astra-child' )
+		. esc_html__( 'Browse the whole collection by course, cuisine or main ingredient.', 'mixmymeals-hello-child' )
 		. '</p>'
 		. $mmm_terms // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode output is already escaped.
 		. '</section>';
@@ -638,7 +638,7 @@ function mmm_render_recipe_category_terms_card() {
  * The symptom is subtle: everything else on the page updates while the empty
  * state silently stays Astra's.
  *
- * Astra fires astra_template_parts_content_none inside <main id="main">, so
+ * Astra fires mmm_content_none inside <main id="main">, so
  * whatever runs here lands where its own block would have. The .ast-row wrapper
  * is added because Astra opens it only in the have_posts() branch, and without
  * it the card sits one level shallower than the recipe cards it replaces.
@@ -668,12 +668,12 @@ function mmm_swap_recipe_search_empty_state() {
 	 * and a 404 never reaches this branch because the condition above requires
 	 * a recipe archive.
 	 */
-	remove_all_actions( 'astra_template_parts_content_none' );
+	remove_all_actions( 'mmm_content_none' );
 
 	add_action(
-		'astra_template_parts_content_none',
+		'mmm_content_none',
 		static function () {
-			echo '<div class="ast-row">';
+			echo '<div class="mmm-l-row">';
 			mmm_render_recipe_search_empty_state( mmm_archive_search_term() );
 			echo '</div>';
 		}

@@ -25,7 +25,7 @@
  * damit sich der Seite später Text hinzufügen lässt. Die Planer-Shortcodes
  * gehören dann nicht mehr in den Editor — sie kämen sonst doppelt.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -78,8 +78,8 @@ if ( ! function_exists( 'mmm_planer_save_section' ) ) {
 
 		$label = is_callable( array( 'Mixmymeals_Shortcodes', 'plan_subscribe_offer_mode' ) )
 			&& 'off' !== Mixmymeals_Shortcodes::plan_subscribe_offer_mode()
-				? __( 'Save and subscribe to the plan', 'mixmymeals-astra-child' )
-				: __( 'Save plan', 'mixmymeals-astra-child' );
+				? __( 'Save and subscribe to the plan', 'mixmymeals-hello-child' )
+				: __( 'Save plan', 'mixmymeals-hello-child' );
 
 		$html = '<section class="mmm-recipe-browse mmm-plan-save" id="mmm-plan-save" data-plan-save aria-labelledby="mmm-plan-save-title">'
 			. '<div class="mmm-recipe-row__header">'
@@ -140,17 +140,11 @@ add_filter(
 get_header();
 ?>
 
-<?php if ( astra_page_layout() === 'left-sidebar' ) { ?>
+	<div id="primary" <?php mmm_primary_class(); ?>>
 
-	<?php get_sidebar(); ?>
+		<?php mmm_primary_content_top(); ?>
 
-<?php } ?>
-
-	<div id="primary" <?php astra_primary_class(); ?>>
-
-		<?php astra_primary_content_top(); ?>
-
-		<?php astra_content_page_loop(); ?>
+		<?php mmm_content_page_loop(); ?>
 
 		<?php
 		// Speichern und Abonnieren: eigene Box in #primary, vor den
@@ -170,8 +164,8 @@ get_header();
 		 * sich damit ohne Seitenwechsel füllen.
 		 */
 		$mmm_planer_rows = array(
-			'mmm_new_recipes'      => __( 'New recipes', 'mixmymeals-astra-child' ),
-			'mmm_favorite_recipes' => __( 'Our Favorites', 'mixmymeals-astra-child' ),
+			'mmm_new_recipes'      => __( 'New recipes', 'mixmymeals-hello-child' ),
+			'mmm_favorite_recipes' => __( 'Our Favorites', 'mixmymeals-hello-child' ),
 		);
 
 		foreach ( $mmm_planer_rows as $mmm_shortcode => $mmm_title ) {
@@ -186,15 +180,9 @@ get_header();
 		}
 		?>
 
-		<?php astra_primary_content_bottom(); ?>
+		<?php mmm_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
-
-<?php if ( astra_page_layout() === 'right-sidebar' ) { ?>
-
-	<?php get_sidebar(); ?>
-
-<?php } ?>
 
 <?php
 get_footer();

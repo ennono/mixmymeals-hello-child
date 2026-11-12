@@ -11,7 +11,7 @@
  * bekommt es seine eigene Option und einen eigenen Abschnitt auf derselben
  * Seite.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -85,8 +85,8 @@ add_action( 'admin_menu', 'mmm_child_add_settings_page' );
  */
 function mmm_child_add_settings_page(): void {
 	add_theme_page(
-		__( 'Theme Settings', 'mixmymeals-astra-child' ),
-		__( 'Theme Settings', 'mixmymeals-astra-child' ),
+		__( 'Theme Settings', 'mixmymeals-hello-child' ),
+		__( 'Theme Settings', 'mixmymeals-hello-child' ),
 		'edit_theme_options',
 		MMM_CHILD_SETTINGS_PAGE,
 		'mmm_child_render_settings_page'
@@ -135,17 +135,17 @@ function mmm_child_register_section_settings(): void {
 		add_settings_section(
 			$section_id,
 			/* translators: %s: name of the single page, e.g. “Recipe page”. */
-			sprintf( __( 'Sections: %s', 'mixmymeals-astra-child' ), $label ),
+			sprintf( __( 'Sections: %s', 'mixmymeals-hello-child' ), $label ),
 			static function () use ( $type, $first ) {
 
 				if ( $first ) {
-					echo '<p>' . esc_html__( 'Drag the sections into the order they should appear in. Unticked sections stay off the page; sections that have nothing to show stay hidden anyway.', 'mixmymeals-astra-child' ) . '</p>';
+					echo '<p>' . esc_html__( 'Drag the sections into the order they should appear in. Unticked sections stay off the page; sections that have nothing to show stay hidden anyway.', 'mixmymeals-hello-child' ) . '</p>';
 				}
 
 				// Erklärt die Sonderregel der Archive an der Stelle, an der man
 				// sie braucht: in der Liste, in der es diese Blöcke gibt.
 				if ( mmm_archive_section_has_hero( $type ) ) {
-					echo '<p>' . esc_html__( 'Archive description, search form and filter sit inside the archive header as long as they stay at the top of this list. Drag one below another block and it leaves the header and appears at its new place instead.', 'mixmymeals-astra-child' ) . '</p>';
+					echo '<p>' . esc_html__( 'Archive description, search form and filter sit inside the archive header as long as they stay at the top of this list. Drag one below another block and it leaves the header and appears at its new place instead.', 'mixmymeals-hello-child' ) . '</p>';
 				}
 			},
 			MMM_CHILD_SETTINGS_PAGE
@@ -153,7 +153,7 @@ function mmm_child_register_section_settings(): void {
 
 		add_settings_field(
 			$section_id . '_order',
-			__( 'Order', 'mixmymeals-astra-child' ),
+			__( 'Order', 'mixmymeals-hello-child' ),
 			'mmm_child_render_section_order_field',
 			MMM_CHILD_SETTINGS_PAGE,
 			$section_id,
@@ -162,7 +162,7 @@ function mmm_child_register_section_settings(): void {
 
 		add_settings_field(
 			$section_id . '_custom',
-			__( 'Custom sections', 'mixmymeals-astra-child' ),
+			__( 'Custom sections', 'mixmymeals-hello-child' ),
 			'mmm_child_render_custom_sections_field',
 			MMM_CHILD_SETTINGS_PAGE,
 			$section_id,
@@ -256,11 +256,11 @@ function mmm_child_render_custom_sections_field( array $args ): void {
 	printf(
 		'<p><button type="button" class="button mmm-custom-add" data-type="%s">%s</button></p>',
 		esc_attr( $type ),
-		esc_html__( 'Add section', 'mixmymeals-astra-child' )
+		esc_html__( 'Add section', 'mixmymeals-hello-child' )
 	);
 
 	echo '<p class="description">'
-		. esc_html__( 'New sections and removals take effect when you save. A section without a title and without text is not stored. Shortcodes in the text are executed on the page; an empty title means the section shows its text without a heading.', 'mixmymeals-astra-child' )
+		. esc_html__( 'New sections and removals take effect when you save. A section without a title and without text is not stored. Shortcodes in the text are executed on the page; an empty title means the section shows its text without a heading.', 'mixmymeals-hello-child' )
 		. '</p>';
 }
 
@@ -282,7 +282,7 @@ function mmm_child_render_custom_section_card( string $type, string $id, array $
 
 		<p>
 			<label for="<?php echo esc_attr( $editor_id . '_title' ); ?>">
-				<strong><?php esc_html_e( 'Title', 'mixmymeals-astra-child' ); ?></strong>
+				<strong><?php esc_html_e( 'Title', 'mixmymeals-hello-child' ); ?></strong>
 			</label><br>
 			<input type="text"
 				class="regular-text mmm-custom-title"
@@ -305,7 +305,7 @@ function mmm_child_render_custom_section_card( string $type, string $id, array $
 
 		<p>
 			<button type="button" class="button-link delete mmm-custom-remove">
-				<?php esc_html_e( 'Remove', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( 'Remove', 'mixmymeals-hello-child' ); ?>
 			</button>
 		</p>
 
@@ -395,16 +395,16 @@ function mmm_child_register_plan_action_settings(): void {
 
 	add_settings_section(
 		'mmm_plan_hero_actions',
-		__( 'Buttons: Meal plan page', 'mixmymeals-astra-child' ),
+		__( 'Buttons: Meal plan page', 'mixmymeals-hello-child' ),
 		static function () {
-			echo '<p>' . esc_html__( 'The buttons in the title block of a meal plan. Drag them into the order they should appear in; unticked buttons stay off the page.', 'mixmymeals-astra-child' ) . '</p>';
+			echo '<p>' . esc_html__( 'The buttons in the title block of a meal plan. Drag them into the order they should appear in; unticked buttons stay off the page.', 'mixmymeals-hello-child' ) . '</p>';
 		},
 		MMM_CHILD_SETTINGS_PAGE
 	);
 
 	add_settings_field(
 		'mmm_plan_hero_actions_order',
-		__( 'Buttons', 'mixmymeals-astra-child' ),
+		__( 'Buttons', 'mixmymeals-hello-child' ),
 		'mmm_child_render_plan_actions_field',
 		MMM_CHILD_SETTINGS_PAGE,
 		'mmm_plan_hero_actions'
@@ -424,7 +424,7 @@ function mmm_child_render_plan_actions_field(): void {
 	$registry = mmm_plan_action_registry();
 
 	if ( empty( $registry ) ) {
-		echo '<p>' . esc_html__( 'The buttons appear here as soon as the site has a meal plan — the list is the plugin’s, including what add-ons contribute.', 'mixmymeals-astra-child' ) . '</p>';
+		echo '<p>' . esc_html__( 'The buttons appear here as soon as the site has a meal plan — the list is the plugin’s, including what add-ons contribute.', 'mixmymeals-hello-child' ) . '</p>';
 		return;
 	}
 
@@ -457,7 +457,7 @@ function mmm_child_render_plan_actions_field(): void {
 			esc_attr( $name ),
 			esc_attr( $key ),
 			/* translators: %s: name of the button, e.g. “Send via Email”. */
-			esc_attr( sprintf( __( 'Caption of “%s”', 'mixmymeals-astra-child' ), $label ) )
+			esc_attr( sprintf( __( 'Caption of “%s”', 'mixmymeals-hello-child' ), $label ) )
 		);
 
 		foreach ( $modes as $mmm_mode => $mmm_mode_label ) {
@@ -483,9 +483,9 @@ function mmm_child_render_plan_actions_field(): void {
 	echo '</ul>';
 
 	echo '<p class="description">'
-		. esc_html__( 'A button without an icon cannot be shown as an icon alone. “Icon only” keeps the caption as the button’s name for screen readers and needs MixMyMeals 3.73.0.', 'mixmymeals-astra-child' )
+		. esc_html__( 'A button without an icon cannot be shown as an icon alone. “Icon only” keeps the caption as the button’s name for screen readers and needs MixMyMeals 3.73.0.', 'mixmymeals-hello-child' )
 		. ' '
-		. esc_html__( '“Subscribe” leads to the subscribe form and therefore only appears while the section “Get this plan by e-mail” is on the page.', 'mixmymeals-astra-child' )
+		. esc_html__( '“Subscribe” leads to the subscribe form and therefore only appears while the section “Get this plan by e-mail” is on the page.', 'mixmymeals-hello-child' )
 		. '</p>';
 }
 
@@ -588,7 +588,7 @@ function mmm_child_section_sort_assets( string $hook ): void {
 		array( 'jquery', 'jquery-ui-sortable', 'editor' ),
 		file_exists( $mmm_js )
 			? (string) filemtime( $mmm_js )
-			: CHILD_THEME_MIXMYMEALS_ASTRA_CHILD_VERSION,
+			: MMM_CHILD_THEME_VERSION,
 		true
 	);
 
@@ -596,12 +596,12 @@ function mmm_child_section_sort_assets( string $hook ): void {
 		'mmm-section-settings',
 		'mmmSectionSort',
 		array(
-			'up'            => __( 'Move up', 'mixmymeals-astra-child' ),
-			'down'          => __( 'Move down', 'mixmymeals-astra-child' ),
-			'title'         => __( 'Title', 'mixmymeals-astra-child' ),
-			'remove'        => __( 'Remove', 'mixmymeals-astra-child' ),
-			'removeConfirm' => __( 'Really remove?', 'mixmymeals-astra-child' ),
-			'untitled'      => __( 'Custom section', 'mixmymeals-astra-child' ),
+			'up'            => __( 'Move up', 'mixmymeals-hello-child' ),
+			'down'          => __( 'Move down', 'mixmymeals-hello-child' ),
+			'title'         => __( 'Title', 'mixmymeals-hello-child' ),
+			'remove'        => __( 'Remove', 'mixmymeals-hello-child' ),
+			'removeConfirm' => __( 'Really remove?', 'mixmymeals-hello-child' ),
+			'untitled'      => __( 'Custom section', 'mixmymeals-hello-child' ),
 		)
 	);
 
@@ -684,13 +684,13 @@ function mmm_child_render_settings_page(): void {
 	settings_errors();
 	?>
 	<div class="wrap">
-		<h1><?php esc_html_e( 'Theme Settings', 'mixmymeals-astra-child' ); ?></h1>
+		<h1><?php esc_html_e( 'Theme Settings', 'mixmymeals-hello-child' ); ?></h1>
 
 		<p>
 			<?php
 			esc_html_e(
 				'Settings this child theme adds on top of Astra.',
-				'mixmymeals-astra-child'
+				'mixmymeals-hello-child'
 			);
 			?>
 		</p>
@@ -718,9 +718,9 @@ function mmm_child_render_settings_page(): void {
 			?>
 			<div class="mmm-unsaved notice notice-warning inline" hidden>
 				<p>
-					<strong><?php esc_html_e( 'Unsaved changes!', 'mixmymeals-astra-child' ); ?></strong>
+					<strong><?php esc_html_e( 'Unsaved changes!', 'mixmymeals-hello-child' ); ?></strong>
 					<button type="submit" form="mmm-theme-settings-form" class="button-link mmm-unsaved__save">
-						<?php esc_html_e( 'Save now', 'mixmymeals-astra-child' ); ?>
+						<?php esc_html_e( 'Save now', 'mixmymeals-hello-child' ); ?>
 					</button>
 				</p>
 			</div>

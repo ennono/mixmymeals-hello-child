@@ -21,7 +21,7 @@
  * (Rezeptkategorie, -schlagwort, Plankategorie) laufen weiter über Astras
  * archive.php und behalten ihre Hooks unverändert.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,8 +43,8 @@ add_filter( 'mmm_single_section_types', 'mmm_archive_section_types' );
  */
 function mmm_archive_section_types( array $types ): array {
 
-	$types['recipe_archive'] = __( 'Recipe archive', 'mixmymeals-astra-child' );
-	$types['plan_archive']   = __( 'Meal plan archive', 'mixmymeals-astra-child' );
+	$types['recipe_archive'] = __( 'Recipe archive', 'mixmymeals-hello-child' );
+	$types['plan_archive']   = __( 'Meal plan archive', 'mixmymeals-hello-child' );
 
 	return $types;
 }
@@ -66,34 +66,34 @@ function mmm_archive_section_registry( array $sections, string $type ): array {
 	if ( 'recipe_archive' === $type ) {
 		return array(
 			'description' => array(
-				'label'  => __( 'Archive description', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Archive description', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_description',
 				'hero'   => true,
 			),
 			'search'      => array(
-				'label'  => __( 'Search form', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Search form', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_search',
 				'hero'   => true,
 			),
 			'filter'      => array(
-				'label'  => __( 'Diet filter', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Diet filter', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_recipe_filter',
 				'hero'   => true,
 			),
 			'browse'      => array(
-				'label'  => __( 'Browse card', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Browse card', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_browse',
 			),
 			'heading'     => array(
-				'label'  => __( 'List heading', 'mixmymeals-astra-child' ),
+				'label'  => __( 'List heading', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_heading',
 			),
 			'list'        => array(
-				'label'  => __( 'The list', 'mixmymeals-astra-child' ),
+				'label'  => __( 'The list', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_list',
 			),
 			'pagination'  => array(
-				'label'  => __( 'Pagination', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Pagination', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_pagination',
 			),
 		);
@@ -102,26 +102,26 @@ function mmm_archive_section_registry( array $sections, string $type ): array {
 	if ( 'plan_archive' === $type ) {
 		return array(
 			'description' => array(
-				'label'  => __( 'Archive description', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Archive description', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_description',
 				'hero'   => true,
 			),
 			'search'      => array(
-				'label'  => __( 'Search form', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Search form', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_search',
 				'hero'   => true,
 			),
 			'filter'      => array(
-				'label'  => __( 'Category filter', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Category filter', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_filter',
 				'hero'   => true,
 			),
 			'list'        => array(
-				'label'  => __( 'The list', 'mixmymeals-astra-child' ),
+				'label'  => __( 'The list', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_list',
 			),
 			'pagination'  => array(
-				'label'  => __( 'Pagination', 'mixmymeals-astra-child' ),
+				'label'  => __( 'Pagination', 'mixmymeals-hello-child' ),
 				'render' => 'mmm_archive_section_pagination',
 			),
 		);
@@ -248,11 +248,11 @@ function mmm_archive_sections_take_over(): void {
 		return;
 	}
 
-	remove_action( 'astra_after_archive_title', 'mmm_print_archive_description_from_option' );
-	remove_action( 'astra_after_archive_title', 'mmm_add_archive_search_to_archive', 30 );
-	remove_action( 'astra_after_archive_description', 'mmm_print_meal_plan_category_filter' );
+	remove_action( 'mmm_after_archive_title', 'mmm_print_archive_description_from_option' );
+	remove_action( 'mmm_after_archive_title', 'mmm_add_archive_search_to_archive', 30 );
+	remove_action( 'mmm_after_archive_description', 'mmm_print_meal_plan_category_filter' );
 
-	add_action( 'astra_after_archive_title', 'mmm_render_archive_hero_sections', 10 );
+	add_action( 'mmm_after_archive_title', 'mmm_render_archive_hero_sections', 10 );
 }
 
 /**
@@ -346,11 +346,11 @@ function mmm_archive_section_heading(): void {
 		if ( '' !== $term ) {
 			printf(
 				/* translators: %s: the search term. */
-				esc_html__( 'Search results for “%s”', 'mixmymeals-astra-child' ),
+				esc_html__( 'Search results for “%s”', 'mixmymeals-hello-child' ),
 				esc_html( $term )
 			);
 		} else {
-			esc_html_e( 'All recipes', 'mixmymeals-astra-child' );
+			esc_html_e( 'All recipes', 'mixmymeals-hello-child' );
 		}
 		?>
 	</h2>
@@ -365,12 +365,12 @@ function mmm_archive_section_heading(): void {
  * von template-parts/content-none.php.
  */
 function mmm_archive_section_list(): void {
-	astra_content_loop();
+	mmm_content_loop();
 }
 
 /**
  * Blätterlinks.
  */
 function mmm_archive_section_pagination(): void {
-	astra_pagination();
+	mmm_pagination();
 }

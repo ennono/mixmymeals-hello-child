@@ -16,15 +16,15 @@ if ( class_exists( 'mixmymeals' ) ) {
 
 			$atts = shortcode_atts(
 				array(
-					'eyebrow'         => __( 'Inspiration', 'mixmymeals-astra-child' ),
-					'headline_prefix' => __( 'Feel like', 'mixmymeals-astra-child' ),
+					'eyebrow'         => __( 'Inspiration', 'mixmymeals-hello-child' ),
+					'headline_prefix' => __( 'Feel like', 'mixmymeals-hello-child' ),
 					'headline_suffix' => '?',
-					'primary_text'    => __( 'Go to recipe', 'mixmymeals-astra-child' ),
+					'primary_text'    => __( 'Go to recipe', 'mixmymeals-hello-child' ),
 
 					// steuert wohin der Primary-Link führt: plan | meal | recipe
 					'primary_target'  => 'plan',
 
-					'secondary_text'  => __( 'All Recipes', 'mixmymeals-astra-child' ),
+					'secondary_text'  => __( 'All Recipes', 'mixmymeals-hello-child' ),
 					'secondary_url'   => home_url( '' ),
 					'image_size'      => 'large',
 					'class'           => '',

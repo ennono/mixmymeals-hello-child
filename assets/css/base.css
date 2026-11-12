@@ -1,0 +1,378 @@
+/*
+ * Grundregeln des Themes: Typografie, Formulare, Container, Karten-Raster.
+ *
+ * Bis Version 1.x lieferte sie das Eltern-Theme Astra (GPL-2.0-or-later,
+ * Brainstorm Force). Beim Umzug auf Hello Elementor wurden genau die Regeln
+ * uebernommen, die das Child-Theme weiter braucht, damit die Seiten gleich
+ * aussehen: Element-Regeln und die Layout-Klassen, die includes/layout.php
+ * ausgibt. Aus dem Praefix ast- wurde mmm-l- (l fuer Layout). Die Datei ist
+ * ein Ausgangsstand zum Ausduennen, kein Ort fuer Neues: Neues gehoert in
+ * style.css.
+ */
+
+address,blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{border:0;font-size:100%;font-style:inherit;font-weight:inherit;margin:0;outline:0;padding:0;vertical-align:baseline}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+progress{display:inline-block;vertical-align:baseline}
+a{background-color:transparent}
+a:active{outline:0}
+a,a:focus,a:hover,a:visited{text-decoration:none}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:700}
+dfn{font-style:italic}
+mark{background:#ff0;color:#000}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+figure{margin:0}
+hr{box-sizing:content-box;height:0}
+pre{overflow:auto}
+code,kbd,pre,samp{font-size:1em}
+button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+input{line-height:normal}
+input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}
+input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}
+#comments .submit,.search .search-submit{padding:10px 15px;border-radius:2px;line-height:1.8571428571;border:0}
+.archive .no-results .mmm-l-search-submit,.search .site-main .mmm-l-search-submit{display:none}
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
+fieldset{border:1px solid var(--mmm-l-border-color);margin:0 0;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+fieldset legend{margin-bottom:1.5em;padding:0 .5em}
+textarea{overflow:auto}
+optgroup{font-weight:700}
+table{border-collapse:collapse;border-spacing:0}
+td,th{padding:0}
+.mmm-l-container{max-width:100%}
+.mmm-l-container{margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}
+.mmm-l-row{margin-left:-20px;margin-right:-20px}
+.mmm-l-grid-common-col{position:relative;min-height:1px;padding-left:20px;padding-right:20px}
+.mmm-l-full-width{width:100%}
+@media (min-width:768px){.mmm-l-width-md-4{width:33.3333333333%}.mmm-l-width-md-6{width:50%;float:left}}
+h1,h2,h3,h4,h5,h6{clear:both}
+.entry-content :where(h1),h1{color:#808285;font-size:2em;line-height:1.2}
+.entry-content :where(h2),h2{color:#808285;font-size:1.7em;line-height:1.3}
+.entry-content :where(h3),h3{color:#808285;font-size:1.5em;line-height:1.4}
+.entry-content :where(h4),h4{color:#808285;line-height:1.5;font-size:1.3em}
+.entry-content :where(h5),h5{color:#808285;line-height:1.6;font-size:1.2em}
+.entry-content :where(h6),h6{color:#808285;line-height:1.7;font-size:1.1em}
+html{box-sizing:border-box}
+*,:after,:before{box-sizing:inherit}
+body{color:#808285;background:#fff;font-style:normal}
+ol,ul{margin:0 0 1.5em 3em}
+ul{list-style:disc}
+ol{list-style:decimal}
+li>ol,li>ul{margin-bottom:0;margin-left:1.5em}
+dt{font-weight:600}
+dd{margin:0 1.5em 1em}
+b,strong{font-weight:700}
+cite,dfn,em,i{font-style:italic}
+blockquote,q{quotes:"" ""}
+blockquote:after,blockquote:before,q:after,q:before{content:""}
+blockquote{border-left:5px solid var(--mmm-l-border-color);padding:20px;font-size:1.2em;font-style:italic;margin:0 0 1.5em;position:relative}
+address{margin:0 0 1.5em}
+address,cite{font-style:italic}
+abbr,acronym{border-bottom:1px dotted #666;cursor:help}
+pre{background:var(--mmm-l-code-block-background);font-family:"Courier 10 Pitch",Courier,monospace;margin-bottom:1.6em;overflow:auto;max-width:100%;padding:1.6em}
+code,kbd,tt,var{font:1em Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace}
+img{height:auto;max-width:100%}
+hr{background-color:#ccc;border:0;height:1px;margin-bottom:1.5em}
+.mmm-l-button,.button,button,input,select,textarea{color:#808285;font-weight:400;font-size:100%;margin:0;vertical-align:baseline}
+button,input{line-height:normal}
+big{font-size:125%}
+ins,mark{background:0 0;text-decoration:none}
+table,td,th{border:1px solid var(--mmm-l-border-color)}
+table{border-collapse:separate;border-spacing:0;border-width:1px 0 0 1px;margin:0 0 1.5em;width:100%}
+th{font-weight:600}
+td,th{padding:.7em 1em;border-width:0 1px 1px 0}
+.mmm-l-button,.button,button,input[type=button],input[type=reset],input[type=submit]{border:1px solid;border-color:var(--mmm-l-border-color);border-radius:2px;background:#e6e6e6;padding:.6em 1em .4em;color:#fff}
+.mmm-l-button:focus,.mmm-l-button:hover,.button:focus,.button:hover,button:focus,button:hover,input[type=button]:focus,input[type=button]:hover,input[type=reset]:focus,input[type=reset]:hover,input[type=submit]:focus,input[type=submit]:hover{color:#fff;border-color:var(--mmm-l-border-color)}
+.mmm-l-button:active,.mmm-l-button:focus,.button:active,.button:focus,button:active,button:focus,input[type=button]:active,input[type=button]:focus,input[type=reset]:active,input[type=reset]:focus,input[type=submit]:active,input[type=submit]:focus{border-color:var(--mmm-l-border-color);outline:0}
+input[type=email],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=url],textarea{color:#666;border:1px solid var(--mmm-l-border-color);border-radius:2px;-webkit-appearance:none}
+input[type=email]:focus,input[type=password]:focus,input[type=search]:focus,input[type=tel]:focus,input[type=text]:focus,input[type=url]:focus,textarea:focus{color:#111}
+textarea{padding-left:3px;width:100%}
+a{color:#4169e1}
+a:focus,a:hover{color:#191970}
+a:focus{outline:thin dotted}
+a:hover{outline:0}
+.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}
+.screen-reader-text:focus{background-color:#f1f1f1;border-radius:2px;box-shadow:0 0 2px 2px rgba(0,0,0,.6);clip:auto!important;color:#21759b;display:block;font-size:12.25px;font-size:.875rem;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
+.alignleft{display:inline;float:left;margin-right:1.5em}
+.alignright{display:inline;float:right;margin-left:1.5em}
+.aligncenter{clear:both;text-align:center;display:block;margin-left:auto;margin-right:auto}
+embed,iframe,object{max-width:100%}
+.wp-caption{margin-bottom:1.5em;max-width:100%}
+.wp-caption img[class*=wp-image-]{display:block;margin-left:auto;margin-right:auto}
+.wp-caption .wp-caption-text{margin:.8075em 0}
+.wp-caption-text{text-align:center}
+::selection{color:#fff;background:#0274be}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+#page{position:relative}
+a,a:focus{text-decoration:none}
+a{transition:all .2s linear}
+img{vertical-align:middle}
+.entry-content :where(h1,h2,h3,h4,h5,h6){margin-bottom:20px}
+p{margin-bottom:1.75em}
+blockquote{margin:1.5em 1em 1.5em 3em;font-size:1.1em;line-height:inherit;position:relative}
+.mmm-l-button,.button,input[type=button],input[type=submit]{border-radius:0;padding:18px 30px;border:0;box-shadow:none;text-shadow:none}
+.mmm-l-button:hover,.button:hover,input[type=button]:hover,input[type=submit]:hover{box-shadow:none}
+.mmm-l-button:active,.mmm-l-button:focus,.button:active,.button:focus,input[type=button]:active,input[type=button]:focus,input[type=submit]:active,input[type=submit]:focus{box-shadow:none}
+.search-form .search-field{outline:0}
+.site .skip-link{background-color:#f1f1f1;box-shadow:0 0 1px 1px rgba(0,0,0,.2);color:#21759b;display:block;font-family:Montserrat,"Helvetica Neue",sans-serif;font-size:14px;font-weight:700;left:-9999em;outline:0;padding:15px 23px 14px;text-decoration:none;text-transform:none;top:-9999em}
+.site .skip-link:focus{clip:auto;height:auto;left:6px;top:7px;width:auto;z-index:100000;outline:thin dotted}
+input,select{line-height:1}
+.mmm-l-button,body,button,input[type=button],input[type=submit],textarea{line-height:1.8571428571}
+.mmm-l-single-post .entry-title,.mmm-l-single-post .entry-title a{line-height:1.2}
+.entry-title,.entry-title a{font-weight:var(--mmm-l-blog-title-font-weight,normal)}
+body{background-color:#fff}
+#page{display:block}
+#primary{width:100%}
+#primary{margin:4em 0}
+.mmm-l-separate-container{background-color:#f5f5f5}
+.mmm-l-separate-container #primary{padding:4em 0;margin:0;border:0}
+.mmm-l-separate-container .site-main>.mmm-l-row{margin-left:0;margin-right:0}
+.mmm-l-separate-container .mmm-l-article-post{background-color:#fff}
+.mmm-l-separate-container .mmm-l-article-post,.mmm-l-separate-container .mmm-l-article-single{border-bottom:1px solid var(--mmm-l-border-color);margin:0;padding:5.34em 6.67em}
+.mmm-l-separate-container .mmm-l-article-single{border-bottom:0}
+@media (max-width:1200px){.mmm-l-separate-container .mmm-l-article-post,.mmm-l-separate-container .mmm-l-article-single{margin:0;padding:3.34em 2.4em}}
+@media (min-width:993px){.mmm-l-separate-container #primary{margin:4em 0;padding:0}}
+@media (max-width:992px){.mmm-l-separate-container #primary{padding-left:0;padding-right:0}}
+.sticky{display:block}
+.hentry{margin:0 0 1.5em}
+.page-links{clear:both;margin-top:1em}
+.page-links a{display:inline-block}
+.page-links a .page-link{border-color:var(--mmm-l-border-color);background:0 0}
+.page-links .page-link{padding:0;margin:0 0 .3em .3em;border:2px solid var(--mmm-l-border-color);color:#000;background:0 0;font-size:.8em;width:2.5em;height:2.5em;line-height:calc(2.5em - 4px);display:inline-block;text-align:center;transition:all .2s linear}
+.page-links .page-link:focus,.page-links .page-link:hover{color:#000}
+@media (max-width:768px){.page-links .page-link{margin-bottom:6px}}
+.entry-content>:last-child,.page-content>:last-child{margin-bottom:0}
+.bypostauthor{display:block}
+body{overflow-x:hidden}
+input[type=email],input[type=number],input[type=password],input[type=reset],input[type=search],input[type=tel],input[type=text],input[type=url],select,textarea{color:#666;padding:.75em;height:auto;border-width:1px;border-style:solid;border-color:var(--mmm-l-border-color);border-radius:2px;background:var(--mmm-l-comment-inputs-background);box-shadow:none;box-sizing:border-box;transition:all .2s linear}
+input[type=email]:focus,input[type=password]:focus,input[type=reset]:focus,input[type=search]:focus,input[type=tel]:focus,input[type=text]:focus,input[type=url]:focus,select:focus,textarea:focus{background-color:#fff;border-color:var(--mmm-l-border-color);box-shadow:none}
+input[type=button],input[type=button]:focus,input[type=button]:hover,input[type=reset],input[type=reset]:focus,input[type=reset]:hover,input[type=submit],input[type=submit]:focus,input[type=submit]:hover{box-shadow:none}
+textarea{width:100%}
+input[type=search]:focus{outline:thin dotted}
+input[type=range]{-webkit-appearance:none;width:100%;margin:5.7px 0;padding:0;border:none}
+input[type=range]:focus{outline:0}
+input[type=range]::-webkit-slider-runnable-track{width:100%;height:8.6px;cursor:pointer;box-shadow:2.6px 2.6px .4px #ccc,0 0 2.6px #d9d9d9;background:rgba(255,255,255,.2);border-radius:13.6px;border:0 solid #fff}
+input[type=range]::-webkit-slider-thumb{box-shadow:0 0 0 rgba(255,221,0,.37),0 0 0 rgba(255,224,26,.37);border:7.9px solid #0274be;height:20px;width:20px;border-radius:50px;background:#0274be;cursor:pointer;-webkit-appearance:none;margin-top:-5.7px}
+input[type=range]:focus::-webkit-slider-runnable-track{background:rgba(255,255,255,.2)}
+input[type=range]::-moz-range-track{width:100%;height:8.6px;cursor:pointer;box-shadow:2.6px 2.6px .4px #ccc,0 0 2.6px #d9d9d9;background:rgba(255,255,255,.2);border-radius:13.6px;border:0 solid #fff}
+input[type=range]::-moz-range-thumb{box-shadow:0 0 0 rgba(255,221,0,.37),0 0 0 rgba(255,224,26,.37);border:7.9px solid #0274be;height:20px;width:20px;border-radius:50px;background:#0274be;cursor:pointer}
+input[type=color]{border:none;width:100px;padding:0;height:30px;cursor:pointer}
+input[type=color]::-webkit-color-swatch-wrapper{padding:0;border:none}
+input[type=color]::-webkit-color-swatch{border:none}
+.page .entry-header{margin-bottom:1.5em}
+.search .entry-header{margin-bottom:1em}
+.entry-header{margin-bottom:1.2em;word-wrap:break-word}
+.entry-header+.mmm-l-blog-featured-section{margin-top:.5em}
+.entry-content{word-wrap:break-word}
+.entry-content p{margin-bottom:1.6em}
+.entry-content::after{display:table;clear:both;content:""}
+.mmm-l-article-inner{width:100%;overflow-wrap:break-word}
+.mmm-l-no-thumb .mmm-l-blog-featured-section{margin-bottom:0}
+.mmm-l-no-thumb .entry-header+.mmm-l-blog-featured-section{margin-top:0}
+.mmm-l-blog-featured-section{margin-bottom:1.5em}
+.error404 .page-header{margin-bottom:1.5em}
+.error404 .page-header .page-title{margin-bottom:0}
+.archive .entry-title,.blog .entry-title,.search .entry-title{line-height:1.3}
+.page-title{margin-bottom:1em;font-weight:400}
+.entry-title{margin-bottom:.2em}
+.mmm-l-article-post{margin-bottom:2.5em}
+.mmm-l-article-post:last-child{margin-bottom:0;border-bottom:0}
+.search .site-content .content-area .search-form{margin-bottom:3em}
+.mmm-l-archive-description{margin-bottom:2.5em;padding-bottom:1.3333em;border-bottom:1px solid var(--mmm-l-border-color)}
+.mmm-l-archive-description .mmm-l-archive-title{margin-bottom:4px;font-size:40px;font-size:2.85714rem;font-weight:300}
+.mmm-l-archive-description p{margin-bottom:0;font-size:20px;font-size:1.42857rem;line-height:1.65;font-weight:300}
+.mmm-l-separate-container .mmm-l-archive-description{background-color:#eee;padding-bottom:0;border-bottom:0}
+@media (max-width:1200px){.mmm-l-separate-container .mmm-l-archive-description{margin:0;padding:3.34em 2.4em}}
+@media (max-width:992px){.mmm-l-separate-container .mmm-l-archive-description{padding:2.14em}}
+@media (min-width:1201px){.mmm-l-separate-container .mmm-l-archive-description{margin:0;padding:5em 6.67em 3.33333em}}
+.single .entry-header{margin-bottom:2em}
+.single .entry-header .post-thumb{margin-bottom:2em}
+.single .entry-header .post-thumb img{margin-top:0;margin-bottom:0}
+@media (max-width:768px){.mmm-l-separate-container .entry-header{margin-bottom:1em}}
+.mmm-l-separate-container .error-404,.mmm-l-separate-container .no-results{background-color:#fff}
+@media (max-width:1200px){.mmm-l-separate-container .no-results{margin:0;padding:3.34em 2.4em}}
+@media (max-width:768px){.mmm-l-separate-container .no-results{padding:1.5em 2.14em}}
+@media (max-width:544px){.mmm-l-separate-container .no-results{padding:1.5em 1em}}
+@media (min-width:1201px){.mmm-l-separate-container .no-results{margin:0;padding:5.34em 6.67em}}
+:root{--mmm-l-post-nav-space:0;--mmm-l-container-default-xlg-padding:6.67em;--mmm-l-container-default-lg-padding:5.67em;--mmm-l-container-default-slg-padding:4.34em;--mmm-l-container-default-md-padding:3.34em;--mmm-l-container-default-sm-padding:6.67em;--mmm-l-container-default-xs-padding:2.4em;--mmm-l-container-default-xxs-padding:1.4em;--mmm-l-code-block-background:#EEEEEE;--mmm-l-comment-inputs-background:#FAFAFA;--mmm-l-normal-container-width:940px;--mmm-l-narrow-container-width:750px;--mmm-l-blog-title-font-weight:normal;--mmm-l-blog-meta-weight:inherit;--mmm-l-global-color-primary:var(--mmm-l-global-color-5);--mmm-l-global-color-secondary:var(--mmm-l-global-color-4);--mmm-l-global-color-alternate-background:var(--mmm-l-global-color-7);--mmm-l-global-color-subtle-background:var(--mmm-l-global-color-6);--mmm-l-bg-style-guide:var( --mmm-l-global-color-secondary,var(--mmm-l-global-color-5) );--mmm-l-shadow-style-guide:0px 0px 4px 0 #00000057;--mmm-l-global-dark-bg-style:#fff;--mmm-l-global-dark-lfs:#fbfbfb;--mmm-l-widget-bg-color:#fafafa;--mmm-l-wc-container-head-bg-color:#fbfbfb;--mmm-l-title-layout-bg:#eeeeee;--mmm-l-search-border-color:#e7e7e7;--mmm-l-lifter-hover-bg:#e6e6e6;--mmm-l-gallery-block-color:#000;--srfm-color-input-label:var(--mmm-l-global-color-2);}
+html{font-size:112.5%;}
+a,.page-title{color:#3F6F1E;}
+a:hover,a:focus{color:#5C9E2E;}
+body,button,input,select,textarea,.mmm-l-button{font-family:'Nunito Sans',sans-serif;font-weight:400;font-size:18px;font-size:1rem;line-height:var(--mmm-l-body-line-height,1.3em);}
+blockquote{color:#000000;}
+h1,h2,h3,h4,h5,h6,.entry-content :where(h1,h2,h3,h4,h5,h6){font-family:'Fredoka',sans-serif;}
+.entry-title{font-size:1.5rem;}
+.mmm-l-blog-meta-container{font-size:18px;font-size:1rem;}
+.archive .mmm-l-article-post,.blog .mmm-l-article-post,.archive .mmm-l-article-post:hover,.blog .mmm-l-article-post:hover{overflow:hidden;}
+h1,.entry-content :where(h1){font-size:42px;font-size:2.3333333333333rem;font-weight:600;font-family:'Fredoka',sans-serif;line-height:1em;}
+h2,.entry-content :where(h2){font-size:42px;font-size:2.3333333333333rem;font-family:'Fredoka',sans-serif;line-height:1em;}
+h3,.entry-content :where(h3){font-size:22px;font-size:1.2222222222222rem;font-family:'Fredoka',sans-serif;line-height:1em;}
+h4,.entry-content :where(h4){font-size:18px;font-size:1rem;line-height:1em;font-family:'Fredoka',sans-serif;}
+h5,.entry-content :where(h5){font-size:18px;font-size:1rem;line-height:1em;font-family:'Fredoka',sans-serif;}
+h6,.entry-content :where(h6){font-size:18px;font-size:1rem;line-height:1em;font-family:'Fredoka',sans-serif;}
+::selection{background-color:#5C9E2E;color:#ffffff;}
+body,h1,h2,h3,h4,h5,h6,.entry-title a,.entry-content :where(h1,h2,h3,h4,h5,h6){color:#2C2A24;}
+input:focus,input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="reset"]:focus,input[type="search"]:focus,textarea:focus{border-color:#3F6F1E;}
+input[type="radio"]:checked,input[type=reset],input[type="checkbox"]:checked,input[type="checkbox"]:hover:checked,input[type="checkbox"]:focus:checked,input[type=range]::-webkit-slider-thumb{border-color:#3F6F1E;background-color:#3F6F1E;box-shadow:none;}
+.entry-meta,.entry-meta *{line-height:1.45;color:#3F6F1E;}
+.entry-meta a:not(.mmm-l-button):hover,.entry-meta a:not(.mmm-l-button):hover *,.entry-meta a:not(.mmm-l-button):focus,.entry-meta a:not(.mmm-l-button):focus *,.page-links > .page-link,.page-links .page-link:hover{color:#5C9E2E;}
+.page-links .page-link{color:#3F6F1E;}
+.search-form input.search-field:focus{outline:none;}
+.mmm-l-single-post .entry-content a,.mmm-l-comment-content a:not(.mmm-l-comment-edit-reply-wrap a){text-decoration:underline;}
+a:focus-visible,.site .skip-link:focus-visible,.button.search-submit:focus-visible,.mmm-l-button:focus{outline-style:dotted;outline-color:inherit;outline-width:thin;}
+input:focus,input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="reset"]:focus,input[type="search"]:focus,input[type="number"]:focus,textarea:focus{border-style:dotted;border-color:inherit;border-width:thin;}
+input{outline:none;}
+@media (max-width:921px){.mmm-l-separate-container:where(.archive,.blog,.page,.single:not(.single-post),.single-post) .mmm-l-article-post,.mmm-l-separate-container:where(.archive,.blog,.page,.single:not(.single-post),.single-post) .mmm-l-article-single{padding:1.5em 2.14em;}}
+@media (min-width:922px){.search-no-results.mmm-l-separate-container #primary{margin-bottom:4em;}}
+button,.mmm-l-button,.button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]{border-style:solid;border-top-width:0px;border-right-width:0px;border-left-width:0px;border-bottom-width:0px;color:#ffffff;border-color:#a6b42e;background-color:#a6b42e;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;font-family:inherit;font-weight:500;font-size:18px;font-size:1rem;line-height:1em;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;}
+button:focus,button:hover,.mmm-l-button:hover,input[type=reset]:hover,input[type=reset]:focus,input#submit:hover,input#submit:focus,input[type="button"]:hover,input[type="button"]:focus,input[type="submit"]:hover,input[type="submit"]:focus{color:#fbf5f4;background-color:#a6b42e;border-color:#a6b42e;}
+@media (max-width:921px){.mmm-l-comment-avatar-wrap img{max-width:2.5em;}.mmm-l-comment-meta{padding:0 1.8888em 1.3333em;}.mmm-l-separate-container .comment-respond{padding:2em 2.14em;}}
+@media (min-width:544px){.mmm-l-container{max-width:100%;}}
+@media (max-width:544px){.mmm-l-separate-container .mmm-l-article-post,.mmm-l-separate-container .mmm-l-article-single,.mmm-l-separate-container .comments-title,.mmm-l-separate-container .mmm-l-archive-description{padding:1.5em 1em;}.mmm-l-separate-container #content .mmm-l-container{padding-left:0.54em;padding-right:0.54em;}.mmm-l-separate-container .mmm-l-comment-list .bypostauthor{padding:.5em;}}
+body,.mmm-l-separate-container{background-color:#fbf8f1;background-image:none;}
+@media (max-width:921px){h1,.entry-content :where(h1){font-size:58px;}h2,.entry-content :where(h2){font-size:40px;}h3,.entry-content :where(h3){font-size:24px;}h4,.entry-content :where(h4){font-size:22px;font-size:1.2222222222222rem;}}
+@media (max-width:544px){h1,.entry-content :where(h1){font-size:44px;}h2,.entry-content :where(h2){font-size:25px;}h3,.entry-content :where(h3){font-size:20px;}}
+@media (max-width:921px){html{font-size:102.6%;}}
+@media (max-width:544px){html{font-size:102.6%;}}
+@media (min-width:922px){.mmm-l-container{max-width:980px;}}
+@media (min-width:922px){.site-content .mmm-l-container{display:flex;}}
+@media (max-width:921px){.site-content .mmm-l-container{flex-direction:column;}}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-article-inner{box-shadow:0px 6px 15px -2px rgba(16,24,40,0.05);}
+.mmm-l-separate-container:where(.archive,.blog,.search) .mmm-l-blog-layout-5-grid .mmm-l-article-inner,.mmm-l-plain-container:where(.archive,.blog,.search) .mmm-l-blog-layout-5-grid .mmm-l-article-inner{height:100%;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-row{margin-left:0;margin-right:0;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-article-inner{width:100%;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .blog-layout-5{display:flex;flex-wrap:wrap;vertical-align:middle;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-blog-featured-section{width:25%;margin-bottom:0;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .post-thumb-img-content{height:100%;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-blog-featured-section img{width:100%;height:100%;object-fit:cover;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .post-content{width:75%;padding-left:1.5em;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-no-thumb .mmm-l-blog-featured-section{width:unset;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-no-thumb .post-content{width:100%;}
+.mmm-l-separate-container:where(.archive,.blog,.search) .mmm-l-blog-layout-5-grid .post-content{padding-right:1.5em;padding-top:1.5em;padding-bottom:1.5em;}
+:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-article-post{margin-bottom:2em;padding:0;border-bottom:0;}
+@media (max-width:921px){:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-blog-featured-section{margin-bottom:1.5em;}}
+@media (max-width:921px){:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .mmm-l-blog-featured-section,:where(body.archive,body.blog,body.search) .mmm-l-blog-layout-5-grid .post-content{width:100%;}}
+.site .comments-area{padding-bottom:3em;}
+:root{--wp--custom--mmm-l-default-block-top-padding: 3em;--wp--custom--mmm-l-default-block-right-padding: 3em;--wp--custom--mmm-l-default-block-bottom-padding: 3em;--wp--custom--mmm-l-default-block-left-padding: 3em;--wp--custom--mmm-l-container-width: 940px;--wp--custom--mmm-l-content-width-size: 940px;--wp--custom--mmm-l-wide-width-size: calc(940px + var(--wp--custom--mmm-l-default-block-left-padding) + var(--wp--custom--mmm-l-default-block-right-padding));}
+@media(max-width: 921px){:root{--wp--custom--mmm-l-default-block-top-padding: 3em;--wp--custom--mmm-l-default-block-right-padding: 2em;--wp--custom--mmm-l-default-block-bottom-padding: 3em;--wp--custom--mmm-l-default-block-left-padding: 2em;}}
+@media(max-width: 544px){:root{--wp--custom--mmm-l-default-block-top-padding: 3em;--wp--custom--mmm-l-default-block-right-padding: 1.5em;--wp--custom--mmm-l-default-block-bottom-padding: 3em;--wp--custom--mmm-l-default-block-left-padding: 1.5em;}}
+.mmm-l-plain-container.mmm-l-no-sidebar .entry-content > .alignfull,.mmm-l-page-builder-template .mmm-l-no-sidebar .entry-content > .alignfull{margin-left: calc( -50vw + 50%);margin-right: calc( -50vw + 50%);max-width: 100vw;width: 100vw;}
+.mmm-l-plain-container.mmm-l-no-sidebar .entry-content .alignfull .alignfull,.mmm-l-page-builder-template.mmm-l-no-sidebar .entry-content .alignfull .alignfull,.mmm-l-plain-container.mmm-l-no-sidebar .entry-content .alignfull .alignwide,.mmm-l-page-builder-template.mmm-l-no-sidebar .entry-content .alignfull .alignwide,.mmm-l-plain-container.mmm-l-no-sidebar .entry-content .alignwide .alignfull,.mmm-l-page-builder-template.mmm-l-no-sidebar .entry-content .alignwide .alignfull,.mmm-l-plain-container.mmm-l-no-sidebar .entry-content .alignwide .alignwide,.mmm-l-page-builder-template.mmm-l-no-sidebar .entry-content .alignwide .alignwide{margin-left: auto;margin-right: auto;width: 100%;}
+blockquote{margin: 1.5em;border-color: rgba(0,0,0,0.05);}
+@media(max-width: 1200px){.mmm-l-separate-container .entry-content > .alignfull,.mmm-l-plain-container .entry-content .alignfull{margin-left: calc(-1 * min(var(--mmm-l-container-default-xlg-padding),20px)) ;margin-right: calc(-1 * min(var(--mmm-l-container-default-xlg-padding),20px));}}
+@media(min-width: 1201px){.mmm-l-separate-container .entry-content > .alignfull{margin-left: calc(-1 * var(--mmm-l-container-default-xlg-padding) );margin-right: calc(-1 * var(--mmm-l-container-default-xlg-padding) );}}
+@media(min-width: 544px){.entry-content > .alignleft{margin-right: 20px;}.entry-content > .alignright{margin-left: 20px;}}
+.mmm-l-page-builder-template .entry-header{padding-left: 0;}
+:root{--mmm-l-global-color-0:#5C9E2E;--mmm-l-global-color-1:#3F6F1E;--mmm-l-global-color-2:#3F6F1E;--mmm-l-global-color-3:#2C2A24;--mmm-l-global-color-4:#FBF8F1;--mmm-l-global-color-5:#D2622C;--mmm-l-global-color-6:#3F6F1E;--mmm-l-global-color-7:#ffffff;--mmm-l-global-color-8:#EAF3E0;}
+:root{--mmm-l-border-color : #dddddd;}
+body:where(.archive,.blog,.single:not(.single-post),.single-post).archive .mmm-l-archive-description{max-width:940px;width:100%;text-align:left;}
+body:where(.post-type-archive-mmm_meal_plan,.tax-mmm_meal_plan_category,.tax-mmm_meal_plan_tag,.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.blog,.single-mmm_meal_plan,.single-mmm_recipe,.single-post).archive .mmm-l-archive-description *{font-size:18px;font-size:1rem;}
+body:where(.post-type-archive-mmm_ingredient,.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_ingredient,.single-mmm_recipe).archive .mmm-l-archive-description .mmm-l-archive-title,body:where(.post-type-archive-mmm_ingredient,.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_ingredient,.single-mmm_recipe).archive .mmm-l-archive-description .mmm-l-archive-title *{color:#2c2a24;font-size:42px;font-size:2.3333333333333rem;}
+body:where(.archive,.blog,.page,.single:not(.single-post),.single-post).archive .mmm-l-archive-description > *:not(:last-child){margin-bottom:10px;}
+@media (max-width:921px){body:where(.archive,.blog,.page,.single:not(.single-post),.single-post).archive .mmm-l-archive-description{text-align:left;}}
+@media (max-width:544px){body:where(.archive,.blog,.page,.single:not(.single-post),.single-post).archive .mmm-l-archive-description{text-align:left;}}
+h1,h2,h3,h4,h5,h6,.entry-content :where(h1,h2,h3,h4,h5,h6){color:#3F6F1E;}
+.screen-reader-text,.screen-reader-text span{top:0 !important;}
+.mmm-l-separate-container .mmm-l-article-inner{background-color:transparent;background-image:none;}
+.mmm-l-separate-container .mmm-l-article-post{background-color:#ffffff;background-image:none;}
+@media (max-width:921px){.mmm-l-separate-container .mmm-l-article-post{background-color:var(--mmm-l-global-color-5);background-image:none;}}
+@media (max-width:544px){.mmm-l-separate-container .mmm-l-article-post{background-color:var(--mmm-l-global-color-5);background-image:none;}}
+.mmm-l-separate-container .error-404,.mmm-l-separate-container .no-results,.mmm-l-separate-container .mmm-l-archive-description,.mmm-l-separate-container .comments-area .comment-respond,.mmm-l-separate-container .comments-area .mmm-l-comment-list li,.mmm-l-separate-container .comments-area .comments-title{background-color:#ffffff;background-image:none;}
+@media (max-width:921px){.mmm-l-separate-container .error-404,.mmm-l-separate-container .no-results,.mmm-l-separate-container .mmm-l-archive-description{background-color:var(--mmm-l-global-color-5);background-image:none;}}
+@media (max-width:544px){.mmm-l-separate-container .error-404,.mmm-l-separate-container .no-results,.mmm-l-separate-container .mmm-l-archive-description{background-color:var(--mmm-l-global-color-5);background-image:none;}}
+:root{--e-global-color-astglobalcolor0:#5C9E2E;--e-global-color-astglobalcolor1:#3F6F1E;--e-global-color-astglobalcolor2:#3F6F1E;--e-global-color-astglobalcolor3:#2C2A24;--e-global-color-astglobalcolor4:#FBF8F1;--e-global-color-astglobalcolor5:#D2622C;--e-global-color-astglobalcolor6:#3F6F1E;--e-global-color-astglobalcolor7:#ffffff;--e-global-color-astglobalcolor8:#EAF3E0;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comment-reply-title{font-size:29px;font-size:1.6111111111111rem;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-meta{line-height:1.666666667;color:#3F6F1E;font-size:15px;font-size:0.83333333333333rem;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comments-title{padding: 2em 0;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comments-title{word-wrap: break-word;font-weight: normal;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-list{margin: 0;word-wrap: break-word;padding-bottom: 0.5em;list-style: none;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-list li{list-style: none;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-list .mmm-l-comment-edit-reply-wrap{-js-display: flex;display: flex;justify-content: flex-end;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment{padding: 1em 0 ;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-info img{border-radius: 50%;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-cite-wrap cite{font-style: normal;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comment-reply-title{font-weight: normal;line-height: 1.65;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-meta{margin-bottom: 0.5em;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comments-area .comment-form-comment{width: 100%;border: none;margin: 0;padding: 0;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comments-area .comment-notes{margin-bottom: 1.5em;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comments-area .form-submit{margin-bottom: 0;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comments-area .mmm-l-comment-formwrap input[type="text"]{width: 100%;border-radius: 0;vertical-align: middle;margin-bottom: 10px;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list{padding-bottom: 0;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list .comment-respond{padding-top: 0;padding-bottom: 1em;background-color: transparent;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-list .comment .comment-respond{padding-bottom: 2em;border-bottom: none;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list .bypostauthor{padding: 2em;margin-bottom: 1em;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list .bypostauthor li{background: transparent;margin-bottom: 0;padding: 0 0 0 2em;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comment-content a{word-wrap: break-word;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-list > .comment:last-child .mmm-l-comment{border: none;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list .comment .comment-respond{padding-bottom: 0;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comment .comment-respond{margin-top: 2em;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comment-respond{background-color: #fff;padding: 4em 6.67em;border-bottom: 0;}
+@media (max-width: 1200px){.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comment-respond{padding: 3em 2.34em;}}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comments-title{background-color: #fff;padding: 1.2em 3.99em 0;}
+.mmm-l-page-builder-template:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comment-respond{border-top: none;padding-bottom: 2em;}
+.mmm-l-plain-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comment-reply-title{padding-top: 1em;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-list .children{margin-left: 2em;}
+@media (max-width: 992px){:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-list .children{margin-left: 1em;}}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-info{display: flex;position: relative;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-meta{justify-content: right;padding: 0 3.4em 1.60em;}
+.mmm-l-page-builder-template:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comments-area{padding-left: 20px;padding-right: 20px;margin-top: 0;margin-bottom: 2em;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list .bypostauthor .bypostauthor{background: transparent;margin-bottom: 0;padding-right: 0;padding-bottom: 0;padding-top: 0;}
+@media (min-width:922px){.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list li .comment-respond{padding-left:2.66666em;padding-right:2.66666em;}}
+@media (max-width:544px){.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list .bypostauthor{padding:.5em;}.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comment-respond{padding:1.5em 1em;}.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .mmm-l-comment-list .bypostauthor li{padding:0 0 0 .5em;}:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-list .children{margin-left:0.66666em;}}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comment-reply-title{padding-top: 0;}
+:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comments-area{border-top: 1px solid var(--mmm-l-global-color-subtle-background, var(--mmm-l-global-color-6)); margin-top: 2em;}
+.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comments-area{border-top: 0;}
+@media (max-width:921px){:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-avatar-wrap img{max-width:2.5em;}:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .comments-area{margin-top:1.5em;}:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-meta{padding:0 1.8888em 1.3333em;}.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comment-respond{padding:2em 2.14em;}.mmm-l-separate-container:where(.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.single-mmm_recipe,.single-post) .comments-title{padding:1.43em 1.48em;}:where(body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.single-mmm_recipe,body.single-post) .mmm-l-comment-avatar-wrap{margin-right:0.5em;}}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next.page-numbers{display:inherit;float:none;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination a,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .nav-links a{color:#3F6F1E;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination a:hover,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination a:focus,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination > span:hover:not(.dots),:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination > span.current{color:#5C9E2E;}
+@media (max-width:544px){:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next:focus,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev:focus{width:100% !important;}}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev.page-numbers,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next.page-numbers{padding: 0 1.5em;height: 2.33333em;line-height: calc(2.33333em - 3px);}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination{display: inline-block;width: 100%;padding-top: 2em;text-align: center;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .page-numbers{display: inline-block;width: 2.33333em;height: 2.33333em;font-size: 16px;font-size: 1.06666rem;line-height: calc(2.33333em - 3px);font-weight: 500;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .nav-links{display: inline-block;width: 100%;}
+@media (max-width: 420px){:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev.page-numbers,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next.page-numbers{width: 100%;text-align: center;margin: 0;}}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev:visited,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev:focus,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next:visited,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next:focus{display: inline-block;width: auto;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev svg,:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next svg{height: 16px;position: relative;top: 0.2em;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev svg{margin-right: 0.3em;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next svg{margin-left: 0.3em;}
+.mmm-l-page-builder-template:where(.post-type-archive-mmm_ingredient,.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,.search,.single:not(.single-post),.single-post) .mmm-l-pagination{padding: 2em;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .prev.page-numbers{float: left;}
+:where(body.post-type-archive-mmm_ingredient,body.post-type-archive-mmm_recipe,.tax-mmm_recipe_category,.tax-mmm_recipe_tag,body.search) .mmm-l-pagination .next.page-numbers{float: right;}
+body:where(.post-type-archive-mmm_meal_plan,.tax-mmm_meal_plan_category,.tax-mmm_meal_plan_tag,.single-mmm_meal_plan).archive .mmm-l-archive-description .mmm-l-archive-title,body:where(.post-type-archive-mmm_meal_plan,.tax-mmm_meal_plan_category,.tax-mmm_meal_plan_tag,.single-mmm_meal_plan).archive .mmm-l-archive-description .mmm-l-archive-title *{color:#2c2a24;font-family:'Fredoka',sans-serif;font-weight:600;font-size:48px;font-size:2.6666666666667rem;line-height:1.1em;}
+body:where(.post-type-archive-mmm_ingredient,.single-mmm_ingredient).archive .mmm-l-archive-description *{font-size:19px;font-size:1.0555555555556rem;}
+body:where(.blog,.single-post).archive .mmm-l-archive-description .mmm-l-archive-title,body:where(.blog,.single-post).archive .mmm-l-archive-description .mmm-l-archive-title *{color:#3f6f1e;font-family:'Fredoka',sans-serif;font-weight:600;font-size:48px;font-size:2.6666666666667rem;line-height:1.1em;}
+@media (max-width:921px){.mmm-l-separate-container:where(.search,.error404) #primary{padding:1.5em 0;}:where(body.search,body.error404) #primary{padding:1.5em 0;margin:0;}.mmm-l-separate-container:where(.search,.error404) .mmm-l-article-post,.mmm-l-separate-container:where(.search,.error404) .mmm-l-article-single{padding:1.5em 2.14em;}}
+.search:where(.search) .mmm-l-container section.mmm-l-archive-description{max-width:940px;width:100%;text-align:left;padding-top:3em;padding-right:3em;padding-bottom:3em;padding-left:3em;}
+.search:where(.search) .mmm-l-container section.mmm-l-archive-description > *:not(:last-child){margin-bottom:10px;}
+@media (max-width:921px){.search:where(.search) .mmm-l-container section.mmm-l-archive-description{text-align:left;}}
+@media (max-width:544px){.search:where(.search) .mmm-l-container section.mmm-l-archive-description{text-align:left;}}
+@media (min-width:922px){.error404.mmm-l-separate-container:where(.error404) #primary{margin-bottom:4em;}}
+:where(body.page,body.single:not(.single-post)) header.entry-header{text-align:left;}
+:where(body.page) header.entry-header .entry-title{color:#3F6F1E;font-size:42px;font-size:2.3333333333333rem;}
+:where(body.page,body.single:not(.single-post)) header.entry-header > *:not(:last-child){margin-bottom:10px;}
+@media (max-width:921px){:where(body.page,body.single:not(.single-post)) header.entry-header{text-align:left;}}
+@media (max-width:544px){:where(body.page,body.single:not(.single-post)) header.entry-header{text-align:left;}}
+body:where(.page).archive .mmm-l-archive-description{max-width:940px;width:100%;text-align:left;padding-top:3em;padding-right:3em;padding-bottom:3em;padding-left:3em;}
+body:where(.page).archive .mmm-l-archive-description .mmm-l-archive-title,body:where(.page).archive .mmm-l-archive-description .mmm-l-archive-title *{font-size:40px;font-size:2.2222222222222rem;}
+.mmm-l-page-builder-template:where(.single:not(.single-post),.single-post) .hentry{margin: 0;}
+.mmm-l-page-builder-template:where(.single:not(.single-post),.single-post) .site-content > .mmm-l-container{max-width: 100%;padding: 0;}
+.mmm-l-page-builder-template:where(.single:not(.single-post),.single-post) .site .site-content #primary{padding: 0;margin: 0;}
+.mmm-l-page-builder-template:where(.single:not(.single-post),.single-post) .no-results{text-align: center;margin: 4em auto;}
+.mmm-l-page-builder-template.single-post:where(.single:not(.single-post),.single-post) .site-content > .mmm-l-container{max-width: 100%;}
+.mmm-l-page-builder-template:where(.single:not(.single-post),.single-post) .entry-header{margin-top: 4em;margin-left: auto;margin-right: auto;padding-left: 20px;padding-right: 20px;}
+.single.mmm-l-page-builder-template:where(.single:not(.single-post),.single-post) .entry-header{padding-left: 20px;padding-right: 20px;}
+.mmm-l-page-builder-template:where(.single:not(.single-post),.single-post) .mmm-l-archive-description{margin: 4em auto 0;padding-left: 20px;padding-right: 20px;}
+.mmm-l-page-builder-template.mmm-l-no-sidebar:where(.single:not(.single-post),.single-post) .entry-content .alignwide{margin-left: 0;margin-right: 0;}
+:where(body.single:not(.single-post)) header.entry-header .entry-title{color:#2c2a24;font-size:42px;font-size:2.3333333333333rem;}
+:where(body.single:not(.single-post)) header.entry-header .post-thumb img{aspect-ratio:16/9;}

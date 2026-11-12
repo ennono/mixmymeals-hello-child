@@ -14,7 +14,7 @@
  * recipes that just arrived. Every row renders '' when it has nothing to show,
  * so a fresh installation does not end up with a page of empty boxes.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  * @since 1.0.0
  */
 
@@ -24,32 +24,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<?php if ( astra_page_layout() === 'left-sidebar' ) { ?>
-	<?php get_sidebar(); ?>
-<?php } ?>
+	<div id="primary" <?php mmm_primary_class(); ?>>
 
-	<div id="primary" <?php astra_primary_class(); ?>>
-
-		<?php astra_primary_content_top(); ?>
+		<?php mmm_primary_content_top(); ?>
 
 		<section class="error-404 not-found mmm-plan-page mmm-404">
 
 			<header class="mmm-404__head">
 
 				<h1 class="mmm-404__title">
-					<?php esc_html_e( 'Oops, this page is no longer on the plan.', 'mixmymeals-astra-child' ); ?>
+					<?php esc_html_e( 'Oops, this page is no longer on the plan.', 'mixmymeals-hello-child' ); ?>
 				</h1>
 
 				<p class="mmm-404__lead">
-					<?php esc_html_e( 'The link is probably old or has a typo in it. Nothing is lost — here is what is cooking right now.', 'mixmymeals-astra-child' ); ?>
+					<?php esc_html_e( 'The link is probably old or has a typo in it. Nothing is lost — here is what is cooking right now.', 'mixmymeals-hello-child' ); ?>
 				</p>
 
 				<div class="mmm-404__actions">
 					<a class="mmm-btn mmm-btn--primary" href="<?php echo esc_url( get_post_type_archive_link( 'mmm_meal_plan' ) ); ?>">
-						<?php esc_html_e( 'All meal plans', 'mixmymeals-astra-child' ); ?>
+						<?php esc_html_e( 'All meal plans', 'mixmymeals-hello-child' ); ?>
 					</a>
 					<a class="mmm-btn mmm-btn--ghost" href="<?php echo esc_url( get_post_type_archive_link( 'mmm_recipe' ) ); ?>">
-						<?php esc_html_e( 'All recipes', 'mixmymeals-astra-child' ); ?>
+						<?php esc_html_e( 'All recipes', 'mixmymeals-hello-child' ); ?>
 					</a>
 				</div>
 
@@ -64,7 +60,7 @@ get_header(); ?>
 				echo do_shortcode( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in the shortcode.
 					sprintf(
 						'[mmm_latest_meal_plans count="8" title="%s"]',
-						esc_attr__( 'Fresh meal plans', 'mixmymeals-astra-child' )
+						esc_attr__( 'Fresh meal plans', 'mixmymeals-hello-child' )
 					)
 				);
 			}
@@ -107,12 +103,8 @@ get_header(); ?>
 
 		</section><!-- .error-404 -->
 
-		<?php astra_primary_content_bottom(); ?>
+		<?php mmm_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
-
-<?php if ( astra_page_layout() === 'right-sidebar' ) { ?>
-	<?php get_sidebar(); ?>
-<?php } ?>
 
 <?php get_footer(); ?>

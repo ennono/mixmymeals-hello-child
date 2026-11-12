@@ -3,7 +3,7 @@
  * Template for displaying a single ingredient (mmm_ingredient).
  * Mirrors the recipe single: plugin hero + section heads.
  *
- * @package Astra Child
+ * @package MixMyMeals Hello Child
  * @since 1.0.0
  */
 
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="primary" <?php astra_primary_class(); ?>>
+<div id="primary" <?php mmm_primary_class(); ?>>
 
 	<?php while ( have_posts() ) :
 		the_post(); ?>
@@ -31,7 +31,7 @@ get_header(); ?>
 
 				<?php echo do_shortcode( '[mmm_ingredient_hero]' ); ?>
 
-				<?php astra_primary_content_top(); ?>
+				<?php mmm_primary_content_top(); ?>
 
 				<div class="entry-content mmm-single-ingredient">
 
@@ -41,7 +41,7 @@ get_header(); ?>
 						?>
 						<section class="mmm-recipe-section">
 							<div class="mmm-section-head">
-								<h2><?php esc_html_e( 'Nutrition Details', 'mixmymeals-astra-child' ); ?></h2>
+								<h2><?php esc_html_e( 'Nutrition Details', 'mixmymeals-hello-child' ); ?></h2>
 								<span class="mmm-section-head__line"></span>
 							</div>
 							<?php echo $mmm_ingredient_nutrition; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -76,7 +76,7 @@ get_header(); ?>
 						?>
 						<section class="mmm-recipe-section">
 							<div class="mmm-section-head">
-								<h2><?php echo esc_html__( 'Used in these recipes', 'mixmymeals-astra-child' ); ?></h2>
+								<h2><?php echo esc_html__( 'Used in these recipes', 'mixmymeals-hello-child' ); ?></h2>
 								<span class="mmm-section-head__line"></span>
 							</div>
 							<?php echo $mmm_ingredient_recipes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -99,7 +99,7 @@ get_header(); ?>
 					if ( '' !== trim( $mmm_ingredient_note ) ) :
 						?>
 						<section class="mmm-meal-section">
-							<?php mmm_single_section_head( __( 'Note', 'mixmymeals-astra-child' ) ); ?>
+							<?php mmm_single_section_head( __( 'Note', 'mixmymeals-hello-child' ) ); ?>
 							<?php echo $mmm_ingredient_note; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</section>
 					<?php endif; ?>
@@ -112,7 +112,7 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-	<?php astra_primary_content_bottom(); ?>
+	<?php mmm_primary_content_bottom(); ?>
 
 </div><!-- #primary -->
 
