@@ -11,7 +11,7 @@
  * Hier steht nur, was beide Vorlagen brauchen. Das Markup selbst lebt in
  * single.php, archive.php und home.php.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  * @since 1.6.0
  */
 
@@ -91,7 +91,7 @@ function mmm_blog_meta_chips( $post = null, bool $terms = true ): string {
 		esc_html(
 			sprintf(
 				/* translators: %s: number of minutes. */
-				_n( '%s min read', '%s min read', $minutes, 'mixmymeals-astra-child' ),
+				_n( '%s min read', '%s min read', $minutes, 'mixmymeals-hello-child' ),
 				number_format_i18n( $minutes )
 			)
 		)
@@ -212,16 +212,16 @@ function mmm_blog_register_description_setting(): void {
 
 	add_settings_section(
 		'mmm_blog_description',
-		__( 'Blog', 'mixmymeals-astra-child' ),
+		__( 'Blog', 'mixmymeals-hello-child' ),
 		static function (): void {
-			echo '<p>' . esc_html__( 'Stands under the heading of the blog archive, the way the recipe and meal plan archives carry theirs. A category with its own description keeps that one.', 'mixmymeals-astra-child' ) . '</p>';
+			echo '<p>' . esc_html__( 'Stands under the heading of the blog archive, the way the recipe and meal plan archives carry theirs. A category with its own description keeps that one.', 'mixmymeals-hello-child' ) . '</p>';
 		},
 		MMM_CHILD_SETTINGS_PAGE
 	);
 
 	add_settings_field(
 		'mmm_blog_description_text',
-		__( 'Blog description', 'mixmymeals-astra-child' ),
+		__( 'Blog description', 'mixmymeals-hello-child' ),
 		static function (): void {
 			printf(
 				'<textarea name="%1$s" id="%1$s" rows="4" class="large-text">%2$s</textarea>',
@@ -377,7 +377,7 @@ function mmm_blog_archive_title(): string {
 
 	return $blog_page > 0
 		? (string) get_the_title( $blog_page )
-		: __( 'Blog', 'mixmymeals-astra-child' );
+		: __( 'Blog', 'mixmymeals-hello-child' );
 }
 
 /**
@@ -446,7 +446,7 @@ add_filter( 'mmm_single_section_types', 'mmm_blog_section_types' );
  */
 function mmm_blog_section_types( array $types ): array {
 
-	$types['post_archive'] = __( 'Blog archive', 'mixmymeals-astra-child' );
+	$types['post_archive'] = __( 'Blog archive', 'mixmymeals-hello-child' );
 
 	return $types;
 }
@@ -472,42 +472,42 @@ function mmm_blog_section_registry( array $sections, string $type ): array {
 
 	return array(
 		'description' => array(
-			'label'  => __( 'Archive description', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Archive description', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_description',
 			'hero'   => true,
 		),
 		'search'      => array(
-			'label'  => __( 'Search form', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Search form', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_search',
 			'hero'   => true,
 		),
 		'categories'  => array(
-			'label'  => __( 'Category filter', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Category filter', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_categories',
 			'hero'   => true,
 		),
 		'browse'      => array(
-			'label'  => __( 'Browse rows', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Browse rows', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_browse',
 		),
 		'terms'       => array(
-			'label'  => __( 'All categories card', 'mixmymeals-astra-child' ),
+			'label'  => __( 'All categories card', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_terms',
 		),
 		'tags'        => array(
-			'label'  => __( 'Tag cloud', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Tag cloud', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_tags',
 		),
 		'heading'     => array(
-			'label'  => __( 'List heading', 'mixmymeals-astra-child' ),
+			'label'  => __( 'List heading', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_heading',
 		),
 		'list'        => array(
-			'label'  => __( 'The list', 'mixmymeals-astra-child' ),
+			'label'  => __( 'The list', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_list',
 		),
 		'pagination'  => array(
-			'label'  => __( 'Pagination', 'mixmymeals-astra-child' ),
+			'label'  => __( 'Pagination', 'mixmymeals-hello-child' ),
 			'render' => 'mmm_blog_section_pagination',
 		),
 	);
@@ -542,19 +542,19 @@ function mmm_blog_section_search(): void {
 	$term = mmm_blog_search_term();
 	?>
 	<form class="mmm-archive-search" role="search" method="get" action="<?php echo esc_url( mmm_blog_archive_url() ); ?>">
-		<label class="screen-reader-text" for="mmm-blog-s"><?php esc_html_e( 'Search posts', 'mixmymeals-astra-child' ); ?></label>
+		<label class="screen-reader-text" for="mmm-blog-s"><?php esc_html_e( 'Search posts', 'mixmymeals-hello-child' ); ?></label>
 
 		<input class="mmm-archive-search__text" type="search" id="mmm-blog-s" name="mmm_s"
 			value="<?php echo esc_attr( $term ); ?>"
-			placeholder="<?php esc_attr_e( 'Search posts…', 'mixmymeals-astra-child' ); ?>">
+			placeholder="<?php esc_attr_e( 'Search posts…', 'mixmymeals-hello-child' ); ?>">
 
 		<button class="mmm-archive-search__submit mmm-btn mmm-btn--primary mmm-btn--sm" type="submit">
-			<?php esc_html_e( 'Search', 'mixmymeals-astra-child' ); ?>
+			<?php esc_html_e( 'Search', 'mixmymeals-hello-child' ); ?>
 		</button>
 
 		<?php if ( '' !== $term ) : ?>
 			<a class="mmm-archive-search__reset" href="<?php echo esc_url( mmm_blog_archive_url() ); ?>">
-				<?php esc_html_e( 'Reset', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( 'Reset', 'mixmymeals-hello-child' ); ?>
 			</a>
 		<?php endif; ?>
 	</form>
@@ -589,9 +589,9 @@ function mmm_blog_section_categories(): void {
 	$blog_page = (int) get_option( 'page_for_posts' );
 	$all_url   = $blog_page > 0 ? (string) get_permalink( $blog_page ) : home_url( '/' );
 	?>
-	<nav class="mmm-term-switcher meal-plan-switcher" aria-label="<?php esc_attr_e( 'Categories', 'mixmymeals-astra-child' ); ?>">
+	<nav class="mmm-term-switcher meal-plan-switcher" aria-label="<?php esc_attr_e( 'Categories', 'mixmymeals-hello-child' ); ?>">
 		<a class="<?php echo 0 === $current ? 'active' : ''; ?>" href="<?php echo esc_url( $all_url ); ?>">
-			<?php esc_html_e( 'All', 'mixmymeals-astra-child' ); ?>
+			<?php esc_html_e( 'All', 'mixmymeals-hello-child' ); ?>
 		</a>
 		<?php foreach ( $terms as $term ) : ?>
 			<a class="<?php echo $current === (int) $term->term_id ? 'active' : ''; ?>"
@@ -674,7 +674,7 @@ function mmm_blog_render_row( array $posts, string $title, string $note, string 
 					<?php
 					printf(
 						/* translators: %s: number of posts, already formatted. */
-						esc_html( _n( 'Show all %s', 'Show all %s', $total, 'mixmymeals-astra-child' ) ),
+						esc_html( _n( 'Show all %s', 'Show all %s', $total, 'mixmymeals-hello-child' ) ),
 						esc_html( number_format_i18n( $total ) )
 					);
 					?>
@@ -795,7 +795,7 @@ function mmm_blog_posts_shortcode( $atts = array() ): string {
 
 	// null (nicht gesetzt) heißt Vorgabe, '' heißt ausdrücklich keine.
 	$title = null === $atts['title']
-		? ( $term instanceof WP_Term ? $term->name : __( 'Latest posts', 'mixmymeals-astra-child' ) )
+		? ( $term instanceof WP_Term ? $term->name : __( 'Latest posts', 'mixmymeals-hello-child' ) )
 		: (string) $atts['title'];
 
 	$note = null === $atts['note']
@@ -864,7 +864,7 @@ function mmm_blog_render_grid_section( array $posts, string $title, string $note
 						<?php
 						printf(
 							/* translators: %s: number of posts, already formatted. */
-							esc_html( _n( 'Show all %s', 'Show all %s', $total, 'mixmymeals-astra-child' ) ),
+							esc_html( _n( 'Show all %s', 'Show all %s', $total, 'mixmymeals-hello-child' ) ),
 							esc_html( number_format_i18n( $total ) )
 						);
 						?>
@@ -913,8 +913,8 @@ function mmm_blog_section_browse(): void {
 
 	mmm_blog_render_row(
 		$neueste,
-		__( 'Latest posts', 'mixmymeals-astra-child' ),
-		__( 'The most recently published posts — everything new lands here.', 'mixmymeals-astra-child' )
+		__( 'Latest posts', 'mixmymeals-hello-child' ),
+		__( 'The most recently published posts — everything new lands here.', 'mixmymeals-hello-child' )
 	);
 
 	$kategorien = get_terms(
@@ -979,8 +979,8 @@ function mmm_blog_section_terms(): void {
 	}
 	?>
 	<section id="mmm-all-categories" class="mmm-archive-terms mmm-blog-terms">
-		<h2 class="mmm-archive-terms__title"><?php esc_html_e( 'All categories', 'mixmymeals-astra-child' ); ?></h2>
-		<p class="mmm-browse-note"><?php esc_html_e( 'Every heading the blog is sorted under.', 'mixmymeals-astra-child' ); ?></p>
+		<h2 class="mmm-archive-terms__title"><?php esc_html_e( 'All categories', 'mixmymeals-hello-child' ); ?></h2>
+		<p class="mmm-browse-note"><?php esc_html_e( 'Every heading the blog is sorted under.', 'mixmymeals-hello-child' ); ?></p>
 		<?php mmm_blog_render_term_list( 0 ); ?>
 	</section>
 	<?php
@@ -1062,11 +1062,11 @@ function mmm_blog_section_heading(): void {
 		if ( '' !== $term ) {
 			printf(
 				/* translators: %s: the search term. */
-				esc_html__( 'Search results for “%s”', 'mixmymeals-astra-child' ),
+				esc_html__( 'Search results for “%s”', 'mixmymeals-hello-child' ),
 				esc_html( $term )
 			);
 		} else {
-			esc_html_e( 'All posts', 'mixmymeals-astra-child' );
+			esc_html_e( 'All posts', 'mixmymeals-hello-child' );
 		}
 		?>
 		<span class="mmm-blog-archive__count"><?php echo esc_html( number_format_i18n( $found ) ); ?></span>
@@ -1127,7 +1127,7 @@ function mmm_blog_section_tags(): void {
 	?>
 	<section class="mmm-recipe-section mmm-blog-tags">
 		<div class="mmm-section-head">
-			<h2><?php esc_html_e( 'Tags', 'mixmymeals-astra-child' ); ?></h2>
+			<h2><?php esc_html_e( 'Tags', 'mixmymeals-hello-child' ); ?></h2>
 			<span class="mmm-section-head__line"></span>
 		</div>
 		<p class="mmm-post-tags__list">
@@ -1151,8 +1151,8 @@ function mmm_blog_section_pagination(): void {
 		array(
 			'mid_size'  => 1,
 			'class'     => 'mmm-post-pagination',
-			'prev_text' => esc_html__( 'Newer', 'mixmymeals-astra-child' ),
-			'next_text' => esc_html__( 'Older', 'mixmymeals-astra-child' ),
+			'prev_text' => esc_html__( 'Newer', 'mixmymeals-hello-child' ),
+			'next_text' => esc_html__( 'Older', 'mixmymeals-hello-child' ),
 		)
 	);
 }
@@ -1169,26 +1169,26 @@ function mmm_blog_render_empty(): void {
 	?>
 	<div class="mmm-archive-empty">
 		<?php if ( '' !== $term ) : ?>
-			<p class="mmm-archive-empty__title"><?php esc_html_e( 'Nothing matched that.', 'mixmymeals-astra-child' ); ?></p>
+			<p class="mmm-archive-empty__title"><?php esc_html_e( 'Nothing matched that.', 'mixmymeals-hello-child' ); ?></p>
 			<p class="mmm-archive-empty__text">
-				<?php esc_html_e( 'Maybe a different word — or have a look at everything that is here:', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( 'Maybe a different word — or have a look at everything that is here:', 'mixmymeals-hello-child' ); ?>
 			</p>
 			<p class="mmm-archive-empty__actions">
 				<a class="mmm-btn mmm-btn--ghost mmm-archive-empty__reset" href="<?php echo esc_url( mmm_blog_archive_url() ); ?>">
-					<?php esc_html_e( 'Reset search', 'mixmymeals-astra-child' ); ?>
+					<?php esc_html_e( 'Reset search', 'mixmymeals-hello-child' ); ?>
 				</a>
 			</p>
 		<?php else : ?>
-			<p class="mmm-archive-empty__title"><?php esc_html_e( 'Nothing here yet.', 'mixmymeals-astra-child' ); ?></p>
+			<p class="mmm-archive-empty__title"><?php esc_html_e( 'Nothing here yet.', 'mixmymeals-hello-child' ); ?></p>
 			<p class="mmm-archive-empty__text">
-				<?php esc_html_e( 'No posts under this heading. There is cooking elsewhere:', 'mixmymeals-astra-child' ); ?>
+				<?php esc_html_e( 'No posts under this heading. There is cooking elsewhere:', 'mixmymeals-hello-child' ); ?>
 			</p>
 			<p class="mmm-archive-empty__actions">
 				<a class="mmm-btn mmm-btn--ghost" href="<?php echo esc_url( (string) get_post_type_archive_link( 'mmm_recipe' ) ); ?>">
-					<?php esc_html_e( 'To the recipes', 'mixmymeals-astra-child' ); ?>
+					<?php esc_html_e( 'To the recipes', 'mixmymeals-hello-child' ); ?>
 				</a>
 				<a class="mmm-btn mmm-btn--ghost" href="<?php echo esc_url( (string) get_post_type_archive_link( 'mmm_meal_plan' ) ); ?>">
-					<?php esc_html_e( 'To the meal plans', 'mixmymeals-astra-child' ); ?>
+					<?php esc_html_e( 'To the meal plans', 'mixmymeals-hello-child' ); ?>
 				</a>
 			</p>
 		<?php endif; ?>
@@ -1240,8 +1240,8 @@ function mmm_blog_render_archive(): void {
 		 * aber `home blog`.
 		 */
 		?>
-		<section class="ast-archive-description mmm-plan-hero mmm-blog-archive__head">
-			<h1 class="page-title ast-archive-title"><?php echo esc_html( mmm_blog_archive_title() ); ?></h1>
+		<section class="mmm-l-archive-description mmm-plan-hero mmm-blog-archive__head">
+			<h1 class="page-title mmm-l-archive-title"><?php echo esc_html( mmm_blog_archive_title() ); ?></h1>
 			<?php mmm_render_archive_section_list( 'post_archive', $slots['hero'] ); ?>
 		</section>
 

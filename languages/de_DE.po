@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: MixMyMeals Astra Child\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/mixmymeals-astra-child\n"
+"Project-Id-Version: MixMyMeals Hello Child\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/mixmymeals-hello-child\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
@@ -11,14 +11,14 @@ msgstr ""
 "PO-Revision-Date: 2026-01-23 15:37+0000\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Domain: mixmymeals-astra-child\n"
+"X-Domain: mixmymeals-hello-child\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.8.0; wp-6.9; php-8.2.4\n"
 
 #. Theme Name of the theme
 #: style.css
-msgid "MixMyMeals Astra Child"
-msgstr "MixMyMeals Astra Child"
+msgid "MixMyMeals Hello Child"
+msgstr "MixMyMeals Hello Child"
 
 #. Description of the theme
 #: style.css
@@ -774,3 +774,71 @@ msgstr "Ein Button ohne Icon kann nicht als Icon allein stehen. „Nur Icon“ b
 #: includes/theme-settings.php:484
 msgid "“Subscribe” leads to the subscribe form and therefore only appears while the section “Get this plan by e-mail” is on the page."
 msgstr "Der Button „Abonnieren“ führt zum Anmeldeformular und erscheint deshalb nur, solange der Abschnitt „Diesen Plan per E-Mail erhalten“ auf der Seite steht."
+
+#: includes/navigation.php
+msgid "Plan"
+msgstr "Plan"
+
+#: includes/navigation.php
+msgid "Main sections"
+msgstr "Hauptbereiche"
+
+#: page-templates/einkaufsliste.php
+msgid "Edit plan"
+msgstr "Plan bearbeiten"
+
+#: page-templates/einkaufsliste.php
+msgid "Browse recipes"
+msgstr "Rezepte ansehen"
+
+#: page-templates/einkaufsliste.php
+msgid "Pick a ready-made plan"
+msgstr "Fertigen Plan wählen"
+
+#: page-templates/einkaufsliste.php
+msgid "Your plan is still empty."
+msgstr "Dein Plan ist noch leer."
+
+#: page-templates/einkaufsliste.php
+msgid "Add recipes to your plan and your shopping list appears here."
+msgstr "Leg Rezepte in deinen Plan, dann steht hier deine Einkaufsliste."
+
+#: includes/layout.php
+msgid "Home"
+msgstr "Start"
+
+#: includes/layout.php
+msgid "404 Not found"
+msgstr "404 Nicht gefunden"
+
+#: includes/layout.php
+msgid "Breadcrumb"
+msgstr "Navigationspfad"
+
+#: includes/layout.php
+msgid "Nothing found here."
+msgstr "Hier wurde nichts gefunden."
+
+#: includes/layout.php
+msgid "Previous"
+msgstr "Zurück"
+
+#: includes/layout.php
+msgid "Next"
+msgstr "Weiter"
+
+#: includes/layout.php
+msgid "Skip to content"
+msgstr "Zum Inhalt springen"
+
+msgid "Your week"
+msgstr "Deine Woche"
+
+msgid "Show more"
+msgstr "Mehr laden"
+
+msgid "Loading…"
+msgstr "Lädt…"
+
+msgid "To the shopping list"
+msgstr "Zur Einkaufsliste"

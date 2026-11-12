@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="primary" <?php astra_primary_class(); ?>>
+<div id="primary" <?php mmm_primary_class(); ?>>
 
 	<main id="main" class="site-main">
 

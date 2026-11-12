@@ -8,7 +8,7 @@
  * nur, wie die Gruppen heißen, und gibt die Treffer aus — es kennt weder
  * Meta-Schlüssel noch die Beziehung Mahlzeit → Plan.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -38,10 +38,10 @@ function mmm_search_groups(): array {
 	}
 
 	$labels = array(
-		'recipe'     => __( 'Recipes', 'mixmymeals-astra-child' ),
-		'plan'       => __( 'Meal plans', 'mixmymeals-astra-child' ),
-		'ingredient' => __( 'Ingredients', 'mixmymeals-astra-child' ),
-		'equipment'  => __( 'Equipment', 'mixmymeals-astra-child' ),
+		'recipe'     => __( 'Recipes', 'mixmymeals-hello-child' ),
+		'plan'       => __( 'Meal plans', 'mixmymeals-hello-child' ),
+		'ingredient' => __( 'Ingredients', 'mixmymeals-hello-child' ),
+		'equipment'  => __( 'Equipment', 'mixmymeals-hello-child' ),
 	);
 
 	$groups = array();

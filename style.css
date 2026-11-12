@@ -1,13 +1,14 @@
 /**
-Theme Name: MixMyMeals Astra Child
+Theme Name: MixMyMeals Hello Child
 Author: Timo Fricke
 Author URI: https://www.mixmymeals.de
-Description: Child Theme für MixMyMeals auf Basis von Astra.
-Version: 1.18.3
+Description: Child-Theme für MixMyMeals auf Basis von Hello Elementor. Header und Footer kommen aus dem Theme Builder von Elementor Pro, die Seiten des Plugins aus den Templates dieses Themes.
+Version: 2.0.0
+Requires PHP: 8.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: mixmymeals-astra-child
-Template: astra
+Text Domain: mixmymeals-hello-child
+Template: hello-elementor
 */
 
 /* ==========================================================
@@ -150,26 +151,26 @@ Template: astra
     justify-content: center;
     min-width: 2.2em;
     padding: 0.25em 0.5em;
-    font-family: var(--ast-global-body-font-family);
+    font-family: var(--mmm-l-global-body-font-family);
     font-size: var(--mmm-font-sm);
     line-height: 1;
-    border-radius: var(--ast-border-radius);
+    border-radius: var(--mmm-l-border-radius);
     background-color: var(--mmm-cream-2);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     user-select: none;
 }
 
 .mmm-weekday-in-plan {
     background-color: color-mix(
             in srgb,
-            var(--ast-global-color-0) 12%,
+            var(--mmm-l-global-color-0) 12%,
             transparent
     );
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
 }
 
 .mmm-weekday-active {
-    background-color: var(--ast-global-color-0);
+    background-color: var(--mmm-l-global-color-0);
     color: var(--mmm-surface);
     font-weight: var(--mmm-fw-semibold);
     box-shadow: var(--mmm-shadow-sm);
@@ -195,20 +196,20 @@ Template: astra
     align-items: center;
     justify-content: center;
     padding: 0.25em 0.5em;
-    font-family: var(--ast-global-body-font-family);
+    font-family: var(--mmm-l-global-body-font-family);
     font-size: var(--mmm-font-sm);
     line-height: 1;
-    border-radius: var(--ast-border-radius);
+    border-radius: var(--mmm-l-border-radius);
     background-color: transparent;
     border: 1px solid var(--mmm-cream-2);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     user-select: none;
 }
 
 .mmm-mealtype-in-plan {
-    border-color: color-mix(in srgb, var(--ast-global-color-0) 40%, transparent);
-    background-color: color-mix(in srgb, var(--ast-global-color-0) 8%, transparent);
-    color: var(--ast-global-color-0);
+    border-color: color-mix(in srgb, var(--mmm-l-global-color-0) 40%, transparent);
+    background-color: color-mix(in srgb, var(--mmm-l-global-color-0) 8%, transparent);
+    color: var(--mmm-l-global-color-0);
     font-weight: var(--mmm-fw-semibold);
 }
 
@@ -258,7 +259,7 @@ Template: astra
     margin-bottom: 0.75em;
     font-size: var(--mmm-font-sm);
     letter-spacing: 0.05em;
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
 }
 
 /* Meal Item */
@@ -320,7 +321,7 @@ Template: astra
     padding: 0;
     list-style: none;
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
 }
 
 .mmm-meal-plan-overview-item-recipe-behind-meal-categories-list li {
@@ -332,12 +333,12 @@ Template: astra
 /* Title */
 
 .mmm-meal-plan-overview-item-meal-title a {
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
     text-decoration: none;
 }
 
 .mmm-meal-plan-overview-item-meal-title a:hover {
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
 }
 
 /* Meta wrapper */
@@ -351,7 +352,7 @@ Template: astra
 .mmm-meal-plan-overview-item-meal-servings,
 .mmm-meal-plan-overview-item-meal-prep-time {
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     display: flex;
     align-items: center;
     gap: 0.35em;
@@ -362,7 +363,7 @@ Template: astra
     font-family: "Font Awesome 7 Free";
     font-weight: var(--mmm-fw-icon);
     content: "\f0c0";
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
     font-size: var(--mmm-font-sm);
 }
 
@@ -370,7 +371,7 @@ Template: astra
     font-family: "Font Awesome 7 Free";
     font-weight: var(--mmm-fw-icon);
     content: "\f017";
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
     font-size: var(--mmm-font-sm);
 }
 
@@ -393,8 +394,8 @@ Template: astra
     font-weight: var(--mmm-fw-semibold);
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--ast-global-color-3);
-    border-bottom: 2px solid var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-3);
+    border-bottom: 2px solid var(--mmm-l-global-color-0);
     padding-bottom: 0.25em;
 }
 
@@ -419,7 +420,17 @@ Template: astra
     cursor: pointer;
     list-style: none;
     display: flex;
+    /* Umbrechen statt ueberlaufen: eine lange Produktangabe („ohne Marke
+       (Haehnchenbrust, Haehnchengeschnetzeltes)“) schob die Zeile auf dem
+       Handy ueber den Rand und machte die ganze Seite breiter als den
+       Bildschirm. Feste Leisten am unteren Rand rutschen dann aus dem Bild. */
+    flex-wrap: wrap;
     align-items: center;
+}
+
+.mmm-shopping-item details summary > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .mmm-shopping-item details summary::-webkit-details-marker {
@@ -431,7 +442,7 @@ Template: astra
 }
 
 .mmm-shopping-item details[open] summary {
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
 }
 
 .mmm-shopping-item details ul {
@@ -439,7 +450,7 @@ Template: astra
     margin: 0.4em 0 0.2em 0;
     padding-left: 0.75em;
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     border-left: 2px solid var(--mmm-cream-2);
 }
 
@@ -709,7 +720,7 @@ Template: astra
 .mmm-step-title {
     font-size: var(--mmm-font-lg);
     font-weight: var(--mmm-fw-semibold);
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
 }
 
 /* Schrittbild. wp_get_attachment_image liefert die „large“-Datei, die ohne
@@ -739,7 +750,7 @@ Template: astra
 
 .mmm-step-description {
     line-height: 1.6;
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
 }
 
 /* Eigener Abschnitt aus den Theme-Einstellungen. Dieselbe Karte wie die
@@ -764,7 +775,7 @@ Template: astra
 
 .mmm-step-ingredients {
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     margin-top: 1rem;
     margin-left: 0;
     padding: 0;
@@ -785,7 +796,7 @@ Template: astra
 
 .mmm-step-ingredients .mmm-ingredient-name {
     font-weight: var(--mmm-fw-semibold);
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
     white-space: nowrap;
     /* The row is space-between, which works while there are exactly two items.
        With an "(optional)" note there are three, and even spacing drags the
@@ -810,7 +821,7 @@ Template: astra
 
 .mmm-step-ingredients .mmm-ingredient-amount {
     font-weight: var(--mmm-fw-regular);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     white-space: nowrap;
 }
 
@@ -840,8 +851,8 @@ Template: astra
 .mmm-nutrition-table thead th {
     padding: 0.75em 0.75em;
     text-align: left;
-    border-bottom: 2px solid var(--ast-global-color-0);
-    color: var(--ast-global-color-0);
+    border-bottom: 2px solid var(--mmm-l-global-color-0);
+    color: var(--mmm-l-global-color-0);
     font-weight: var(--mmm-fw-semibold);
     white-space: nowrap;
 }
@@ -850,7 +861,7 @@ Template: astra
 .mmm-nutrition-table tbody th {
     padding: 0.65em 0.75em;
     border-bottom: 1px solid var(--mmm-cream-2);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     vertical-align: middle;
 }
 
@@ -858,7 +869,7 @@ Template: astra
 .mmm-nutrition-table tbody th {
     text-align: left;
     font-weight: var(--mmm-fw-semibold);
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
 }
 
 .mmm-nutrition-table td:not(:first-child),
@@ -1024,7 +1035,7 @@ Template: astra
     font-size: var(--mmm-font-md);
     font-weight: var(--mmm-fw-semibold);
     line-height: 1.3;
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
 }
 
 .mmm-ingredient-products__meta {
@@ -1487,7 +1498,7 @@ Template: astra
 .mmm-archive-empty__title {
     margin: 0 0 0.4em;
     font-size: var(--mmm-font-xl);
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
 }
 
 .mmm-archive-empty__text {
@@ -1505,7 +1516,7 @@ Template: astra
     display: inline-block;
     padding: 0.55em 1.1em;
     border-radius: var(--mmm-r-pill);
-    background: var(--ast-global-color-0);
+    background: var(--mmm-l-global-color-0);
     color: #fff;
     font-weight: var(--mmm-fw-semibold);
     text-decoration: none;
@@ -1661,40 +1672,40 @@ Template: astra
    Archive Cards (Meal Plan, Recipe, Ingredient)
    ========================================================== */
 
-.ast-article-post.type-mmm_meal_plan,
-.ast-article-post.type-mmm_recipe,
-.ast-article-post.type-mmm_ingredient {
+.mmm-l-article-post.type-mmm_meal_plan,
+.mmm-l-article-post.type-mmm_recipe,
+.mmm-l-article-post.type-mmm_ingredient {
     background: var(--mmm-surface);
-    border-radius: var(--ast-border-radius);
+    border-radius: var(--mmm-l-border-radius);
     box-shadow: var(--mmm-shadow-sm);
     overflow: hidden;
     transition: box-shadow 0.2s ease, transform 0.18s ease;
 }
 
-.ast-article-post.type-mmm_meal_plan:hover,
-.ast-article-post.type-mmm_recipe:hover,
-.ast-article-post.type-mmm_ingredient:hover {
+.mmm-l-article-post.type-mmm_meal_plan:hover,
+.mmm-l-article-post.type-mmm_recipe:hover,
+.mmm-l-article-post.type-mmm_ingredient:hover {
     box-shadow: var(--mmm-shadow-md);
     transform: translateY(-2px);
 }
 
-.ast-article-post.type-mmm_meal_plan .ast-article-inner,
-.ast-article-post.type-mmm_recipe .ast-article-inner,
-.ast-article-post.type-mmm_ingredient .ast-article-inner {
+.mmm-l-article-post.type-mmm_meal_plan .mmm-l-article-inner,
+.mmm-l-article-post.type-mmm_recipe .mmm-l-article-inner,
+.mmm-l-article-post.type-mmm_ingredient .mmm-l-article-inner {
     padding: 1.1em 1.25em 1.25em;
 }
 
 /* Bild bündig am oberen Rand, kein Padding */
-.ast-article-post.type-mmm_recipe .ast-blog-featured-section,
-.ast-article-post.type-mmm_ingredient .ast-blog-featured-section {
+.mmm-l-article-post.type-mmm_recipe .mmm-l-blog-featured-section,
+.mmm-l-article-post.type-mmm_ingredient .mmm-l-blog-featured-section {
     margin: -1.1em -1.25em 1em;
     width: calc(100% + 2.5em);
 }
 
 @media (max-width: 544px) {
-    .ast-article-post.type-mmm_meal_plan:hover,
-    .ast-article-post.type-mmm_recipe:hover,
-    .ast-article-post.type-mmm_ingredient:hover {
+    .mmm-l-article-post.type-mmm_meal_plan:hover,
+    .mmm-l-article-post.type-mmm_recipe:hover,
+    .mmm-l-article-post.type-mmm_ingredient:hover {
         transform: none;
     }
 }
@@ -1716,7 +1727,7 @@ Template: astra
 }
 
 /* Body text, not a lead-in.
-   Astra styles .ast-archive-description p at 20px in weight 300, which is a
+   Astra styles .mmm-l-archive-description p at 20px in weight 300, which is a
    pull quote and not what this block is: a paragraph of instructions people
    read once. The stored HTML even carried a <span style="font-size:16px"> to
    force part of it back down — the mismatch that made this visible was that
@@ -1724,7 +1735,7 @@ Template: astra
 
    Two class levels deep so it beats Astra's rule on specificity rather than on
    load order, which is not something a child theme should have to rely on. */
-.ast-archive-description .mmm-archive-description p {
+.mmm-l-archive-description .mmm-archive-description p {
     font-size: var(--mmm-font-md);
     font-weight: var(--mmm-fw-regular);
 }
@@ -1773,8 +1784,8 @@ Template: astra
    the meal-plan builder get the same single card — the builder renders as a
    day rail inside it (like the meals-in-a-plan view), not as inner cards.
    ========================================================== */
-.ast-plain-container.page .ast-article-single,
-.ast-plain-container.single-post .ast-article-single {
+.mmm-l-plain-container.page .mmm-l-article-single,
+.mmm-l-plain-container.single-post .mmm-l-article-single {
     background: var(--mmm-surface);
     border: 1px solid var(--mmm-line);
     border-radius: var(--mmm-r);
@@ -1785,21 +1796,21 @@ Template: astra
 /* Content lists: indent bullets/numbers so the marker sits clearly inside the
    text column instead of hugging the left edge of the card. Der Beitragstext
    steht in derselben Karte und bekommt dieselben Listen. */
-.ast-article-single .entry-content ul,
-.ast-article-single .entry-content ol,
+.mmm-l-article-single .entry-content ul,
+.mmm-l-article-single .entry-content ol,
 .mmm-post-content ul,
 .mmm-post-content ol {
     margin: var(--mmm-s4) 0;
 }
 
-.ast-article-single .entry-content li,
+.mmm-l-article-single .entry-content li,
 .mmm-post-content li {
     margin-bottom: var(--mmm-s2);
 }
 
 /* Nested lists: keep the extra indent but drop the vertical spacing. */
-.ast-article-single .entry-content li > ul,
-.ast-article-single .entry-content li > ol,
+.mmm-l-article-single .entry-content li > ul,
+.mmm-l-article-single .entry-content li > ol,
 .mmm-post-content li > ul,
 .mmm-post-content li > ol {
     margin: var(--mmm-s2) 0;
@@ -2230,7 +2241,7 @@ Template: astra
     padding: 0;
     font-size: var(--mmm-font-md);
     font-weight: var(--mmm-fw-regular);
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
     user-select: none;
 }
 
@@ -2243,7 +2254,7 @@ Template: astra
     font-family: "Font Awesome 7 Free";
     font-weight: var(--mmm-fw-icon);
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     line-height: 1;
     transition: transform 0.15s ease;
     margin-right: 0.4em;
@@ -2277,7 +2288,7 @@ Template: astra
 .mmm-collapsible-list .mmm-ingredient-amount,
 .mmm-collapsible-list .mmm-equipment-name {
     font-size: inherit;
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
     white-space: nowrap;
 }
 
@@ -2345,11 +2356,11 @@ Template: astra
 
 .mmm-recipe-excerpt {
     font-size: var(--mmm-font-md, 1rem);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     line-height: 1.6;
     margin: 0 0 1.25em;
     padding-bottom: 1.25em;
-    border-bottom: 1px solid var(--ast-border-color, #e0e0e0);
+    border-bottom: 1px solid var(--mmm-l-border-color, #e0e0e0);
 }
 
 .mmm-recipe-excerpt p:last-child {
@@ -2402,7 +2413,7 @@ Template: astra
 }
 
 .mmm-recipe-archive-item-meta .mmm-recipe-actions__item--cart {
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
     cursor: pointer;
 }
 
@@ -2444,7 +2455,7 @@ Template: astra
     align-items: center;
     gap: 0.25em 1.25em;
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     margin: 0.75em 0 1em;
 }
 
@@ -2460,7 +2471,7 @@ Template: astra
     font-family: "Font Awesome 7 Free";
     font-weight: var(--mmm-fw-icon);
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
     line-height: 1;
 }
 
@@ -2472,7 +2483,7 @@ Template: astra
 /* Recipe */
 .mmm-meta__item--calories::before  { content: "\f7e4"; color: #F97316; }
 .mmm-meta__item--prep-time::before { content: "\f017"; color: #FBBF24; }
-.mmm-meta__item--category::before  { content: "\f02b"; color: var(--ast-global-color-0); }
+.mmm-meta__item--category::before  { content: "\f02b"; color: var(--mmm-l-global-color-0); }
 .mmm-meta__item--tag::before       { content: "\f02c"; color: #bdcc2a; }
 .mmm-meta__item--cost::before      { content: "\f543"; color: #507caf; }
 .mmm-meta__item--diet::before      { content: "\f06c"; color: #16A34A; }
@@ -2509,12 +2520,12 @@ Template: astra
     gap: 0.5em;
     text-decoration: none;
     font-size: var(--mmm-font-md);
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
     padding: 0.25em 0;
 }
 
 .mmm-recipe-category .mmm-term-list__link:hover {
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
     text-decoration: underline;
 }
 
@@ -2556,13 +2567,13 @@ Template: astra
 .mmm-recipe-category.mmm-term-list--level-4 .mmm-term-list__link {
     font-size: var(--mmm-font-md);
     font-weight: var(--mmm-fw-regular);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
 }
 
 .mmm-recipe-category .mmm-term-list__link::before {
     font-family: "Font Awesome 7 Free";
     font-weight: var(--mmm-fw-icon);
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
     line-height: 1;
 }
 
@@ -2584,7 +2595,7 @@ Template: astra
 
 .mmm-recipe-category .mmm-term-list__count {
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     opacity: 0.8;
 }
 
@@ -2612,9 +2623,9 @@ Template: astra
     align-items: center;
     gap: 0.5em;
     padding: 0.25em 0 0.4em;
-    font-weight: var(--ast-blog-title-font-weight, normal);
+    font-weight: var(--mmm-l-blog-title-font-weight, normal);
     font-size: var(--mmm-font-lg);
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
     line-height: 1.2em;
 }
 
@@ -2622,7 +2633,7 @@ Template: astra
     font-family: "Font Awesome 7 Free";
     font-weight: var(--mmm-fw-icon);
     content: "\f07b";
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
     font-size: var(--mmm-font-sm);
     line-height: 1;
 }
@@ -2657,14 +2668,14 @@ Template: astra
 
 .footer-widget-area .mmm-recipe-category .mmm-term-list__link,
 .footer-widget-area-inner .mmm-recipe-category .mmm-term-list__link {
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     gap: 0.4em;
     padding: 0.1em 0;
 }
 
 .footer-widget-area .mmm-recipe-category .mmm-term-list__link:hover,
 .footer-widget-area-inner .mmm-recipe-category .mmm-term-list__link:hover {
-    color: var(--ast-global-color-0);
+    color: var(--mmm-l-global-color-0);
     text-decoration: none;
 }
 
@@ -2683,7 +2694,7 @@ Template: astra
 .footer-widget-area .mmm-recipe-category.mmm-term-list--level-1 > .mmm-term-list__item > .mmm-term-list__title::before,
 .footer-widget-area-inner .mmm-recipe-category .mmm-term-list__link::before,
 .footer-widget-area-inner .mmm-recipe-category.mmm-term-list--level-1 > .mmm-term-list__item > .mmm-term-list__title::before {
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     font-size: var(--mmm-font-xs);
     opacity: 0.7;
 }
@@ -2699,7 +2710,7 @@ Template: astra
    ========================================================== */
 
 .mmm-masthead {
-    border-radius: var(--ast-border-radius);
+    border-radius: var(--mmm-l-border-radius);
     background: color-mix(in srgb, var(--mmm-cream-2) 35%, transparent);
     overflow: hidden;
 }
@@ -2786,7 +2797,7 @@ Template: astra
 .mmm-masthead__title {
     margin: 0;
     line-height: 1.15;
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
     font-weight: var(--mmm-fw-semibold);
     font-size: clamp(1.6rem, 3.2vw, 2.6rem);
     font-family: 'Roboto Condensed', sans-serif;
@@ -2795,7 +2806,7 @@ Template: astra
 .mmm-masthead__recipe {
     display: inline;
     font-weight: var(--mmm-fw-semibold);
-    color: var(--ast-global-color-1);
+    color: var(--mmm-l-global-color-1);
     font-family: var(--mmm-font-display);
 }
 
@@ -2811,7 +2822,7 @@ Template: astra
     margin: 0.15em 0 0.25em;
 
     font-size: var(--mmm-font-sm);
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -2829,7 +2840,7 @@ Template: astra
 }
 
 .mmm-masthead__meta .mmm-meta__item::before {
-    color: var(--ast-global-color-1);
+    color: var(--mmm-l-global-color-1);
 }
 
 /* ==========================================================
@@ -2875,7 +2886,7 @@ Template: astra
 }
 
 .mmm-masthead__cta > .mmm-masthead__btn--secondary {
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
 }
 
 .mmm-masthead__cta > .mmm-masthead__btn--secondary:hover {
@@ -3095,7 +3106,7 @@ Template: astra
     justify-content: center;
     padding: 0.35em 0.9em;
     text-decoration: none;
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     border-radius: var(--mmm-r-pill);
     font-weight: var(--mmm-fw-semibold);
     line-height: 1.2;
@@ -3103,11 +3114,11 @@ Template: astra
 }
 
 .meal-plan-switcher a:hover {
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
 }
 
 .meal-plan-switcher a.active {
-    background: var(--ast-global-color-0);
+    background: var(--mmm-l-global-color-0);
     color: var(--mmm-surface);
     box-shadow: var(--mmm-shadow-sm);
 }
@@ -3153,21 +3164,21 @@ article.mmm_meal_plan .post-content {
 .mmmm-meal-nutrition-calculator label {
     display: block;
     margin-bottom: 0.25em;
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
 }
 
 .mmmm-meal-nutrition-calculator-grams {
     width: 100%;
     padding: 0.45em 0.6em;
     border: 1px solid var(--mmm-cream-2);
-    border-radius: var(--ast-border-radius);
+    border-radius: var(--mmm-l-border-radius);
     margin-bottom: 0.5em;
     box-sizing: border-box;
 }
 
 .mmmm-meal-nutrition-calculator-grams:focus {
     outline: none;
-    border-color: var(--ast-global-color-0);
+    border-color: var(--mmm-l-global-color-0);
 }
 
 /* Slider */
@@ -3192,7 +3203,7 @@ article.mmm_meal_plan .post-content {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: var(--ast-global-color-0);
+    background: var(--mmm-l-global-color-0);
     cursor: pointer;
     margin-top: -5px;
 }
@@ -3207,7 +3218,7 @@ article.mmm_meal_plan .post-content {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: var(--ast-global-color-0);
+    background: var(--mmm-l-global-color-0);
     border: none;
     cursor: pointer;
 }
@@ -3229,7 +3240,7 @@ article.mmm_meal_plan .post-content {
 
 .mmmm-meal-nutrition-calculator-result span {
     font-weight: var(--mmm-fw-semibold);
-    color: var(--ast-global-color-2);
+    color: var(--mmm-l-global-color-2);
 }
 
 .mmmm-meal-nutrition-calculator-result p:last-child {
@@ -3356,18 +3367,18 @@ article.mmm_meal_plan .post-content {
 }
 
 .mmm-shopping-item-amount {
-    color: var(--ast-global-color-3);
+    color: var(--mmm-l-global-color-3);
     font-size: var(--mmm-font-sm);
     opacity: 0.85;
 }
 
 /* ==========================================================
    App-Bar-Look für den klassischen Astra-Header (.main-header-*).
-   Ergänzt die Header-Builder-Regeln (.ast-builder-menu-1) weiter
+   Ergänzt die Header-Builder-Regeln (.mmm-l-builder-menu-1) weiter
    unten, damit beide Astra-Header-Varianten identisch aussehen.
    ========================================================== */
 .main-header-bar,
-.ast-primary-header-bar {
+.mmm-l-primary-header-bar {
     /*background: var(--mmm-surface);*/
     border-bottom: 1px solid var(--mmm-line);
     /*box-shadow: var(--mmm-shadow-sm);*/
@@ -3420,13 +3431,13 @@ article.mmm_meal_plan .post-content {
    --mmm-Tokens (Single Source oben in dieser Datei).
    ========================================================== */
 body {
-    --ast-global-color-0: var(--mmm-green-600);  /* Primär */
-    --ast-global-color-1: var(--mmm-green-700);  /* Primär dunkel */
-    --ast-global-color-2: var(--mmm-ink);        /* Überschriften */
-    --ast-global-color-3: var(--mmm-ink-2);      /* Sekundärtext */
-    --ast-global-color-4: var(--mmm-cream);      /* Fläche hell */
-    --ast-global-color-5: var(--mmm-cream-2);    /* Fläche abgesetzt */
-    --ast-border-radius: var(--mmm-r);
+    --mmm-l-global-color-0: var(--mmm-green-600);  /* Primär */
+    --mmm-l-global-color-1: var(--mmm-green-700);  /* Primär dunkel */
+    --mmm-l-global-color-2: var(--mmm-ink);        /* Überschriften */
+    --mmm-l-global-color-3: var(--mmm-ink-2);      /* Sekundärtext */
+    --mmm-l-global-color-4: var(--mmm-cream);      /* Fläche hell */
+    --mmm-l-global-color-5: var(--mmm-cream-2);    /* Fläche abgesetzt */
+    --mmm-l-border-radius: var(--mmm-r);
 }
 
 h1, h2, h3, h4,
@@ -3487,7 +3498,7 @@ h4 {
    Stellen im Stylesheet).
    ========================================================== */
 .mmm-plan-hero,
-.archive .ast-archive-description,
+.archive .mmm-l-archive-description,
 .single-post .entry-header,
 .mmm-meal-plan-single .entry-header,
 .mmm-single-recipe .entry-header,
@@ -3518,10 +3529,10 @@ h4 {
    unabhängig vom .archive-/.page-Vorfahren.
    ========================================================== */
 body .mmm-plan-hero h1,
-body .ast-archive-title,
-.ast-archive-description .ast-archive-title,
+body .mmm-l-archive-title,
+.mmm-l-archive-description .mmm-l-archive-title,
 body .page-title,
-body .archive .ast-archive-title,
+body .archive .mmm-l-archive-title,
 body .page .entry-header .entry-title,
 body .single-post .entry-header .entry-title,
 body .mmm-meal-plan-single .entry-header .entry-title,
@@ -3540,29 +3551,29 @@ body .mmm-single-meal .entry-header .entry-title {
 }
 
 /* Astras Customizer-CSS färbt den Archivtitel mit
-   `body.archive .ast-archive-description .ast-archive-title` (Spezifität 0,3,1)
+   `body.archive .mmm-l-archive-description .mmm-l-archive-title` (Spezifität 0,3,1)
    grün ein und schlägt damit die Regel oben. Hier mit derselben Spezifität
    zurückholen, damit Archivtitel dieselbe Überschriftenfarbe tragen wie alle
    anderen Seitentitel. */
-body.archive .ast-archive-description .ast-archive-title,
-body.archive .ast-archive-description .ast-archive-title * {
+body.archive .mmm-l-archive-description .mmm-l-archive-title,
+body.archive .mmm-l-archive-description .mmm-l-archive-title * {
     color: var(--mmm-ink);
 }
 
 /* Keine Linie unter dem Archiv-Header */
-.ast-archive-description {
+.mmm-l-archive-description {
     border-bottom: 0;
 }
 
 /* Titel über dem Hero-Blob halten */
-.archive .ast-archive-title,
+.archive .mmm-l-archive-title,
 .page .entry-header .entry-title,
 .single-post .entry-header .entry-title {
     position: relative;
     z-index: 1;
 }
 
-.archive .ast-archive-description p,
+.archive .mmm-l-archive-description p,
 .page .entry-header p,
 .single-post .entry-header p {
     position: relative;
@@ -3573,7 +3584,7 @@ body.archive .ast-archive-description .ast-archive-title * {
 
 /* ==========================================================
    Archiv-Suche + Filter ([mmm_archive_search]) — sitzt im Hero
-   (.ast-archive-description), ausgegeben über
+   (.mmm-l-archive-description), ausgegeben über
    astra_after_archive_description. Pill-Felder im Brand-Stil,
    über dem Hero-Blob (z-index:1).
    ========================================================== */
@@ -3704,7 +3715,7 @@ body.archive .ast-archive-description .ast-archive-title * {
    ============================================================ */
 
 /* ---------- Layout-5-Grid: Karten ---------- */
-.ast-blog-layout-5-grid .ast-article-post {
+.mmm-l-blog-layout-5-grid .mmm-l-article-post {
     background: var(--mmm-surface);
     border: 1px solid var(--mmm-line);
     border-radius: var(--mmm-r-lg);
@@ -3714,29 +3725,29 @@ body.archive .ast-archive-description .ast-archive-title * {
     margin-bottom: var(--mmm-s5);
     transition: transform .15s ease, box-shadow .15s ease, border-color .15s;
 }
-.ast-blog-layout-5-grid .ast-article-post:hover {
+.mmm-l-blog-layout-5-grid .mmm-l-article-post:hover {
     transform: translateY(-2px);
     box-shadow: var(--mmm-shadow-md);
     border-color: var(--mmm-line-2);
 }
-.ast-blog-layout-5-grid .ast-article-inner {
+.mmm-l-blog-layout-5-grid .mmm-l-article-inner {
     background: transparent !important;
 }
-.ast-blog-layout-5-grid .blog-layout-5 {
+.mmm-l-blog-layout-5-grid .blog-layout-5 {
     align-items: stretch;
 }
-.ast-blog-layout-5-grid .ast-blog-featured-section {
+.mmm-l-blog-layout-5-grid .mmm-l-blog-featured-section {
     border-radius: 0;
     overflow: hidden;
     min-width: 0;
 }
-.ast-blog-layout-5-grid .ast-blog-featured-section img {
+.mmm-l-blog-layout-5-grid .mmm-l-blog-featured-section img {
     border-radius: 0;
 }
-.ast-blog-layout-5-grid .post-content {
+.mmm-l-blog-layout-5-grid .post-content {
     padding: var(--mmm-s5) var(--mmm-s6) var(--mmm-s6) !important;
 }
-.ast-blog-layout-5-grid .ast-no-thumb .post-content {
+.mmm-l-blog-layout-5-grid .mmm-l-no-thumb .post-content {
     width: 100% !important;
     padding-left: var(--mmm-s6) !important;
 }
@@ -3829,8 +3840,8 @@ body.archive .ast-archive-description .ast-archive-title * {
 }
 
 /* ---------- Excerpt ---------- */
-.ast-blog-layout-5-grid .ast-excerpt-container p,
-.mmm_meal_plan .ast-excerpt-container p {
+.mmm-l-blog-layout-5-grid .mmm-l-excerpt-container p,
+.mmm_meal_plan .mmm-l-excerpt-container p {
     font-size: var(--mmm-font-sm);
     color: var(--mmm-ink-2);
     line-height: 1.55;
@@ -3838,7 +3849,7 @@ body.archive .ast-archive-description .ast-archive-title * {
 }
 
 /* ---------- Kategorie-Labels ausblenden ---------- */
-.ast-blog-single-element.ast-taxonomy-container { display: none; }
+.mmm-l-blog-single-element.mmm-l-taxonomy-container { display: none; }
 
 /* ============================================================
    ============================================================
@@ -4266,7 +4277,7 @@ body{
 
 /* --- Hintergrund --- */
 body,
-.ast-separate-container {
+.mmm-l-separate-container {
   background-image: none !important;
   background-color: var(--mmm-cream) !important;
   background-attachment: unset !important;
@@ -4280,17 +4291,17 @@ a:focus       { color: var(--mmm-green-700); }
 
 /* --- Astra Container-Breite --- */
 @media (min-width: 922px) {
-  .ast-container { max-width: var(--mmm-maxw); }
+  .mmm-l-container { max-width: var(--mmm-maxw); }
 }
 
 /* ============================================================
-   HEADER & PRIMÄR-NAVIGATION (Header-Builder .ast-builder-menu-1)
+   HEADER & PRIMÄR-NAVIGATION (Header-Builder .mmm-l-builder-menu-1)
    Deckt die gesamte Kopfleiste ab: Bar, Menü-Items, Icons,
-   Submenüs, „Neuer Plan"-Button (.ast-header-html-1/-2) und Badge.
+   Submenüs, „Neuer Plan"-Button (.mmm-l-header-html-1/-2) und Badge.
    ============================================================ */
 
 /* --- Kopfleiste --- */
-.ast-primary-header-bar {
+.mmm-l-primary-header-bar {
   background: var(--mmm-surface) !important;
   border-bottom: 1px solid var(--mmm-line) !important;
   box-shadow: var(--mmm-shadow-sm);
@@ -4304,13 +4315,13 @@ a:focus       { color: var(--mmm-green-700); }
 }
 
 /* --- Menü-Container & Item-Abstände --- */
-.ast-builder-menu-1 .main-header-menu.ast-nav-menu {
+.mmm-l-builder-menu-1 .main-header-menu.mmm-l-nav-menu {
   gap: var(--mmm-s1);
   align-items: center;
 }
 
 /* --- Menü-Links --- */
-.ast-builder-menu-1 .menu-item > .menu-link {
+.mmm-l-builder-menu-1 .menu-item > .menu-link {
   display: inline-flex;
   align-items: center;
   font-family: var(--mmm-font-text);
@@ -4322,39 +4333,39 @@ a:focus       { color: var(--mmm-green-700); }
   line-height: 1.2;
   transition: background .15s, color .15s;
 }
-.ast-builder-menu-1 .menu-item:hover > .menu-link,
-.ast-builder-menu-1 .menu-item:focus-within > .menu-link {
+.mmm-l-builder-menu-1 .menu-item:hover > .menu-link,
+.mmm-l-builder-menu-1 .menu-item:focus-within > .menu-link {
   background: var(--mmm-green-50);
   color: var(--mmm-green-700) !important;
 }
-.ast-builder-menu-1 .menu-item.current-menu-item > .menu-link,
-.ast-builder-menu-1 .menu-item.current-menu-ancestor > .menu-link {
+.mmm-l-builder-menu-1 .menu-item.current-menu-item > .menu-link,
+.mmm-l-builder-menu-1 .menu-item.current-menu-ancestor > .menu-link {
   background: var(--mmm-green-100);
   color: var(--mmm-green-700) !important;
 }
 
-.ast-builder-menu-1 .menu-link:focus-visible,
-.ast-header-html-1 .menu-link:focus-visible,
-.ast-builder-menu-2 .menu-link:focus-visible,
-.ast-header-html-2 .menu-link:focus-visible {
+.mmm-l-builder-menu-1 .menu-link:focus-visible,
+.mmm-l-header-html-1 .menu-link:focus-visible,
+.mmm-l-builder-menu-2 .menu-link:focus-visible,
+.mmm-l-header-html-2 .menu-link:focus-visible {
   outline: 2px solid var(--mmm-green-500);
   outline-offset: 2px;
 }
 
 /* --- Icons in den Menü-Links (fa-solid) --- */
-.ast-builder-menu-1 .menu-link i {
+.mmm-l-builder-menu-1 .menu-link i {
   font-size: var(--mmm-font-sm);
   color: var(--mmm-green-600);
   transition: color .15s;
 }
-.ast-builder-menu-1 .menu-item:hover > .menu-link i,
-.ast-builder-menu-1 .menu-item.current-menu-item > .menu-link i,
-.ast-builder-menu-1 .menu-item.current-menu-ancestor > .menu-link i {
+.mmm-l-builder-menu-1 .menu-item:hover > .menu-link i,
+.mmm-l-builder-menu-1 .menu-item.current-menu-item > .menu-link i,
+.mmm-l-builder-menu-1 .menu-item.current-menu-ancestor > .menu-link i {
   color: var(--mmm-green-700);
 }
 
 /* --- Submenüs / Dropdowns (.sub-menu, submenu-with-border) --- */
-.ast-builder-menu-1 .sub-menu {
+.mmm-l-builder-menu-1 .sub-menu {
   background: var(--mmm-surface);
   border: 1px solid var(--mmm-line);
   border-radius: var(--mmm-r);
@@ -4362,7 +4373,7 @@ a:focus       { color: var(--mmm-green-700); }
   padding: var(--mmm-s2);
   min-width: 220px;
 }
-.ast-builder-menu-1 .sub-menu .menu-item > .menu-link {
+.mmm-l-builder-menu-1 .sub-menu .menu-item > .menu-link {
   display: flex;
   width: 100%;
   border-radius: var(--mmm-r-sm);
@@ -4370,10 +4381,10 @@ a:focus       { color: var(--mmm-green-700); }
 }
 
 /* --- „Neuer Plan"-Button (HTML-Elemente im Header: html-1 und html-2) --- */
-.ast-header-html-1 .menu-link,
-.ast-header-html-1 a.menu-link,
-.ast-header-html-2 .menu-link,
-.ast-header-html-2 a.menu-link {
+.mmm-l-header-html-1 .menu-link,
+.mmm-l-header-html-1 a.menu-link,
+.mmm-l-header-html-2 .menu-link,
+.mmm-l-header-html-2 a.menu-link {
   display: inline-flex !important;
   align-items: center;
   gap: var(--mmm-s2);
@@ -4388,30 +4399,30 @@ a:focus       { color: var(--mmm-green-700); }
   box-shadow: var(--mmm-shadow-carrot-sm);
   transition: background .15s, box-shadow .15s, transform .15s;
 }
-.ast-header-html-1 .menu-link:hover,
-.ast-header-html-1 a.menu-link:hover,
-.ast-header-html-2 .menu-link:hover,
-.ast-header-html-2 a.menu-link:hover {
+.mmm-l-header-html-1 .menu-link:hover,
+.mmm-l-header-html-1 a.menu-link:hover,
+.mmm-l-header-html-2 .menu-link:hover,
+.mmm-l-header-html-2 a.menu-link:hover {
   background: var(--mmm-carrot-600) !important;
   color: #fff !important;
   box-shadow: 0 6px 16px rgba(232,116,59,.32);
   transform: translateY(-1px);
 }
-.ast-header-html-1 .menu-link:active,
-.ast-header-html-1 a.menu-link:active,
-.ast-header-html-2 .menu-link:active,
-.ast-header-html-2 a.menu-link:active {
+.mmm-l-header-html-1 .menu-link:active,
+.mmm-l-header-html-1 a.menu-link:active,
+.mmm-l-header-html-2 .menu-link:active,
+.mmm-l-header-html-2 a.menu-link:active {
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(232,116,59,.24);
 }
-.ast-header-html-1 .menu-link i,
-.ast-header-html-2 .menu-link i {
+.mmm-l-header-html-1 .menu-link i,
+.mmm-l-header-html-2 .menu-link i {
   color: #fff;
   font-size: var(--mmm-font-md);
 }
 /* Astras HTML-Element packt den Link in <p> — Abstände neutralisieren */
-.ast-header-html-1 .ast-builder-html-element p,
-.ast-header-html-2 .ast-builder-html-element p {
+.mmm-l-header-html-1 .mmm-l-builder-html-element p,
+.mmm-l-header-html-2 .mmm-l-builder-html-element p {
   margin: 0;
   line-height: 1;
 }
@@ -4492,7 +4503,7 @@ a:focus       { color: var(--mmm-green-700); }
    REZEPT-ARCHIV (mmm-recipe-archive)
    Layout mit rechter Sidebar; Karten mit Beitragsbild.
    ============================================================ */
-.mmm-recipe-archive .ast-blog-featured-section.post-thumb {
+.mmm-recipe-archive .mmm-l-blog-featured-section.post-thumb {
   width: 34% !important;
   align-self: stretch;
   margin: 0;
@@ -4619,7 +4630,7 @@ a:focus       { color: var(--mmm-green-700); }
 }
 
 /* Etwas mehr Luft nach der Pagination in den Archiven */
-.archive .ast-pagination,
+.archive .mmm-l-pagination,
 .archive nav.pagination,
 .archive .paging-navigation {
   margin-bottom: var(--mmm-s10);
@@ -4628,7 +4639,7 @@ a:focus       { color: var(--mmm-green-700); }
 /* Handy (≤544px): Bild und Inhalt untereinander statt nebeneinander */
 @media (max-width: 544px) {
   .mmm-recipe-archive .blog-layout-5 { flex-wrap: wrap; }
-  .mmm-recipe-archive .ast-blog-featured-section.post-thumb { width: 100% !important; }
+  .mmm-recipe-archive .mmm-l-blog-featured-section.post-thumb { width: 100% !important; }
   .mmm-recipe-archive .post-content { width: 100% !important; }
   .mmm-recipe-archive .post-thumb-img-content img { min-height: 180px; }
   /* Gleiche Form wie die Regel, die margin-left:auto setzt — sonst gewinnt
@@ -5718,13 +5729,13 @@ a.mmm-prep-note__task:focus-visible {
   padding-left:var(--mmm-s1);
 }
 
-/* Astra archive rows: Astra marks image-less rows with .ast-no-thumb
+/* Astra archive rows: Astra marks image-less rows with .mmm-l-no-thumb
    but still emits an EMPTY featured-section div — hide it and let the
    content use the full row width. Same look as photo rows otherwise. */
-.ast-article-post.type-mmm_recipe .ast-no-thumb .ast-blog-featured-section{
+.mmm-l-article-post.type-mmm_recipe .mmm-l-no-thumb .mmm-l-blog-featured-section{
   display:none;
 }
-.ast-article-post.type-mmm_recipe .ast-no-thumb .post-content{
+.mmm-l-article-post.type-mmm_recipe .mmm-l-no-thumb .post-content{
   width:100%;
 }
 
@@ -5903,7 +5914,7 @@ button[class*="mmm-"]:focus-visible {
     border-color: var(--mmm-green-500);
 }
 
-.mmm-search .ast-search-submit {
+.mmm-search .mmm-l-search-submit {
     flex: 0 0 auto;
     height: 44px;
     min-width: 44px;
@@ -5914,7 +5925,7 @@ button[class*="mmm-"]:focus-visible {
     cursor: pointer;
 }
 
-.mmm-search .ast-search-submit:hover {
+.mmm-search .mmm-l-search-submit:hover {
     background: var(--mmm-green-700);
 }
 
@@ -5987,8 +5998,8 @@ button[class*="mmm-"]:focus-visible {
 @media (max-width: 544px) {
     .elementor .mmm-recipe-row__media img { height: 100px; }
 }
-.ast-single-post .entry-content .elementor .mmm-recipe-row a,
-.ast-single-post .entry-content .elementor .mmm-image-wall a { text-decoration: none; }
+.mmm-l-single-post .entry-content .elementor .mmm-recipe-row a,
+.mmm-l-single-post .entry-content .elementor .mmm-image-wall a { text-decoration: none; }
 .elementor .mmm-recipe-row__media img { height: 140px; }
 @media (max-width: 544px) {
     .elementor .mmm-recipe-row__media img { height: 100px; }
@@ -6068,78 +6079,260 @@ button[class*="mmm-"]:focus-visible {
 }
 
 /* ==========================================================
-   Bodenleiste, solange der Planer nicht leer ist
+   Header: „Planer“ als erster Menuepunkt, mit Zaehler
 
-   Der Zaehler und der einzige Weg in den Planer sitzen im Header,
-   ganz oben auf Seiten, die ueber 20 000 px lang werden — die
-   schlechteste Stelle, die ein Daumen erreichen kann. Die Leiste
-   wiederholt beides dort, wo die Hand ohnehin ist, und
-   verschwindet mit dem leeren Planer von selbst.
+   Der Planer ist das Produkt und steht vorn. Er behaelt den Akzent des
+   frueheren Knopfs „Jetzt planen“ (HTML-Element im Header), ist aber ein
+   gewoehnlicher Menuepunkt: WordPress erzeugt die Adresse, es gibt
+   keinen von Hand eingetragenen Link mehr. Die Klasse mmm-menu-planner
+   und die Symbole setzt tools/redesign-setup.php.
    ========================================================== */
 
-.mmm-cart-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9998;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--mmm-s4);
-    /* Ueber der Hausleiste des Browsers, nicht darunter. */
-    padding: var(--mmm-s3) var(--mmm-s4) calc(var(--mmm-s3) + env(safe-area-inset-bottom, 0px));
-    background: var(--mmm-surface);
-    border-top: 1px solid var(--mmm-line);
-    box-shadow: 0 -2px 12px rgba(44, 42, 36, .10);
+.elementor-nav-menu .elementor-item > i {
+    margin-right: 6px;
+    color: var(--mmm-green-600);
 }
 
-.mmm-cart-bar__count {
-    font-weight: var(--mmm-fw-bold);
-    color: var(--mmm-ink);
+.elementor-nav-menu--main .elementor-item {
+    border-radius: 999px;
+    transition: background-color .15s ease, color .15s ease;
 }
 
-.mmm-cart-bar__link {
-    /* Volles Tippziel, auch wenn die Beschriftung kurz ist. */
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    padding: 0 var(--mmm-s5);
-    background: var(--mmm-green-600);
-    color: #fff;
+.elementor-nav-menu--main .menu-item.mmm-menu-planner > .elementor-item,
+.elementor-nav-menu--main .menu-item.mmm-menu-planner > .elementor-item:hover,
+.elementor-nav-menu--main .menu-item.mmm-menu-planner > .elementor-item:focus,
+.elementor-nav-menu--main .menu-item.mmm-menu-planner > .elementor-item.elementor-item-active {
+    margin-right: var(--mmm-s2);
+    background: var(--mmm-carrot-500);
+    color: #fff !important;
+    fill: #fff;
     font-weight: var(--mmm-fw-heavy);
-    border-radius: var(--mmm-r-pill);
-    text-decoration: none;
+    box-shadow: var(--mmm-shadow-carrot-sm);
 }
 
-.mmm-cart-bar__link:hover,
-.mmm-cart-bar__link:focus {
-    background: var(--mmm-green-500);
+.elementor-nav-menu--main .menu-item.mmm-menu-planner > .elementor-item:hover,
+.elementor-nav-menu--main .menu-item.mmm-menu-planner > .elementor-item:focus {
+    background: var(--mmm-carrot-600);
+}
+
+.elementor-nav-menu--main .menu-item.mmm-menu-planner > .elementor-item i {
     color: #fff;
 }
 
-/* Leerer Planer, keine Leiste. Die Klasse setzt das Skript beim Zaehlen. */
-body.mmm-cart-empty .mmm-cart-bar {
+.elementor-nav-menu .mmm-menu-planner .mmm-cart-badge {
+    margin-left: var(--mmm-s2);
+}
+
+/* Mobiles Menue: klappt unter dem Header ueber die ganze Breite auf. Das
+   Widget steht in einer schmalen Spalte neben der Suche; ohne diese Regeln
+   erbt die Liste deren Breite. Bezugspunkt ist der Header selbst. */
+.elementor-location-header .e-con .e-con,
+.elementor-location-header .elementor-widget-nav-menu,
+.elementor-location-header .elementor-widget-nav-menu .elementor-widget-container {
+    position: static !important;
+}
+
+.elementor-location-header .elementor-nav-menu--toggle nav.elementor-nav-menu--dropdown.elementor-nav-menu__container {
+    position: absolute;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0;
+    width: auto !important;
+    margin-top: 0 !important;
+    border-top: 1px solid var(--mmm-line);
+}
+
+.elementor-location-header .elementor-nav-menu--dropdown .elementor-item {
+    padding: 14px 20px;
+}
+
+/* Waagerechte Karten-Reihen ragen bewusst ueber den Rand; die Seite selbst
+   darf dadurch nicht seitlich rollen (bisher von Astra geregelt). */
+body {
+    overflow-x: hidden;
+}
+
+/* Seiten, die Elementor in voller Breite baut (Startseite): der Container
+   des Themes begrenzt sie nicht, die Sektionen bringen ihre Breite mit. */
+.elementor-template-full-width .site-content > .mmm-l-container {
+    display: block;
+    max-width: 100%;
+    padding: 0;
+}
+
+/* Leerer Plan, kein Zaehler. Die Klasse setzt das Skript beim Zaehlen. */
+body.mmm-cart-empty .mmm-menu-planner .mmm-cart-badge {
     display: none;
 }
 
-/* Am Schreibtisch ist der Header in Reichweite; dort waere die Leiste nur
-   eine zweite Navigation, die Platz nimmt. */
-@media (min-width: 545px) {
-    .mmm-cart-bar {
+/* ==========================================================
+   Tab-Leiste am unteren Rand (Handy und Tablet)
+
+   Plan, Rezepte, Einkaufsliste: die drei Schritte des Ablaufs dort, wo
+   der Daumen ist, auf jeder Seite und auch bei leerem Plan. Das Markup
+   kommt aus includes/navigation.php. Die Leiste gilt, solange der Header
+   das mobile Menue zeigt (bis 1024px, Tablet-Umbruch von Elementor); am Schreibtisch steht dasselbe im
+   Header.
+
+   Sie ersetzt die Bodenleiste „Zum Planer“, die das Plugin nur bei
+   gefuelltem Plan einblendete (.mmm-cart-bar).
+   ========================================================== */
+
+:root {
+    --mmm-tabbar-h: 60px;
+}
+
+.mmm-tabbar,
+.mmm-cart-bar {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+
+    .mmm-tabbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9998;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        /* Ueber der Hausleiste des Browsers, nicht darunter. */
+        padding: 0 var(--mmm-s2) env(safe-area-inset-bottom, 0px);
+        background: var(--mmm-surface);
+        border-top: 1px solid var(--mmm-line);
+        box-shadow: 0 -2px 12px rgba(44, 42, 36, .10);
+    }
+
+    .mmm-tabbar__tab {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        min-height: var(--mmm-tabbar-h);
+        color: var(--mmm-ink-2);
+        font-family: var(--mmm-font-text);
+        font-size: .75rem;
+        font-weight: var(--mmm-fw-bold);
+        line-height: 1.2;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .mmm-tabbar__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 28px;
+        border-radius: var(--mmm-r-pill);
+        font-size: 1.1rem;
+        transition: background .15s;
+    }
+
+    .mmm-tabbar__tab:hover,
+    .mmm-tabbar__tab:focus,
+    .mmm-tabbar__tab[aria-current="page"] {
+        color: var(--mmm-green-700);
+    }
+
+    .mmm-tabbar__tab[aria-current="page"] .mmm-tabbar__icon {
+        background: var(--mmm-green-100);
+    }
+
+    .mmm-tabbar__tab:focus-visible {
+        outline: 2px solid var(--mmm-green-600);
+        outline-offset: -4px;
+        border-radius: var(--mmm-r-sm);
+    }
+
+    /* Zaehler des Plans, an der Ecke des Symbols. */
+    .mmm-tabbar__badge {
+        position: absolute;
+        top: 5px;
+        left: calc(50% + 8px);
+        min-width: 18px;
+        height: 18px;
+        padding: 0 5px;
+        border-radius: var(--mmm-r-pill);
+        background: var(--mmm-carrot-500);
+        color: #fff;
+        font-size: .6875rem;
+        box-shadow: 0 0 0 2px var(--mmm-surface);
+    }
+
+    /* Leerer Plan, kein Zaehler. Die Klasse setzt das Skript beim Zaehlen. */
+    body.mmm-cart-empty .mmm-tabbar__badge {
         display: none;
     }
-}
 
-/* Die Einblendung muss ueber der Leiste bleiben, nicht dahinter. */
-body:not(.mmm-cart-empty) .mmm-toast {
-    bottom: calc(var(--mmm-s4) + 64px + env(safe-area-inset-bottom, 0px));
-}
-
-@media (min-width: 545px) {
-    body:not(.mmm-cart-empty) .mmm-toast {
-        bottom: calc(var(--mmm-s4) + env(safe-area-inset-bottom, 0px));
+    /* Das Seitenende nicht unter der Leiste verstecken. */
+    body.mmm-has-tabbar {
+        padding-bottom: calc(var(--mmm-tabbar-h) + env(safe-area-inset-bottom, 0px));
     }
+
+    /* Die Speicherleiste des Planers sitzt auf der Tab-Leiste auf. */
+    body.mmm-has-tabbar .mmm-save-bar {
+        bottom: calc(var(--mmm-tabbar-h) + env(safe-area-inset-bottom, 0px));
+        padding-bottom: var(--mmm-s3);
+        box-shadow: none;
+    }
+
+    body.mmm-has-tabbar.mmm-save-bar-visible {
+        padding-bottom: calc(var(--mmm-tabbar-h) + 68px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Die Einblendung muss ueber der Leiste bleiben, nicht dahinter. */
+    body.mmm-has-tabbar .mmm-toast {
+        bottom: calc(var(--mmm-s4) + var(--mmm-tabbar-h) + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+/* ==========================================================
+   Seite „Einkaufsliste“ (page-templates/einkaufsliste.php)
+   ========================================================== */
+
+.mmm-shopping-page__back {
+    margin: 0 0 var(--mmm-s4);
+    font-weight: var(--mmm-fw-bold);
+}
+
+.mmm-shopping-page__back a {
+    text-decoration: none;
+}
+
+.mmm-shopping-page--empty {
+    padding: var(--mmm-s8) var(--mmm-s6);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r);
+    text-align: center;
+}
+
+.mmm-shopping-page--empty p {
+    margin: 0;
+}
+
+.mmm-shopping-page__empty-title {
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-xl);
+    font-weight: var(--mmm-fw-semibold);
+    color: var(--mmm-ink);
+}
+
+.mmm-shopping-page--empty .mmm-shopping-page__empty-title {
+    margin-bottom: var(--mmm-s2);
+}
+
+.mmm-shopping-page--empty .mmm-shopping-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--mmm-s3);
+    margin-top: var(--mmm-s5);
 }
 
 /* Tippziele im Planer und im Einplanen-Dialog. Gemessen bei 390px: der
@@ -6567,7 +6760,7 @@ body.mmm-save-bar-visible {
     margin-top: var(--mmm-s5);
 }
 
-/* Astra unterstreicht per `.ast-single-post .entry-content a` jeden Link im
+/* Astra unterstreicht per `.mmm-l-single-post .entry-content a` jeden Link im
    Seiteninhalt — 0,2,1 und damit spezifischer als die Knopfklasse. Der
    Speichern-Knopf stand deshalb auf allen Breiten unterstrichen da, was ihn
    wie einen Textlink und nicht wie die Hauptaktion aussehen liess. `body`
@@ -7453,7 +7646,7 @@ body .entry-content a.mmm-meal-plan-actions__item {
 
 /* Zwei Chips, die es bisher nur bei Rezept und Plan gab. Gleiche Bauform,
    eigene Glyphe: Kalenderblatt fürs Datum, Buch für die Lesezeit. */
-.mmm-meta__item--date::before         { content: "\f133"; color: var(--ast-global-color-0); }
+.mmm-meta__item--date::before         { content: "\f133"; color: var(--mmm-l-global-color-0); }
 .mmm-meta__item--reading-time::before { content: "\f02d"; color: #838383; }
 
 /* Der Hero trägt seine Optik aus der gemeinsamen Regel weiter oben
@@ -7482,7 +7675,7 @@ body .entry-content a.mmm-meal-plan-actions__item {
 }
 
 /* Der Beitragstext steht in einer weißen Karte — dieselbe wie der Inhalt
-   einer Seite (.ast-plain-container.page .ast-article-single): gleiche
+   einer Seite (.mmm-l-plain-container.page .mmm-l-article-single): gleiche
    Fläche, gleicher Rahmen, gleicher Radius, gleiche Polsterung. Astras
    eigene Karte greift hier nicht, weil die Einzelansicht im
    page-builder-Layout läuft und deren Hülle gar nicht erst ausgibt.
@@ -7716,7 +7909,7 @@ body .entry-content a.mmm-meal-plan-actions__item {
    ihren eigenen Namen und teilen sich die Regeln — eine zweite Kopie
    derselben acht Zeilen wäre die Stelle, an der die beiden auseinanderlaufen. */
 /* Der Haken an Astras Archivkopf: seine Polsterung kommt aus
-   `body.archive .ast-archive-description`, gespeist aus der Banner-Einstellung
+   `body.archive .mmm-l-archive-description`, gespeist aus der Banner-Einstellung
    des jeweiligen Inhaltstyps (Vorgabe 3em = 48px). Die Beitragsseite ist aber
    kein Archiv — ihr Body heißt `home blog` —, dort greift stattdessen Astras
    generische Regel mit 5em/6.67em/3.33em, gemessen 80/107/53px.
@@ -7790,14 +7983,14 @@ body.archive .mmm-blog-archive__head {
 }
 
 /* Karten im Seiteninhalt: ohne Unterstreichung.
-   Astra unterstreicht Links im Inhalt (.ast-single-post .entry-content a) —
+   Astra unterstreicht Links im Inhalt (.mmm-l-single-post .entry-content a) —
    richtig für Fließtext, falsch für eine Karte, deren ganze Fläche klickbar
    ist. Betrifft jede Reihe, die per Shortcode in einer Seite steht, also auch
    die Rezept- und Planreihen des Plugins. */
-.ast-single-post .entry-content .mmm-recipe-browse a,
-.ast-single-post .entry-content .mmm-blog-browse a,
-.ast-single-post .entry-content .mmm-recipe-row a,
-.ast-single-post .entry-content .mmm-post-card a {
+.mmm-l-single-post .entry-content .mmm-recipe-browse a,
+.mmm-l-single-post .entry-content .mmm-blog-browse a,
+.mmm-l-single-post .entry-content .mmm-recipe-row a,
+.mmm-l-single-post .entry-content .mmm-post-card a {
     text-decoration: none;
 }
 
@@ -7808,17 +8001,17 @@ body.archive .mmm-blog-archive__head {
    und nur unter dem Zeiger oder dem Tastaturfokus — so zeigt die Karte
    wie ein Textlink, dass sie einer ist. Dasselbe gilt für − und + über
    der Einkaufsliste: Knöpfe, keine Textlinks. */
-.ast-single-post .entry-content a.mmm-recipe-card,
-.ast-single-post .entry-content a.mmm-recipe-card:hover,
-.ast-single-post .entry-content a.mmm-recipe-card:focus,
-.ast-single-post .entry-content .mmm-plan-servings a.mmm-plan-servings__step,
-.ast-single-post .entry-content .mmm-plan-servings a.mmm-plan-servings__step:hover,
-.ast-single-post .entry-content .mmm-plan-servings a.mmm-plan-servings__step:focus {
+.mmm-l-single-post .entry-content a.mmm-recipe-card,
+.mmm-l-single-post .entry-content a.mmm-recipe-card:hover,
+.mmm-l-single-post .entry-content a.mmm-recipe-card:focus,
+.mmm-l-single-post .entry-content .mmm-plan-servings a.mmm-plan-servings__step,
+.mmm-l-single-post .entry-content .mmm-plan-servings a.mmm-plan-servings__step:hover,
+.mmm-l-single-post .entry-content .mmm-plan-servings a.mmm-plan-servings__step:focus {
     text-decoration: none;
 }
 
-.ast-single-post .entry-content a.mmm-recipe-card:hover .mmm-recipe-card__title,
-.ast-single-post .entry-content a.mmm-recipe-card:focus-visible .mmm-recipe-card__title {
+.mmm-l-single-post .entry-content a.mmm-recipe-card:hover .mmm-recipe-card__title,
+.mmm-l-single-post .entry-content a.mmm-recipe-card:focus-visible .mmm-recipe-card__title {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
@@ -7856,7 +8049,7 @@ body.archive .mmm-blog-archive__head {
 }
 
 .mmm-eater-switch .mmm-eater-switch__item,
-.ast-single-post .entry-content .mmm-eater-switch a.mmm-eater-switch__item {
+.mmm-l-single-post .entry-content .mmm-eater-switch a.mmm-eater-switch__item {
     display: inline-flex;
     align-items: center;
     min-height: 32px;
@@ -7888,7 +8081,7 @@ body.archive .mmm-blog-archive__head {
 }
 
 .mmm-eater-switch .mmm-eater-switch__item.is-current,
-.ast-single-post .entry-content .mmm-eater-switch a.mmm-eater-switch__item.is-current {
+.mmm-l-single-post .entry-content .mmm-eater-switch a.mmm-eater-switch__item.is-current {
     border-color: var(--mmm-green-100);
     background: var(--mmm-green-100);
     color: var(--mmm-green-700);
@@ -8129,5 +8322,1674 @@ body.archive .mmm-blog-archive__head {
         grid-column: 2 / -1;
         min-width: 0;
         margin-top: 0;
+    }
+}
+
+
+/* ==========================================================
+   Seitenhuelle unter Hello Elementor (includes/layout.php)
+
+   Was zwischen Header und Footer steht und frueher aus Astra kam:
+   Brotkrumen-Leiste und der Titel der Archive. Die Grundregeln dazu
+   (Container, Raster, Typografie) stehen in assets/css/base.css.
+   ========================================================== */
+
+.mmm-breadcrumbs {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--mmm-line);
+    font-size: .85rem;
+    line-height: 1.4;
+}
+
+.mmm-breadcrumbs__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mmm-breadcrumbs__item {
+    display: inline-block;
+    margin: 0;
+}
+
+.mmm-breadcrumbs__item::after {
+    padding: 0 .3em;
+    content: "\00BB";
+}
+
+.mmm-breadcrumbs__item:last-child::after {
+    display: none;
+}
+
+.mmm-breadcrumbs__item a {
+    color: var(--mmm-green-600);
+    text-decoration: none;
+}
+
+.mmm-breadcrumbs__item a:hover,
+.mmm-breadcrumbs__item a:focus {
+    color: var(--mmm-green-700);
+}
+
+/* Titel der Archive. Stand bis 1.x als „Zusaetzliches CSS“ im Customizer
+   und waere dort beim Themewechsel verloren gegangen. */
+body .mmm-l-archive-title {
+    font-family: var(--mmm-font-display) !important;
+    font-weight: var(--mmm-fw-semibold) !important;
+    font-size: 48px !important;
+    line-height: 1.1 !important;
+}
+
+/* ==========================================================
+   REDESIGN: Einplanen mit einem Tipp (Tages-Auswahl)
+
+   Ein Blatt von unten am Handy, ein Dialog in der Mitte am Schreibtisch.
+   Sieben Tage als grosse Tippflaechen; das Markup baut frontend.js.
+   ========================================================== */
+
+.mmm-day-sheet-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgba(44, 42, 36, 0);
+    transition: background-color .2s ease;
+}
+
+.mmm-day-sheet-backdrop.is-open {
+    background: rgba(44, 42, 36, .45);
+}
+
+.mmm-day-sheet {
+    width: 100%;
+    max-width: 520px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: var(--mmm-s5) var(--mmm-s5) calc(var(--mmm-s5) + env(safe-area-inset-bottom, 0px));
+    background: var(--mmm-surface);
+    border-radius: var(--mmm-r-lg) var(--mmm-r-lg) 0 0;
+    box-shadow: var(--mmm-shadow-lg);
+    transform: translateY(100%);
+    transition: transform .22s ease;
+}
+
+.mmm-day-sheet-backdrop.is-open .mmm-day-sheet {
+    transform: none;
+}
+
+.mmm-day-sheet__recipe {
+    margin: 0 0 2px;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mmm-day-sheet__title {
+    margin: 0 0 var(--mmm-s4);
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-2xl);
+    font-weight: var(--mmm-fw-semibold);
+    line-height: 1.2;
+    color: var(--mmm-ink);
+}
+
+.mmm-day-sheet__days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.mmm-day-chip {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0;
+    font-family: var(--mmm-font-display);
+    font-size: 1.05em;
+    font-weight: var(--mmm-fw-semibold);
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-50);
+    border: 1.5px solid var(--mmm-green-100);
+    border-radius: var(--mmm-r-sm);
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, transform .1s ease;
+}
+
+.mmm-day-chip:hover,
+.mmm-day-chip:focus-visible {
+    background: var(--mmm-green-100);
+    border-color: var(--mmm-green-500);
+    color: var(--mmm-green-700);
+    outline: none;
+}
+
+.mmm-day-chip:active {
+    transform: scale(.96);
+}
+
+.mmm-day-chip--today {
+    background: var(--mmm-green-600);
+    border-color: var(--mmm-green-600);
+    color: #fff;
+}
+
+.mmm-day-chip--today:hover,
+.mmm-day-chip--today:focus-visible {
+    background: var(--mmm-green-700);
+    border-color: var(--mmm-green-700);
+    color: #fff;
+}
+
+.mmm-day-chip__today {
+    font-family: var(--mmm-font-text);
+    font-size: 10px;
+    font-weight: var(--mmm-fw-bold);
+    line-height: 1;
+    opacity: .9;
+}
+
+.mmm-day-chip.is-busy,
+.mmm-day-sheet__noday.is-busy {
+    opacity: .6;
+}
+
+.mmm-day-sheet__msg:empty {
+    display: none;
+}
+
+.mmm-day-sheet__foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--mmm-s2);
+    margin-top: var(--mmm-s4);
+}
+
+.mmm-day-sheet__noday,
+.mmm-day-sheet__more {
+    min-height: 44px;
+    padding: 0 var(--mmm-s3);
+    font: inherit;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    background: none;
+    border: 0;
+    border-radius: var(--mmm-r-pill);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.mmm-day-sheet__noday:hover,
+.mmm-day-sheet__more:hover,
+.mmm-day-sheet__noday:focus-visible,
+.mmm-day-sheet__more:focus-visible {
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-50);
+}
+
+@media (min-width: 700px) {
+    .mmm-day-sheet-backdrop {
+        align-items: center;
+    }
+
+    .mmm-day-sheet {
+        border-radius: var(--mmm-r-lg);
+        transform: translateY(12px);
+        opacity: 0;
+        transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .mmm-day-sheet-backdrop.is-open .mmm-day-sheet {
+        opacity: 1;
+    }
+}
+
+/* Ein eingeplantes Rezept sagt das auch an seinem Knopf. */
+.mmm-recipe-actions__item--cart.is-planned::after {
+    content: " \2713";
+}
+
+/* ==========================================================
+   REDESIGN: Rezeptwahl im Planer („+ Rezept“)
+   ========================================================== */
+
+body.mmm-sheet-open {
+    overflow: hidden;
+}
+
+.mmm-picker {
+    display: flex;
+    flex-direction: column;
+    height: 88vh;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.mmm-picker__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--mmm-s3);
+}
+
+.mmm-picker__head .mmm-day-sheet__title {
+    margin-bottom: var(--mmm-s3);
+}
+
+.mmm-picker__close {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--mmm-ink-2);
+    background: var(--mmm-cream-2);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mmm-picker__close:hover,
+.mmm-picker__close:focus-visible {
+    color: var(--mmm-ink);
+    background: var(--mmm-line);
+}
+
+.mmm-picker__search {
+    width: 100%;
+    height: 48px;
+    padding: 0 var(--mmm-s4);
+    font: inherit;
+    color: var(--mmm-ink);
+    background: var(--mmm-cream);
+    border: 1.5px solid var(--mmm-line-2);
+    border-radius: var(--mmm-r-pill);
+}
+
+.mmm-picker__search:focus {
+    outline: none;
+    border-color: var(--mmm-green-500);
+    background: var(--mmm-surface);
+}
+
+.mmm-picker__hint {
+    margin: var(--mmm-s3) 0 0;
+    font-size: var(--mmm-font-xs);
+    font-weight: var(--mmm-fw-bold);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--mmm-ink-3);
+}
+
+.mmm-picker__list {
+    flex: 1;
+    min-height: 0;
+    margin: var(--mmm-s2) calc(-1 * var(--mmm-s5)) 0;
+    padding: 0 var(--mmm-s5) var(--mmm-s5);
+    overflow-y: auto;
+    list-style: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mmm-picker__list[aria-busy="true"] {
+    opacity: .5;
+}
+
+.mmm-picker__list li {
+    margin: 0;
+    border-bottom: 1px solid var(--mmm-line);
+}
+
+.mmm-picker__list li:last-child {
+    border-bottom: 0;
+}
+
+.mmm-picker__item {
+    display: flex;
+    align-items: center;
+    gap: var(--mmm-s3);
+    width: 100%;
+    min-height: 72px;
+    padding: var(--mmm-s2) 0;
+    font: inherit;
+    text-align: left;
+    color: var(--mmm-ink);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.mmm-picker__item:hover,
+.mmm-picker__item:focus-visible {
+    color: var(--mmm-green-700);
+    background: none;
+    outline: none;
+}
+
+.mmm-picker__thumb {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: var(--mmm-r-sm);
+    background: var(--mmm-cream-2);
+}
+
+.mmm-picker__text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mmm-picker__name {
+    font-weight: var(--mmm-fw-bold);
+    line-height: 1.25;
+}
+
+.mmm-picker__meta {
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+}
+
+.mmm-picker__plus {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    line-height: 1;
+    color: #fff;
+    background: var(--mmm-green-600);
+    border-radius: 50%;
+}
+
+.mmm-picker__item.is-busy .mmm-picker__plus {
+    background: var(--mmm-ink-3);
+}
+
+.mmm-picker__empty {
+    padding: var(--mmm-s6) 0;
+    color: var(--mmm-ink-2);
+    text-align: center;
+}
+
+@media (min-width: 700px) {
+    .mmm-picker {
+        height: min(640px, 82vh);
+    }
+}
+
+/* ==========================================================
+   REDESIGN: Planer kompakt
+
+   Eine Karte zeigt Bild, Titel und Portionen. Tag, Mahlzeit, Ernaehrung und
+   „wer isst mit“ liegen hinter „Anpassen“. Jeder Tag hat „+ Rezept“. Die
+   sieben Starttag-Kaestchen ersetzt eine Auswahl.
+   ========================================================== */
+
+.mmm-plan-day {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: var(--mmm-s3);
+    margin-bottom: var(--mmm-s4);
+}
+
+.mmm-plan-day > * {
+    grid-column: 1 / -1;
+}
+
+.mmm-plan-day > .mmm-plan-day-title {
+    grid-column: 1;
+    margin: 0;
+}
+
+.mmm-plan-day > .mmm-plan-day-add {
+    grid-column: 2;
+}
+
+.mmm-plan-day > .mmm-plan-day-box {
+    margin-top: var(--mmm-s2);
+}
+
+/* Die Auswahl oben ersetzt die sieben Kaestchen; sie bleiben fuer das
+   Speichern im Markup. */
+.mmm-plan-day-start {
+    display: none !important;
+}
+
+.mmm-plan-day-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 var(--mmm-s3);
+    font: inherit;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-heavy, 800);
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-50);
+    border: 1px solid var(--mmm-green-100);
+    border-radius: var(--mmm-r-pill);
+    cursor: pointer;
+}
+
+.mmm-plan-day-add:hover,
+.mmm-plan-day-add:focus-visible {
+    color: #fff;
+    background: var(--mmm-green-600);
+    border-color: var(--mmm-green-600);
+    outline: none;
+}
+
+/* Ein leerer Tag ist eine schmale Zeile, kein leerer Kasten mit Anleitung. */
+.mmm-plan-days .mmm-plan-day-list {
+    min-height: 0;
+    padding: var(--mmm-s2);
+    gap: var(--mmm-s2);
+}
+
+.mmm-plan-days .mmm-plan-day-list:not(:has(.mmm-plan-item)) {
+    padding: 0;
+    border-color: transparent;
+}
+
+.mmm-plan-days .mmm-plan-day-list.drop-target {
+    min-height: 56px;
+    border-color: var(--mmm-green-500);
+}
+
+.mmm-plan-days .mmm-plan-day-hint {
+    display: none !important;
+}
+
+/* „Nicht zugeordnet“ erscheint nur, wenn es solche Rezepte gibt. */
+.mmm-plan-unassigned:not(:has(.mmm-plan-item)) .mmm-plan-unassigned__title {
+    display: none;
+}
+
+.mmm-plan-unassigned:not(:has(.mmm-plan-item)):not(:has(.mmm-plan-empty)) {
+    display: none;
+}
+
+.mmm-plan-unassigned:not(:has(.mmm-plan-item)) .mmm-plan-day-list {
+    border: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+/* Karte */
+.mmm-plan-item {
+    align-items: flex-start;
+    gap: var(--mmm-s3);
+    padding: var(--mmm-s2);
+}
+
+.mmm-plan-item-drag {
+    display: none;
+}
+
+.mmm-plan-item-thumb {
+    width: 64px;
+    height: 64px;
+}
+
+.mmm-plan-item-content {
+    gap: 6px;
+}
+
+.mmm-plan-item-title {
+    font-size: var(--mmm-font-md);
+    line-height: 1.25;
+}
+
+.mmm-plan-item-quick {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--mmm-s2);
+}
+
+.mmm-plan-item-quick__servings {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+}
+
+.mmm-plan-item-quick .mmm-plan-item-servings {
+    width: 56px;
+    height: 32px;
+    padding: 0 4px;
+}
+
+.mmm-plan-item-more__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 32px;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-green-700);
+    cursor: pointer;
+    list-style: none;
+}
+
+.mmm-plan-item-more__toggle::-webkit-details-marker {
+    display: none;
+}
+
+.mmm-plan-item-more__toggle::after {
+    content: "\25BE";
+    font-size: .9em;
+    transition: transform .15s ease;
+}
+
+.mmm-plan-item-more[open] > .mmm-plan-item-more__toggle::after {
+    transform: rotate(180deg);
+}
+
+.mmm-plan-item-more[open] {
+    padding-top: 2px;
+}
+
+.mmm-plan-item-more > .mmm-plan-item-controls {
+    margin: var(--mmm-s2) 0;
+}
+
+.mmm-plan-builder[aria-busy="true"] {
+    opacity: .6;
+    transition: opacity .15s ease;
+}
+
+/* Starttag */
+.mmm-plan-startday {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--mmm-s2);
+    margin: 0 0 var(--mmm-s4);
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+}
+
+.mmm-plan-startday__select {
+    width: auto;
+    height: 36px;
+    padding: 0 var(--mmm-s3);
+    font: inherit;
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink);
+    background-color: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r-pill);
+}
+
+body.mmm-cart-empty .mmm-plan-startday {
+    display: none;
+}
+
+/* Naechster Schritt */
+.mmm-planer-next {
+    display: flex;
+    justify-content: center;
+    margin: var(--mmm-s6) 0 0;
+}
+
+.mmm-planer-next__link {
+    min-height: 52px;
+    padding-inline: var(--mmm-s8);
+    font-size: var(--mmm-font-lg);
+}
+
+body.mmm-cart-empty .mmm-planer-next {
+    display: none;
+}
+
+/* ==========================================================
+   REDESIGN: Einstiegsfrage ([mmm_plan_start])
+   ========================================================== */
+
+.mmm-plan-start {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--mmm-s4) var(--mmm-s5);
+    width: 100%;
+    max-width: 520px;
+    margin: 0;
+    padding: var(--mmm-s5);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r-lg);
+    box-shadow: var(--mmm-shadow-md);
+    text-align: left;
+}
+
+.mmm-plan-start__field {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.mmm-plan-start__field--wide,
+.mmm-plan-start__actions,
+.mmm-plan-start__msg {
+    grid-column: 1 / -1;
+}
+
+.mmm-plan-start__label {
+    display: block;
+    margin: 0 0 var(--mmm-s2);
+    padding: 0;
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-lg);
+    font-weight: var(--mmm-fw-semibold);
+    color: var(--mmm-ink);
+}
+
+.mmm-plan-start__stepper {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: var(--mmm-cream);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r-pill);
+}
+
+.mmm-plan-start__step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 22px;
+    font-weight: var(--mmm-fw-bold);
+    line-height: 1;
+    color: var(--mmm-green-700);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mmm-plan-start__step:hover,
+.mmm-plan-start__step:focus-visible {
+    color: #fff;
+    background: var(--mmm-green-600);
+    border-color: var(--mmm-green-600);
+    outline: none;
+}
+
+.mmm-plan-start__people {
+    width: 44px;
+    height: 40px;
+    padding: 0;
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-xl);
+    font-weight: var(--mmm-fw-semibold);
+    text-align: center;
+    color: var(--mmm-ink);
+    background: none;
+    border: 0;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.mmm-plan-start__people::-webkit-outer-spin-button,
+.mmm-plan-start__people::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.mmm-plan-start__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mmm-s2);
+}
+
+.mmm-plan-start__chip {
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+}
+
+.mmm-plan-start__chip input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.mmm-plan-start__chip span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 44px;
+    padding: 0 var(--mmm-s4);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    background: var(--mmm-cream);
+    border: 1.5px solid var(--mmm-line);
+    border-radius: var(--mmm-r-pill);
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.mmm-plan-start__chip:hover span {
+    border-color: var(--mmm-green-500);
+}
+
+.mmm-plan-start__chip input:checked + span {
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-100);
+    border-color: var(--mmm-green-600);
+}
+
+.mmm-plan-start__chip input[type="checkbox"]:checked + span {
+    color: var(--mmm-carrot-600);
+    background: var(--mmm-carrot-100);
+    border-color: var(--mmm-carrot-500);
+    text-decoration: line-through;
+}
+
+.mmm-plan-start__chip input:focus-visible + span {
+    outline: 2px solid var(--mmm-green-600);
+    outline-offset: 2px;
+}
+
+.mmm-plan-start__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mmm-s2);
+}
+
+.mmm-plan-start__submit {
+    width: 100%;
+    min-height: 54px;
+    padding: 0 var(--mmm-s6);
+    font-family: var(--mmm-font-display);
+    font-size: var(--mmm-font-xl);
+    font-weight: var(--mmm-fw-semibold);
+    color: #fff;
+    background: var(--mmm-carrot-500);
+    border: 0;
+    border-radius: var(--mmm-r-pill);
+    box-shadow: var(--mmm-shadow-carrot);
+    cursor: pointer;
+    transition: background-color .15s ease, transform .1s ease;
+}
+
+.mmm-plan-start__submit:hover,
+.mmm-plan-start__submit:focus-visible {
+    color: #fff;
+    background: var(--mmm-carrot-600);
+}
+
+.mmm-plan-start__submit:active {
+    transform: translateY(1px);
+}
+
+.mmm-plan-start__submit.is-busy {
+    opacity: .7;
+}
+
+.mmm-plan-start__note {
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+    text-align: center;
+}
+
+.mmm-plan-start__msg:empty {
+    display: none;
+}
+
+@media (max-width: 420px) {
+    .mmm-plan-start {
+        padding: var(--mmm-s4);
+        gap: var(--mmm-s4) var(--mmm-s3);
+    }
+}
+
+/* ==========================================================
+   REDESIGN: Wochenplan als Seitenspalte (Schreibtisch)
+   ========================================================== */
+
+.mmm-side-plan {
+    display: none;
+}
+
+@media (min-width: 1360px) {
+
+    .mmm-side-plan {
+        display: block;
+        position: fixed;
+        top: 150px;
+        left: calc(50% + 490px + 14px);
+        z-index: 40;
+        width: min(230px, calc(50vw - 490px - 28px));
+    }
+
+    .mmm-side-plan__box {
+        background: var(--mmm-surface);
+        border: 1px solid var(--mmm-line);
+        border-radius: var(--mmm-r);
+        box-shadow: var(--mmm-shadow-md);
+        overflow: hidden;
+    }
+
+    .mmm-side-plan__toggle {
+        display: flex;
+        align-items: center;
+        gap: var(--mmm-s2);
+        padding: var(--mmm-s3) var(--mmm-s4);
+        font-family: var(--mmm-font-display);
+        font-weight: var(--mmm-fw-semibold);
+        color: var(--mmm-ink);
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .mmm-side-plan__toggle::-webkit-details-marker {
+        display: none;
+    }
+
+    .mmm-side-plan__toggle i {
+        color: var(--mmm-green-600);
+    }
+
+    .mmm-side-plan__toggle::after {
+        content: "\25BE";
+        margin-left: auto;
+        color: var(--mmm-ink-3);
+        transition: transform .15s ease;
+    }
+
+    .mmm-side-plan__box[open] > .mmm-side-plan__toggle::after {
+        transform: rotate(180deg);
+    }
+
+    .mmm-side-plan .mmm-mini-plan {
+        max-height: calc(100vh - 260px);
+        padding: 0 var(--mmm-s4) var(--mmm-s4);
+        overflow-y: auto;
+    }
+
+    .mmm-side-plan .mmm-mini-plan__title {
+        display: none;
+    }
+}
+
+.mmm-mini-plan__days {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mmm-mini-plan__day {
+    display: flex;
+    gap: var(--mmm-s2);
+    margin: 0;
+    padding: 6px 0;
+    font-size: var(--mmm-font-sm);
+    line-height: 1.3;
+    border-top: 1px solid var(--mmm-line);
+}
+
+.mmm-mini-plan__day:first-child {
+    border-top: 0;
+}
+
+.mmm-mini-plan__label {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--mmm-fw-heavy, 800);
+    font-size: 11px;
+    color: var(--mmm-green-700);
+    background: var(--mmm-green-50);
+    border-radius: 50%;
+}
+
+.mmm-mini-plan__day.is-today .mmm-mini-plan__label {
+    color: #fff;
+    background: var(--mmm-green-600);
+}
+
+.mmm-mini-plan__day.is-free .mmm-mini-plan__label {
+    color: var(--mmm-ink-3);
+    background: var(--mmm-cream-2);
+}
+
+.mmm-mini-plan__items {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 4px;
+    color: var(--mmm-ink-3);
+}
+
+.mmm-mini-plan__item {
+    color: var(--mmm-ink);
+    text-decoration: none;
+    font-weight: var(--mmm-fw-bold);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.mmm-mini-plan__item:hover {
+    color: var(--mmm-green-700);
+}
+
+.mmm-mini-plan__empty {
+    margin: 0;
+    font-size: var(--mmm-font-sm);
+    color: var(--mmm-ink-2);
+}
+
+.mmm-mini-plan__open {
+    display: block;
+    margin-top: var(--mmm-s3);
+    padding: 8px var(--mmm-s3);
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-heavy, 800);
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: var(--mmm-carrot-500);
+    border-radius: var(--mmm-r-pill);
+}
+
+.mmm-mini-plan__open:hover,
+.mmm-mini-plan__open:focus-visible {
+    color: #fff;
+    background: var(--mmm-carrot-600);
+}
+
+/* ==========================================================
+   REDESIGN: Einkaufsliste zum Abhaken
+   ========================================================== */
+
+.mmm-shop-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 6px var(--mmm-s3);
+    margin: 0 0 var(--mmm-s4);
+    padding: var(--mmm-s3) var(--mmm-s4);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r);
+    box-shadow: var(--mmm-shadow-sm);
+}
+
+.mmm-shop-bar__text {
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink);
+}
+
+.mmm-shop-bar__track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: 6px;
+    overflow: hidden;
+    background: var(--mmm-cream-2);
+    border-radius: 3px;
+}
+
+.mmm-shop-bar__fill {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--mmm-green-600);
+    border-radius: 3px;
+    transition: width .25s ease;
+}
+
+.mmm-shop-bar__reset {
+    min-height: 32px;
+    padding: 0 var(--mmm-s3);
+    font: inherit;
+    font-size: var(--mmm-font-sm);
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    background: none;
+    border: 1px solid var(--mmm-line-2);
+    border-radius: var(--mmm-r-pill);
+    cursor: pointer;
+}
+
+.mmm-shop-bar__reset:hover,
+.mmm-shop-bar__reset:focus-visible {
+    color: var(--mmm-ink);
+    background: var(--mmm-cream-2);
+}
+
+[data-shopping-check].is-complete .mmm-shop-bar__text {
+    color: var(--mmm-green-700);
+}
+
+[data-shopping-check] .mmm-shopping-list-items {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    list-style: none;
+}
+
+[data-shopping-check] .mmm-shopping-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: var(--mmm-s3);
+    padding-block: 6px;
+}
+
+[data-shopping-check] .mmm-shopping-item > details,
+[data-shopping-check] .mmm-shopping-item > :not(.mmm-shop-check):not(.mmm-shop-have) {
+    min-width: 0;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.mmm-shop-check {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin-top: 4px;
+    padding: 0;
+    background: var(--mmm-surface);
+    border: 2px solid var(--mmm-line-2);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background-color .12s ease, border-color .12s ease;
+}
+
+.mmm-shop-check:hover,
+.mmm-shop-check:focus-visible {
+    background: var(--mmm-surface);
+    border-color: var(--mmm-green-500);
+    outline: none;
+}
+
+.mmm-shop-check[aria-checked="true"] {
+    background: var(--mmm-green-600);
+    border-color: var(--mmm-green-600);
+}
+
+.mmm-shop-check[aria-checked="true"]::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 8px;
+    height: 14px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.mmm-shop-have {
+    grid-column: 3;
+    grid-row: 1;
+    min-height: 32px;
+    margin-top: 4px;
+    padding: 0 10px;
+    font: inherit;
+    font-size: var(--mmm-font-xs);
+    font-weight: var(--mmm-fw-bold);
+    white-space: nowrap;
+    color: var(--mmm-ink-2);
+    background: var(--mmm-cream);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r-pill);
+    cursor: pointer;
+}
+
+.mmm-shop-have:hover,
+.mmm-shop-have:focus-visible {
+    color: var(--mmm-ink);
+    background: var(--mmm-cream-2);
+}
+
+.mmm-shop-have[aria-pressed="true"] {
+    color: var(--mmm-carrot-600);
+    background: var(--mmm-carrot-100);
+    border-color: var(--mmm-carrot-500);
+}
+
+/* Erledigtes und Vorhandenes rutscht ans Ende seiner Abteilung. */
+[data-shopping-check] .mmm-shopping-item.is-done,
+[data-shopping-check] .mmm-shopping-item.is-have {
+    order: 2;
+}
+
+[data-shopping-check] .mmm-shopping-item.is-done summary,
+[data-shopping-check] .mmm-shopping-item.is-have summary,
+[data-shopping-check] .mmm-shopping-item.is-done .mmm-shopping-item-name,
+[data-shopping-check] .mmm-shopping-item.is-have .mmm-shopping-item-name {
+    color: var(--mmm-ink-3);
+    text-decoration: line-through;
+}
+
+[data-shopping-check] .mmm-shopping-item.is-done .mmm-shop-have {
+    visibility: hidden;
+}
+
+@media print {
+    .mmm-shop-bar,
+    .mmm-shop-have,
+    .mmm-tabbar,
+    .mmm-side-plan {
+        display: none !important;
+    }
+}
+
+/* ==========================================================
+   REDESIGN: Rezepte finden (Archiv)
+
+   Ein Suchfeld mit Knopf in einer Zeile, Filter als wischbare Reihen,
+   Einleitung unter den Ergebnissen, „Mehr laden“.
+   ========================================================== */
+
+.post-type-archive-mmm_recipe .mmm-l-archive-description,
+.tax-mmm_recipe_category .mmm-l-archive-description,
+.tax-mmm_recipe_tag .mmm-l-archive-description {
+    padding-top: var(--mmm-s5);
+    padding-bottom: var(--mmm-s3);
+}
+
+.mmm-archive-search {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--mmm-s2);
+}
+
+.mmm-archive-search .mmm-archive-search__text {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+.mmm-archive-search .mmm-archive-search__submit {
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0;
+}
+
+@media (max-width: 921px) {
+
+    .mmm-archive-filters {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: var(--mmm-s2);
+        margin-inline: -20px;
+        padding-inline: 20px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mmm-archive-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mmm-archive-filters > * {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .mmm-archive-filters a {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0 var(--mmm-s4);
+        background: var(--mmm-surface);
+        border: 1px solid var(--mmm-line);
+        border-radius: var(--mmm-r-pill);
+    }
+
+    .mmm-archive-filters a.active {
+        color: var(--mmm-green-700);
+        background: var(--mmm-green-100);
+        border-color: var(--mmm-green-600);
+    }
+
+    .mmm-archive-filters a.active::after,
+    .mmm-archive-filters a::after {
+        display: none;
+    }
+
+    .mmm-archive-filters__label {
+        font-size: var(--mmm-font-xs);
+        text-transform: uppercase;
+        letter-spacing: .06em;
+    }
+}
+
+.mmm-archive-intro {
+    margin: var(--mmm-s8) 0 0;
+    padding: var(--mmm-s5);
+    color: var(--mmm-ink-2);
+    background: var(--mmm-surface);
+    border: 1px solid var(--mmm-line);
+    border-radius: var(--mmm-r);
+}
+
+.mmm-archive-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.mmm-load-more {
+    display: flex;
+    justify-content: center;
+    margin: var(--mmm-s6) 0;
+}
+
+.mmm-load-more__btn {
+    min-width: 220px;
+    min-height: 52px;
+    cursor: pointer;
+}
+
+.mmm-load-more__btn.is-busy {
+    opacity: .6;
+}
+
+/* Nachschliff Planer und Blaetter */
+.mmm-plan-item .mmm-plan-item-thumb {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+}
+
+.mmm-plan-unassigned:not(:has(.mmm-plan-item)) {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    border: 0;
+}
+
+.mmm-plan-builder .mmm-plan-startday {
+    margin-top: var(--mmm-s4);
+}
+
+input[type="search"].mmm-picker__search {
+    border-radius: var(--mmm-r-pill);
+    border: 1.5px solid var(--mmm-line-2);
+}
+
+.mmm-day-sheet__foot {
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.mmm-day-sheet__noday,
+.mmm-day-sheet__more {
+    padding: 0 var(--mmm-s2);
+    text-align: left;
+    line-height: 1.25;
+}
+
+.mmm-day-sheet__more {
+    text-align: right;
+}
+
+.mmm-day-chip:focus-visible {
+    box-shadow: 0 0 0 3px rgba(92, 158, 46, .35);
+}
+
+body:not(.mmm-cart-empty) .mmm-plan-unassigned:not(:has(.mmm-plan-item)) {
+    display: none;
+}
+
+@media (max-width: 921px) {
+    .post-type-archive-mmm_recipe .mmm-l-archive-description,
+    .tax-mmm_recipe_category .mmm-l-archive-description,
+    .tax-mmm_recipe_tag .mmm-l-archive-description {
+        padding-top: var(--mmm-s4);
+    }
+
+    .post-type-archive-mmm_recipe #primary,
+    .tax-mmm_recipe_category #primary,
+    .tax-mmm_recipe_tag #primary {
+        margin-top: var(--mmm-s4);
+    }
+}
+
+/* Karte im Planer unterhalb der Spaltenansicht: Bild, daneben Titel mit
+   Portionen und „Anpassen“, rechts das ×. Der Inhalt ist wieder ein Block
+   (frueher per display:contents aufgeloest, als alle Felder offen standen). */
+@media (max-width: 1199px) {
+
+    .mmm-plan-item {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) 40px;
+        grid-template-areas: "thumb content remove";
+        align-items: start;
+        column-gap: 0;
+        row-gap: 0;
+    }
+
+    .mmm-plan-item .mmm-plan-item-thumb {
+        grid-area: thumb;
+        min-width: 64px;
+        margin-right: var(--mmm-s3);
+    }
+
+    .mmm-plan-item .mmm-plan-item-content {
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .mmm-plan-item .mmm-plan-item-title,
+    .mmm-plan-item .mmm-plan-item-controls,
+    .mmm-plan-item .mmm-plan-item-eaters {
+        grid-area: auto;
+        grid-column: auto;
+        padding-right: 0;
+    }
+
+    .mmm-plan-item .mmm-plan-item-remove {
+        grid-area: remove;
+        width: 36px;
+        height: 36px;
+        min-width: 0;
+        justify-self: end;
+    }
+
+    /* Die Karte ist der Rahmen; der gestrichelte Kasten darum kostete am
+       Handy zweimal Rand. */
+    .mmm-plan-days .mmm-plan-day-list,
+    .mmm-plan-days .mmm-plan-day-list:not(:has(.mmm-plan-item)) {
+        padding: 0;
+        border: 0;
+    }
+
+    .mmm-plan-days .mmm-plan-day-box {
+        margin-top: var(--mmm-s2);
+    }
+}
+
+.mmm-plan-builder .mmm-plan-startday {
+    margin: 0 0 var(--mmm-s3);
+}
+
+/* Elementor-Seiten in voller Breite behalten am Handy den Seitenrand. */
+@media (max-width: 921px) {
+    .elementor-template-full-width .site-content > .mmm-l-container {
+        padding: 0 20px;
+    }
+}
+
+/* Feinschliff: Eingabefelder der neuen Teile gegen die Grundregeln fuer
+   Formularfelder, und mehr Platz fuer die Karte am Handy. */
+.mmm-plan-start input[type="number"].mmm-plan-start__people {
+    width: 44px;
+    min-height: 0;
+    height: 40px;
+    padding: 0;
+    color: var(--mmm-ink);
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+@media (max-width: 1199px) {
+
+    .mmm-plan-builder .mmm-plan-days .mmm-plan-day .mmm-plan-day-list {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .mmm-plan-builder .mmm-plan-days .mmm-plan-day {
+        padding-left: 26px;
+    }
+
+    .mmm-plan-item .mmm-plan-item-title {
+        font-size: 1em;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+    }
+}
+
+@media (max-width: 544px) {
+    /* Der Planer nutzt am Handy die Breite: der weisse Kasten um die Seite
+       behaelt nur einen schmalen Innenrand. */
+    article:has(.mmm-plan-builder),
+    .mmm-l-article-single:has(.mmm-plan-builder) {
+        padding-inline: var(--mmm-s4) !important;
+    }
+}
+
+/* Unter jedem Tag steht nur die Energie; alle Werte des Plans zeigt der
+   Naehrwert-Kasten darunter. Acht Zeilen je Tag machten die Woche am Handy
+   um ein Drittel laenger. */
+.mmm-plan-days .mmm-plan-day-nutrition__list > li:nth-child(n+3) {
+    display: none;
+}
+
+.mmm-plan-days .mmm-plan-day-nutrition {
+    margin-top: 6px;
+    padding: 0;
+    font-size: var(--mmm-font-sm);
+}
+
+@media (max-width: 1199px) {
+    .mmm-plan-builder .mmm-plan-days .mmm-plan-day-box {
+        padding: 0;
+        border: 0;
+        background: none;
+    }
+}
+
+
+/* ==========================================================
+   Abnahme 12.11.2026: Naehrwerte im Planer eingeklappt, kompakte
+   Rezeptkarten am Handy, Tage-Auswahl in einer Zeile.
+   ========================================================== */
+
+/* Die Ueberschrift ist der Griff; daneben steht die Energie als Vorschau. */
+.mmm-planner-nutrition__fold-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--mmm-s3);
+    min-height: 48px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.mmm-planner-nutrition__fold-summary::-webkit-details-marker {
+    display: none;
+}
+
+.mmm-planner-nutrition__fold-summary .mmm-planner-nutrition__title {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    font-size: var(--mmm-font-lg);
+}
+
+.mmm-planner-nutrition__fold-value {
+    flex: 0 0 auto;
+    font-weight: var(--mmm-fw-bold);
+    color: var(--mmm-ink-2);
+    white-space: nowrap;
+}
+
+.mmm-planner-nutrition__fold-summary::after {
+    content: "";
+    flex: 0 0 auto;
+    width: 9px;
+    height: 9px;
+    margin: -4px 4px 0 0;
+    border-right: 2px solid var(--mmm-green-600);
+    border-bottom: 2px solid var(--mmm-green-600);
+    transform: rotate(45deg);
+    transition: transform .15s ease;
+}
+
+.mmm-planner-nutrition__fold[open] > .mmm-planner-nutrition__fold-summary::after {
+    margin-top: 4px;
+    transform: rotate(-135deg);
+}
+
+.mmm-planner-nutrition__fold[open] > .mmm-planner-nutrition__fold-summary {
+    margin-bottom: var(--mmm-s3);
+}
+
+.mmm-planner-nutrition__fold-summary:focus-visible {
+    outline: 2px solid var(--mmm-green-500);
+    outline-offset: 4px;
+    border-radius: var(--mmm-r-sm, 6px);
+}
+
+/* Rezeptliste am Handy: Bild links, das Wesentliche rechts. Eine Karte
+   war 750 px hoch, zwanzig davon 15.000 px. Beschreibung und Schlagworte
+   stehen auf der Rezeptseite. */
+@media (max-width: 544px) {
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe {
+        margin-bottom: var(--mmm-s3);
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .blog-layout-5 {
+        display: grid;
+        grid-template-columns: 104px minmax(0, 1fr);
+        align-items: start;
+        gap: 0 var(--mmm-s3);
+        padding: var(--mmm-s3);
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-l-blog-featured-section.post-thumb {
+        width: 104px !important;
+        margin: 0;
+        padding: 0;
+        border-radius: var(--mmm-r-md, 12px);
+        overflow: hidden;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-thumb-img-content img {
+        display: block;
+        width: 104px;
+        height: 104px;
+        min-height: 0;
+        object-fit: cover;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-content {
+        width: auto !important;
+        min-width: 0;
+        padding: 0 !important;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-l-no-thumb .post-content {
+        grid-column: 1 / -1;
+        padding-left: 0 !important;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-l-excerpt-container,
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .entry-content > p {
+        display: none;
+    }
+}
+
+/* 3, 5 und 7 Tage passen bei 375 px nebeneinander. */
+@media (max-width: 420px) {
+    .mmm-plan-start__field:not(.mmm-plan-start__field--wide) .mmm-plan-start__chips {
+        flex-wrap: nowrap;
+        gap: 6px;
+    }
+
+    .mmm-plan-start__field:not(.mmm-plan-start__field--wide) .mmm-plan-start__chip span {
+        min-width: 42px;
+        padding: 0 var(--mmm-s2);
+    }
+}
+
+.mmm-planner-nutrition__fold-value::before {
+    content: "Ø ";
+}
+
+@media (max-width: 544px) {
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-l-blog-featured-section.post-thumb,
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-thumb-img-content,
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-thumb-img-content a {
+        display: block;
+        align-self: start;
+        height: 104px !important;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .post-thumb-img-content img {
+        width: 104px !important;
+        height: 104px !important;
+        min-height: 0 !important;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .entry-title {
+        margin: 0 0 4px;
+        font-size: var(--mmm-font-md, 1.05rem);
+        line-height: 1.25;
+    }
+
+    /* Sterne und Schnitt genuegen; die Zahl der Stimmen bricht hier um. */
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-rating {
+        margin: 0 0 6px;
+        font-size: var(--mmm-font-sm);
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-rating__count,
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-meta__item--category {
+        display: none;
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-recipe-archive-item-meta {
+        gap: 6px;
+        margin: 0 0 var(--mmm-s2);
+    }
+
+    .mmm-recipe-archive .mmm-l-article-post.type-mmm_recipe .mmm-recipe-archive-item-meta .mmm-meta__item {
+        min-height: 0;
+        padding: 3px 9px;
+        font-size: var(--mmm-font-xs);
     }
 }

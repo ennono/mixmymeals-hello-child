@@ -12,7 +12,7 @@
  * Eingebettete Rezepte und Pläne ([mmm_recipe_embed], [mmm_meal_plan_embed])
  * laufen durch the_content() und bringen ihre eigene Optik mit.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  * @since 1.6.0
  */
 
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="primary" <?php astra_primary_class(); ?>>
+<div id="primary" <?php mmm_primary_class(); ?>>
 
 	<?php
 	while ( have_posts() ) :
@@ -43,7 +43,7 @@ get_header(); ?>
 					<?php endif; ?>
 				</header>
 
-				<?php astra_primary_content_top(); ?>
+				<?php mmm_primary_content_top(); ?>
 
 				<?php if ( has_post_thumbnail() ) : ?>
 					<figure class="mmm-post-figure">
@@ -57,7 +57,7 @@ get_header(); ?>
 					<?php
 					wp_link_pages(
 						array(
-							'before' => '<nav class="mmm-post-pages">' . esc_html__( 'Pages:', 'mixmymeals-astra-child' ) . ' ',
+							'before' => '<nav class="mmm-post-pages">' . esc_html__( 'Pages:', 'mixmymeals-hello-child' ) . ' ',
 							'after'  => '</nav>',
 						)
 					);
@@ -75,7 +75,7 @@ get_header(); ?>
 				<?php if ( $mmm_tags && ! is_wp_error( $mmm_tags ) ) : ?>
 					<section class="mmm-recipe-section mmm-post-tags">
 						<div class="mmm-section-head">
-							<h2><?php esc_html_e( 'Tags', 'mixmymeals-astra-child' ); ?></h2>
+							<h2><?php esc_html_e( 'Tags', 'mixmymeals-hello-child' ); ?></h2>
 							<span class="mmm-section-head__line"></span>
 						</div>
 						<p class="mmm-post-tags__list">
@@ -103,7 +103,7 @@ get_header(); ?>
 							<?php echo get_avatar( get_the_author_meta( 'ID' ), 96, '', '', array( 'class' => 'mmm-author-box__avatar' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</div>
 						<div class="mmm-author-box__body">
-							<p class="mmm-author-box__eyebrow"><?php esc_html_e( 'Written by', 'mixmymeals-astra-child' ); ?></p>
+							<p class="mmm-author-box__eyebrow"><?php esc_html_e( 'Written by', 'mixmymeals-hello-child' ); ?></p>
 							<p class="mmm-author-box__name">
 								<a class="mmm-author-box__link" href="<?php echo esc_url( (string) get_author_posts_url( (int) get_the_author_meta( 'ID' ) ) ); ?>">
 									<?php echo esc_html( (string) get_the_author() ); ?>
@@ -119,17 +119,17 @@ get_header(); ?>
 				$mmm_next = get_next_post();
 				?>
 				<?php if ( $mmm_prev || $mmm_next ) : ?>
-					<nav class="mmm-post-nav" aria-label="<?php esc_attr_e( 'More posts', 'mixmymeals-astra-child' ); ?>">
+					<nav class="mmm-post-nav" aria-label="<?php esc_attr_e( 'More posts', 'mixmymeals-hello-child' ); ?>">
 						<?php if ( $mmm_prev instanceof WP_Post ) : ?>
 							<a class="mmm-post-nav__link mmm-post-nav__link--prev" href="<?php echo esc_url( (string) get_permalink( $mmm_prev ) ); ?>">
-								<span class="mmm-post-nav__label"><?php esc_html_e( 'Previous post', 'mixmymeals-astra-child' ); ?></span>
+								<span class="mmm-post-nav__label"><?php esc_html_e( 'Previous post', 'mixmymeals-hello-child' ); ?></span>
 								<span class="mmm-post-nav__title"><?php echo esc_html( get_the_title( $mmm_prev ) ); ?></span>
 							</a>
 						<?php endif; ?>
 
 						<?php if ( $mmm_next instanceof WP_Post ) : ?>
 							<a class="mmm-post-nav__link mmm-post-nav__link--next" href="<?php echo esc_url( (string) get_permalink( $mmm_next ) ); ?>">
-								<span class="mmm-post-nav__label"><?php esc_html_e( 'Next post', 'mixmymeals-astra-child' ); ?></span>
+								<span class="mmm-post-nav__label"><?php esc_html_e( 'Next post', 'mixmymeals-hello-child' ); ?></span>
 								<span class="mmm-post-nav__title"><?php echo esc_html( get_the_title( $mmm_next ) ); ?></span>
 							</a>
 						<?php endif; ?>
@@ -148,7 +148,7 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-	<?php astra_primary_content_bottom(); ?>
+	<?php mmm_primary_content_bottom(); ?>
 
 </div><!-- #primary -->
 

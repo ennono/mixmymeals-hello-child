@@ -25,7 +25,7 @@
  * damit sich der Seite später Text hinzufügen lässt. Die Planer-Shortcodes
  * gehören dann nicht mehr in den Editor — sie kämen sonst doppelt.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -78,8 +78,8 @@ if ( ! function_exists( 'mmm_planer_save_section' ) ) {
 
 		$label = is_callable( array( 'Mixmymeals_Shortcodes', 'plan_subscribe_offer_mode' ) )
 			&& 'off' !== Mixmymeals_Shortcodes::plan_subscribe_offer_mode()
-				? __( 'Save and subscribe to the plan', 'mixmymeals-astra-child' )
-				: __( 'Save plan', 'mixmymeals-astra-child' );
+				? __( 'Save and subscribe to the plan', 'mixmymeals-hello-child' )
+				: __( 'Save plan', 'mixmymeals-hello-child' );
 
 		$html = '<section class="mmm-recipe-browse mmm-plan-save" id="mmm-plan-save" data-plan-save aria-labelledby="mmm-plan-save-title">'
 			. '<div class="mmm-recipe-row__header">'
@@ -97,6 +97,27 @@ if ( ! function_exists( 'mmm_planer_save_section' ) ) {
  * (11): Die Shortcodes durchlaufen damit exakt dieselbe Filterkette wie zuvor
  * im Editorinhalt und werden identisch gerendert.
  */
+if ( ! function_exists( 'mmm_planer_next_step' ) ) {
+	/**
+	 * Der nächste Schritt nach dem Planen: zur Einkaufsliste. Erscheint nur
+	 * bei gefülltem Plan (CSS über body.mmm-cart-empty).
+	 *
+	 * @return string
+	 */
+	function mmm_planer_next_step(): string {
+
+		$url = function_exists( 'mmm_shopping_list_page_url' ) ? mmm_shopping_list_page_url() : '';
+
+		if ( '' === $url ) {
+			return '';
+		}
+
+		return '<div class="mmm-planer-next"><a class="mmm-btn mmm-btn--primary mmm-planer-next__link" href="' . esc_url( $url ) . '">'
+			. '<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> '
+			. esc_html__( 'To the shopping list', 'mixmymeals-hello-child' ) . '</a></div>';
+	}
+}
+
 add_filter(
 	'the_content',
 	static function ( $content ) {
@@ -124,9 +145,9 @@ add_filter(
 		$parts = array(
 			$tag( 'mmm_meal_plan_builder' ),
 			$tag( 'mmm_planner_nutrition' ),
-			// Die Einkaufsliste des entstehenden Plans, genauso live: was
-			// für den Plan einzukaufen ist, schon bevor er gespeichert wird.
-			$tag( 'mmm_planner_shopping_list' ),
+			// Die Einkaufsliste ist ein eigener Schritt auf einer eigenen
+			// Seite (Abhaken im Laden). Hier steht nur der Weg dorthin.
+			mmm_planer_next_step(),
 			(string) $content,
 		);
 
@@ -140,17 +161,11 @@ add_filter(
 get_header();
 ?>
 
-<?php if ( astra_page_layout() === 'left-sidebar' ) { ?>
+	<div id="primary" <?php mmm_primary_class(); ?>>
 
-	<?php get_sidebar(); ?>
+		<?php mmm_primary_content_top(); ?>
 
-<?php } ?>
-
-	<div id="primary" <?php astra_primary_class(); ?>>
-
-		<?php astra_primary_content_top(); ?>
-
-		<?php astra_content_page_loop(); ?>
+		<?php mmm_content_page_loop(); ?>
 
 		<?php
 		// Speichern und Abonnieren: eigene Box in #primary, vor den
@@ -170,8 +185,8 @@ get_header();
 		 * sich damit ohne Seitenwechsel füllen.
 		 */
 		$mmm_planer_rows = array(
-			'mmm_new_recipes'      => __( 'New recipes', 'mixmymeals-astra-child' ),
-			'mmm_favorite_recipes' => __( 'Our Favorites', 'mixmymeals-astra-child' ),
+			'mmm_new_recipes'      => __( 'New recipes', 'mixmymeals-hello-child' ),
+			'mmm_favorite_recipes' => __( 'Our Favorites', 'mixmymeals-hello-child' ),
 		);
 
 		foreach ( $mmm_planer_rows as $mmm_shortcode => $mmm_title ) {
@@ -186,15 +201,9 @@ get_header();
 		}
 		?>
 
-		<?php astra_primary_content_bottom(); ?>
+		<?php mmm_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
-
-<?php if ( astra_page_layout() === 'right-sidebar' ) { ?>
-
-	<?php get_sidebar(); ?>
-
-<?php } ?>
 
 <?php
 get_footer();

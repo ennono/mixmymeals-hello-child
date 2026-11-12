@@ -3,7 +3,7 @@
  * Template for displaying a single piece of equipment (mmm_equipment).
  * Mirrors the ingredient single: plugin hero + section heads.
  *
- * @package Astra Child
+ * @package MixMyMeals Hello Child
  * @since 1.0.0
  */
 
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="primary" <?php astra_primary_class(); ?>>
+<div id="primary" <?php mmm_primary_class(); ?>>
 
 	<?php while ( have_posts() ) :
 		the_post(); ?>
@@ -31,7 +31,7 @@ get_header(); ?>
 
 				<?php echo do_shortcode( '[mmm_equipment_hero]' ); ?>
 
-				<?php astra_primary_content_top(); ?>
+				<?php mmm_primary_content_top(); ?>
 
 				<div class="entry-content mmm-single-equipment">
 
@@ -79,7 +79,7 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-	<?php astra_primary_content_bottom(); ?>
+	<?php mmm_primary_content_bottom(); ?>
 
 </div><!-- #primary -->
 

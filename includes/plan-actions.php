@@ -13,7 +13,7 @@
  * Eingestellt wird das unter Design → Theme-Einstellungen; das Formular dazu
  * steht in includes/theme-settings.php.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -34,9 +34,9 @@ const MMM_CHILD_PLAN_ACTIONS_OPTION = 'mmm_plan_hero_actions';
  */
 function mmm_plan_action_label_modes(): array {
 	return array(
-		'both' => __( 'Icon + text', 'mixmymeals-astra-child' ),
-		'icon' => __( 'Icon only', 'mixmymeals-astra-child' ),
-		'text' => __( 'Text only', 'mixmymeals-astra-child' ),
+		'both' => __( 'Icon + text', 'mixmymeals-hello-child' ),
+		'icon' => __( 'Icon only', 'mixmymeals-hello-child' ),
+		'text' => __( 'Text only', 'mixmymeals-hello-child' ),
 	);
 }
 

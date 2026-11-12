@@ -12,7 +12,7 @@
  * Die Beitragsseite selbst (is_home) liegt in home.php, die Darstellung für
  * beide in includes/blog.php.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  * @since 1.6.0
  */
 
@@ -21,23 +21,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! mmm_blog_is_post_archive() ) {
-	/*
-	 * Astras eigene Vorlage, nicht locate_template(): das fände wieder diese
-	 * Datei und liefe im Kreis.
-	 */
-	require get_template_directory() . '/archive.php';
+
+	// Alle übrigen Archive (Schlagwort- und Kategorie-Archive der Rezepte und
+	// Pläne): Kopf, Liste, Blätterlinks.
+	get_header();
+	?>
+	<div id="primary" <?php mmm_primary_class(); ?>>
+		<?php mmm_primary_content_top(); ?>
+		<?php mmm_archive_header(); ?>
+		<?php mmm_content_loop(); ?>
+		<?php mmm_pagination(); ?>
+		<?php mmm_primary_content_bottom(); ?>
+	</div><!-- #primary -->
+	<?php
+	get_footer();
 	return;
 }
 
 get_header(); ?>
 
-<div id="primary" <?php astra_primary_class(); ?>>
+<div id="primary" <?php mmm_primary_class(); ?>>
 
-	<?php astra_primary_content_top(); ?>
+	<?php mmm_primary_content_top(); ?>
 
 	<?php mmm_blog_render_archive(); ?>
 
-	<?php astra_primary_content_bottom(); ?>
+	<?php mmm_primary_content_bottom(); ?>
 
 </div><!-- #primary -->
 

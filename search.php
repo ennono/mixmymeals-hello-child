@@ -10,7 +10,7 @@
  * Je Gruppe die ersten sechs; wer mehr will, geht über den Link ins Archiv,
  * wo Filter und Blätterlinks warten. Leere Gruppen erscheinen nicht.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  * @since 1.0.0
  */
 
@@ -23,13 +23,9 @@ const MMM_SEARCH_GROUP_LIMIT = 6;
 
 get_header(); ?>
 
-<?php if ( astra_page_layout() === 'left-sidebar' ) { ?>
-	<?php get_sidebar(); ?>
-<?php } ?>
+	<div id="primary" <?php mmm_primary_class(); ?>>
 
-	<div id="primary" <?php astra_primary_class(); ?>>
-
-		<?php astra_primary_content_top(); ?>
+		<?php mmm_primary_content_top(); ?>
 
 		<section class="mmm-plan-page mmm-search">
 
@@ -58,7 +54,7 @@ get_header(); ?>
 					<?php
 					printf(
 						/* translators: %s: the search term. */
-						esc_html__( 'Search results for “%s”', 'mixmymeals-astra-child' ),
+						esc_html__( 'Search results for “%s”', 'mixmymeals-hello-child' ),
 						esc_html( $mmm_term )
 					);
 					?>
@@ -70,7 +66,7 @@ get_header(); ?>
 						printf(
 							esc_html(
 								/* translators: %s: number of results. */
-								_n( '%s result', '%s results', $mmm_gesamt, 'mixmymeals-astra-child' )
+								_n( '%s result', '%s results', $mmm_gesamt, 'mixmymeals-hello-child' )
 							),
 							esc_html( number_format_i18n( $mmm_gesamt ) )
 						);
@@ -85,7 +81,7 @@ get_header(); ?>
 			<?php if ( empty( $mmm_gruppen ) ) : ?>
 
 				<p class="mmm-search__empty">
-					<?php esc_html_e( 'Nothing matched that. Maybe a different word — or have a look at what is cooking:', 'mixmymeals-astra-child' ); ?>
+					<?php esc_html_e( 'Nothing matched that. Maybe a different word — or have a look at what is cooking:', 'mixmymeals-hello-child' ); ?>
 				</p>
 
 				<?php
@@ -98,7 +94,7 @@ get_header(); ?>
 					echo do_shortcode( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in the shortcode.
 						sprintf(
 							'[mmm_latest_meal_plans count="8" title="%s"]',
-							esc_attr__( 'Fresh meal plans', 'mixmymeals-astra-child' )
+							esc_attr__( 'Fresh meal plans', 'mixmymeals-hello-child' )
 						)
 					);
 				}
@@ -159,7 +155,7 @@ get_header(); ?>
 									<?php
 									printf(
 										/* translators: 1: number of results, 2: group name, e.g. “Recipes”. */
-										esc_html__( 'Show all %1$s hits in %2$s', 'mixmymeals-astra-child' ),
+										esc_html__( 'Show all %1$s hits in %2$s', 'mixmymeals-hello-child' ),
 										esc_html( number_format_i18n( $mmm_anzahl ) ),
 										esc_html( $mmm_group['label'] )
 									);
@@ -176,12 +172,8 @@ get_header(); ?>
 
 		</section>
 
-		<?php astra_primary_content_bottom(); ?>
+		<?php mmm_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
-
-<?php if ( astra_page_layout() === 'right-sidebar' ) { ?>
-	<?php get_sidebar(); ?>
-<?php } ?>
 
 <?php get_footer(); ?>

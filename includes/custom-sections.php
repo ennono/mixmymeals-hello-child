@@ -17,7 +17,7 @@
  * mehreren Stellen erscheint, müsste überall dieselbe Reihenfolge, aber
  * getrennte Sichtbarkeit haben, und das erklärt sich in einer Liste nicht mehr.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -98,7 +98,7 @@ function mmm_custom_sections_into_registry( array $sections, string $type ): arr
 		$sections[ $id ] = array(
 			'label'  => '' !== $title
 				? $title
-				: __( 'Custom section', 'mixmymeals-astra-child' ),
+				: __( 'Custom section', 'mixmymeals-hello-child' ),
 			'render' => static function () use ( $type, $id ) {
 				mmm_render_custom_section( $type, $id );
 			},

@@ -16,7 +16,7 @@
  * untouched. The script checks its own result: the token sequence of input
  * and output must match, or it writes nothing.
  *
- * @package MixMyMeals Astra Child
+ * @package MixMyMeals Hello Child
  */
 
 // A build tool, not a page: a copy uploaded with the theme must not run
