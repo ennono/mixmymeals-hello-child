@@ -8964,99 +8964,6 @@ body.mmm-cart-empty .mmm-planer-next {
     display: none;
 }
 
-/* Am Schreibtisch: die Woche als sieben Spalten. */
-@media (min-width: 1200px) {
-
-    .site-content > .mmm-l-container:has(.mmm-plan-builder) {
-        max-width: 1340px;
-    }
-
-    .mmm-plan-days {
-        display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        gap: var(--mmm-s3);
-        align-items: start;
-    }
-
-    .mmm-plan-days .mmm-plan-day {
-        padding: 0;
-        margin: 0;
-        row-gap: var(--mmm-s2);
-    }
-
-    .mmm-plan-days .mmm-plan-day::before,
-    .mmm-plan-days .mmm-plan-day::after {
-        display: none;
-    }
-
-    .mmm-plan-days .mmm-plan-day-title {
-        font-size: var(--mmm-font-lg);
-    }
-
-    .mmm-plan-days .mmm-plan-day-add {
-        min-height: 30px;
-        padding: 0 10px;
-    }
-
-    .mmm-plan-days .mmm-plan-day-add__label {
-        display: none;
-    }
-
-    .mmm-plan-days .mmm-plan-day-box {
-        min-height: 140px;
-        padding: var(--mmm-s2);
-        background: var(--mmm-cream);
-        border: 1px solid var(--mmm-line);
-        border-radius: var(--mmm-r);
-    }
-
-    .mmm-plan-days .mmm-plan-day-list,
-    .mmm-plan-days .mmm-plan-day-list:not(:has(.mmm-plan-item)) {
-        min-height: 60px;
-        padding: 0;
-        border: 0;
-    }
-
-    .mmm-plan-days .mmm-plan-item {
-        flex-direction: column;
-        position: relative;
-    }
-
-    .mmm-plan-days .mmm-plan-item-thumb {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 4 / 3;
-    }
-
-    .mmm-plan-days .mmm-plan-item-content {
-        width: 100%;
-    }
-
-    .mmm-plan-days .mmm-plan-item-title {
-        font-size: .95em;
-    }
-
-    .mmm-plan-days .mmm-plan-item-remove {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        background: rgba(255, 255, 255, .92);
-        border-radius: 50%;
-    }
-
-    .mmm-plan-days .mmm-plan-item-quick__unit {
-        display: none;
-    }
-
-    .mmm-plan-days .mmm-plan-item-controls select {
-        width: 100%;
-    }
-
-    .mmm-plan-days .mmm-plan-day-nutrition {
-        font-size: .85em;
-    }
-}
-
 /* ==========================================================
    REDESIGN: Einstiegsfrage ([mmm_plan_start])
    ========================================================== */
@@ -9783,26 +9690,6 @@ body:not(.mmm-cart-empty) .mmm-plan-unassigned:not(:has(.mmm-plan-item)) {
     .tax-mmm_recipe_category #primary,
     .tax-mmm_recipe_tag #primary {
         margin-top: var(--mmm-s4);
-    }
-}
-
-@media (min-width: 1200px) {
-    .mmm-plan-days .mmm-plan-item .mmm-plan-item-thumb {
-        flex: 0 0 auto;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 4 / 3;
-    }
-
-    .mmm-plan-days .mmm-plan-item .mmm-plan-item-remove {
-        width: 28px;
-        height: 28px;
-        min-width: 0;
-        padding: 0;
-        font-size: 18px;
-        line-height: 1;
-        color: var(--mmm-carrot-600);
-        border: 1px solid var(--mmm-line);
     }
 }
 
