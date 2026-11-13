@@ -22,6 +22,7 @@ $GLOBALS['sc'] = array();
 $GLOBALS['caps'] = true;
 $GLOBALS['singular'] = '';
 $GLOBALS['calls'] = array();
+$GLOBALS['post_id'] = 0;
 
 function add_shortcode( $tag, $cb ) { $GLOBALS['sc'][ $tag ] = $cb; }
 function do_sc( $tag, $atts = array() ) { return call_user_func( $GLOBALS['sc'][ $tag ], $atts ); }
@@ -38,6 +39,8 @@ function is_singular( $pt = '' ) { return $GLOBALS['singular'] === $pt; }
 function apply_filters( $tag, $value ) { return $value; }
 function home_url( $p = '' ) { return 'https://example.test' . $p; }
 
+function get_the_ID() { return $GLOBALS['post_id'] ?? 0; }
+function get_template_part( $slug, $name = null ) { echo '<article>KARTE ' . $GLOBALS['post_id'] . '</article>'; }
 function mmm_archive_section_type() { return $GLOBALS['singular'] === 'archive_plan' ? 'plan_archive' : ''; }
 function mmm_single_section_registry( $type ) {
     $r = array(
@@ -104,6 +107,13 @@ $GLOBALS['singular'] = ''; $GLOBALS['caps'] = false;
 check( 'Besucher bekommt nichts', '' === do_sc( 'mmm_section', array() ) );
 $GLOBALS['caps'] = true;
 check( 'Redakteur bekommt einen Hinweis', strpos( do_sc( 'mmm_section', array() ), 'No page type' ) !== false );
+
+echo "7. [mmm_card] in der Schleife\n";
+$GLOBALS['post_id'] = 7022;
+$out = do_sc( 'mmm_card', array() );
+check( 'gibt die Karte des Beitrags aus', strpos( $out, 'KARTE 7022' ) !== false, $out );
+$GLOBALS['post_id'] = 0;
+check( 'außerhalb einer Schleife nichts', '' === do_sc( 'mmm_card', array() ) );
 
 echo "\n$ok ok, $fail fehlgeschlagen\n";
 exit( $fail ? 1 : 0 );

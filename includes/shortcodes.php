@@ -180,6 +180,41 @@ if ( class_exists( 'mixmymeals' ) ) {
 	);
 
 	/**
+	 * Shortcode [mmm_card]: eine Karte der Archivliste.
+	 *
+	 * template-parts/card.php ist das Kartengerüst für alle Inhaltstypen —
+	 * Rezepte, Pläne, Zutaten, Geräte. Was eine Karte zeigt, hängen
+	 * functions.php und die includes an ihre Hooks: Wochentage, Bewertung,
+	 * Chips samt Werbekennzeichnung, „Einplanen". Pläne zeigen statt eines
+	 * Beitragsbilds die Bilder ihrer Rezepte.
+	 *
+	 * In einer Elementor-Vorlage steht dieser Shortcode im Schleifenelement.
+	 * Dass die Karte dann aussieht wie heute, ist keine Nachbildung, sondern
+	 * dieselbe Datei und dieselben Hooks — und die Werbekennzeichnung kann
+	 * dabei nicht vergessen werden, was sie bei einer aus Widgets
+	 * zusammengesetzten Karte könnte.
+	 *
+	 * Setzt voraus, dass der Beitrag eingerichtet ist; in einer Schleife ist
+	 * er das. Außerhalb kommt nichts.
+	 *
+	 * @return string
+	 */
+	add_shortcode(
+		'mmm_card',
+		function () {
+
+			if ( ! get_the_ID() ) {
+				return '';
+			}
+
+			ob_start();
+			get_template_part( 'template-parts/card' );
+
+			return (string) ob_get_clean();
+		}
+	);
+
+	/**
 	 * Shortcode [mmm_section]: ein Abschnitt — oder eine ganze Seite — aus
 	 * der Abschnitts-Registry dieses Themes.
 	 *
