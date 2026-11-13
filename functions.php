@@ -8,7 +8,7 @@
  * @since 1.0.0
  */
 
-define( 'MMM_CHILD_THEME_VERSION', '2.0.1' );
+define( 'MMM_CHILD_THEME_VERSION', '2.0.2' );
 
 require_once 'includes/layout.php';
 require_once 'includes/theme-settings.php';
@@ -263,7 +263,7 @@ if ( class_exists( 'mixmymeals' ) ) {
  * shopping boxes are re-rendered over admin-ajax, which loads no template.
  *
  * @param string $text Default heading from the plugin.
- * @param string $key  'unassigned', 'nutrition' or 'shopping'.
+ * @param string $key  'unassigned', 'nutrition', 'shopping' or 'mini'.
  * @return string
  */
 function mmm_planner_heading( $text, $key ) {
@@ -272,6 +272,10 @@ function mmm_planner_heading( $text, $key ) {
 		'unassigned' => __( 'Unassigned Recipes', 'mixmymeals-hello-child' ),
 		'nutrition'  => __( 'Average nutrition per day and person', 'mixmymeals-hello-child' ),
 		'shopping'   => __( 'Shopping list', 'mixmymeals-hello-child' ),
+		// Die Wochenübersicht steht in einem <details>, dessen <summary> sie
+		// schon benennt (mmm_render_side_plan()). Eine zweite Überschrift im
+		// Kasten war bis MixMyMeals 4.0.0 nur per CSS zu verstecken.
+		'mini'       => '',
 	);
 
 	return $headings[ $key ] ?? $text;

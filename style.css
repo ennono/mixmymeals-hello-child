@@ -3,7 +3,7 @@ Theme Name: MixMyMeals Hello Child
 Author: Timo Fricke
 Author URI: https://www.mixmymeals.de
 Description: Child-Theme für MixMyMeals auf Basis von Hello Elementor. Header und Footer kommen aus dem Theme Builder von Elementor Pro, die Seiten des Plugins aus den Templates dieses Themes.
-Version: 2.0.1
+Version: 2.0.2
 Requires PHP: 8.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -9274,9 +9274,9 @@ body.mmm-cart-empty .mmm-planer-next {
         overflow-y: auto;
     }
 
-    .mmm-side-plan .mmm-mini-plan__title {
-        display: none;
-    }
+    /* Die Überschrift des Plugins stand hier doppelt — das <summary> benennt
+       den Kasten schon. Seit MixMyMeals 4.0.1 bestellt mmm_planner_heading()
+       sie ab ('mini' => ''), statt sie hier zu verstecken. */
 }
 
 .mmm-mini-plan__days {
