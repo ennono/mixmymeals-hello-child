@@ -127,4 +127,56 @@ if ( class_exists( 'mixmymeals' ) ) {
 		}
 	);
 
+	/**
+	 * Shortcode [mmm_recipe_browse_card]: die Stöber-Karte des Rezeptarchivs.
+	 *
+	 * Bis zum Umstieg stand sie als Block „browse" in der Abschnitts-Registry
+	 * und wurde aus archive-mmm_recipe.php gerufen. Eine Archiv-Vorlage im
+	 * Elementor Theme Builder kann nur Shortcodes einsetzen, keine
+	 * PHP-Funktionen — ohne diesen Umweg wäre „Unsere Favoriten" samt der
+	 * Kategorienliste darin beim Umstieg ersatzlos verschwunden.
+	 *
+	 * Die Karte entscheidet selbst, ob sie erscheint (nur auf dem
+	 * Rezept-Archiv, nur auf Seite eins, nicht während einer Suche) — die
+	 * Bedingungen stehen in mmm_render_recipe_browse_card() und bleiben dort.
+	 * Gibt sie nichts aus, liefert der Shortcode einen leeren String, und der
+	 * Container in Elementor bleibt leer.
+	 */
+	add_shortcode(
+		'mmm_recipe_browse_card',
+		function () {
+
+			if ( ! function_exists( 'mmm_render_recipe_browse_card' ) ) {
+				return '';
+			}
+
+			ob_start();
+			mmm_render_recipe_browse_card();
+
+			return (string) ob_get_clean();
+		}
+	);
+
+	/**
+	 * Shortcode [mmm_recipe_category_terms]: die Kategorienliste.
+	 *
+	 * Auf dem Rezept-Archiv steckt sie in der Stöber-Karte; dieser Shortcode
+	 * ist für die Taxonomie-Archive und für eine Elementor-Vorlage, die sie
+	 * eigenständig setzen will. Der Renderer ist derselbe.
+	 */
+	add_shortcode(
+		'mmm_recipe_category_terms',
+		function () {
+
+			if ( ! function_exists( 'mmm_render_recipe_category_terms_card' ) ) {
+				return '';
+			}
+
+			ob_start();
+			mmm_render_recipe_category_terms_card();
+
+			return (string) ob_get_clean();
+		}
+	);
+
 }
