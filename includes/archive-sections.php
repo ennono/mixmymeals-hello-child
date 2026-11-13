@@ -1,6 +1,10 @@
 <?php
 /**
- * Abschnitte der Archive: Rezeptarchiv und Essensplan-Archiv.
+ * Abschnitte des Essensplan-Archivs.
+ *
+ * Das Rezeptarchiv ist hier heraus: seine Gestaltung liegt seit dem Umstieg
+ * in einer Archiv-Vorlage des Elementor Theme Builders. Das Essensplan- und
+ * das Zutaten-Archiv laufen weiter über diese Mechanik.
  *
  * Gleiche Mechanik wie bei den Einzelseiten (includes/single-sections.php) —
  * benannte Blöcke, Reihenfolge und Häkchen in derselben Option, dieselbe
@@ -17,9 +21,12 @@
  * exakt die bisherige Seite ergibt und Umsortieren trotzdem tut, was man
  * erwartet.
  *
- * Gilt nur für die beiden Post-Type-Archive. Die Taxonomie-Archive
- * (Rezeptkategorie, -schlagwort, Plankategorie) laufen weiter über Astras
- * archive.php und behalten ihre Hooks unverändert.
+ * Die Taxonomie-Archive (Rezeptkategorie, -schlagwort, Plankategorie) laufen
+ * weiter über die archive.php dieses Themes und behalten ihre Hooks
+ * unverändert — auch die des Rezeptarchivs (Suchfeld, Chips, Bewertung,
+ * Planen-Knopf in includes/recipe_archive.php). Sie sind also NICHT tot,
+ * solange die Kategorie- und Schlagwortseiten der Rezepte hier gerendert
+ * werden; erst wenn auch die nach Elementor gehen, können sie weg.
  *
  * @package MixMyMeals Hello Child
  */
@@ -43,7 +50,6 @@ add_filter( 'mmm_single_section_types', 'mmm_archive_section_types' );
  */
 function mmm_archive_section_types( array $types ): array {
 
-	$types['recipe_archive'] = __( 'Recipe archive', 'mixmymeals-hello-child' );
 	$types['plan_archive']   = __( 'Meal plan archive', 'mixmymeals-hello-child' );
 
 	return $types;
@@ -62,42 +68,6 @@ add_filter( 'mmm_single_section_registry', 'mmm_archive_section_registry', 10, 2
  * @return array<string, array{label: string, render: callable, hero?: bool}>
  */
 function mmm_archive_section_registry( array $sections, string $type ): array {
-
-	if ( 'recipe_archive' === $type ) {
-		return array(
-			'description' => array(
-				'label'  => __( 'Archive description', 'mixmymeals-hello-child' ),
-				'render' => 'mmm_archive_section_description',
-				'hero'   => true,
-			),
-			'search'      => array(
-				'label'  => __( 'Search form', 'mixmymeals-hello-child' ),
-				'render' => 'mmm_archive_section_search',
-				'hero'   => true,
-			),
-			'filter'      => array(
-				'label'  => __( 'Diet filter', 'mixmymeals-hello-child' ),
-				'render' => 'mmm_archive_section_recipe_filter',
-				'hero'   => true,
-			),
-			'browse'      => array(
-				'label'  => __( 'Browse card', 'mixmymeals-hello-child' ),
-				'render' => 'mmm_archive_section_browse',
-			),
-			'heading'     => array(
-				'label'  => __( 'List heading', 'mixmymeals-hello-child' ),
-				'render' => 'mmm_archive_section_heading',
-			),
-			'list'        => array(
-				'label'  => __( 'The list', 'mixmymeals-hello-child' ),
-				'render' => 'mmm_archive_section_list',
-			),
-			'pagination'  => array(
-				'label'  => __( 'Pagination', 'mixmymeals-hello-child' ),
-				'render' => 'mmm_archive_section_pagination',
-			),
-		);
-	}
 
 	if ( 'plan_archive' === $type ) {
 		return array(
@@ -154,10 +124,6 @@ function mmm_archive_section_has_hero( string $type ): bool {
  * Der Abschnittstyp des gerade angezeigten Archivs, '' außerhalb der beiden.
  */
 function mmm_archive_section_type(): string {
-
-	if ( is_post_type_archive( 'mmm_recipe' ) ) {
-		return 'recipe_archive';
-	}
 
 	if ( is_post_type_archive( 'mmm_meal_plan' ) ) {
 		return 'plan_archive';
@@ -305,64 +271,8 @@ function mmm_archive_section_filter(): void {
 	mmm_print_meal_plan_category_filter();
 }
 
-/**
- * Ernährungs-Pillen über dem Rezeptarchiv.
- *
- * Denselben Blocknamen wie das Planarchiv, aber einen eigenen Callback: die
- * Registry gilt je Seitentyp, und eine gespeicherte Reihenfolge braucht keine
- * Wanderung, weil mmm_single_section_order() einen unbekannten Block an seine
- * Stelle in der Registry schiebt.
- */
-function mmm_archive_section_recipe_filter(): void {
-	echo do_shortcode( '[mmm_archive_filters]' );
-}
 
-/**
- * Stöber-Karte: neue und liegengebliebene Rezepte, dazu die Kategorien.
- */
-function mmm_archive_section_browse(): void {
 
-	if ( function_exists( 'mmm_render_recipe_browse_card' ) ) {
-		mmm_render_recipe_browse_card();
-	}
-}
-
-/**
- * Überschrift über der Liste.
- *
- * „Alle Rezepte" wäre über einer gefilterten Liste gelogen, also sagt die
- * Überschrift, was tatsächlich darunter steht, solange eine Suche läuft.
- *
- * Eine Stöber-Ansicht bekommt hier gar keine Überschrift: sie betitelt die
- * Seite selbst (mmm_browse_view_archive_title()) und trägt ihre Beschreibung
- * im Kopf, wie ein Schlagwort-Archiv — eine zweite Überschrift, die die H1
- * wiederholt, ist genau das, was jene Archive nicht haben.
- */
-function mmm_archive_section_heading(): void {
-
-	$view = function_exists( 'mmm_archive_view' ) ? mmm_archive_view() : '';
-
-	if ( ! have_posts() || '' !== $view ) {
-		return;
-	}
-
-	$term = function_exists( 'mmm_archive_search_term' ) ? mmm_archive_search_term() : '';
-	?>
-	<h2 class="mmm-recipe-archive-heading">
-		<?php
-		if ( '' !== $term ) {
-			printf(
-				/* translators: %s: the search term. */
-				esc_html__( 'Search results for “%s”', 'mixmymeals-hello-child' ),
-				esc_html( $term )
-			);
-		} else {
-			esc_html_e( 'All recipes', 'mixmymeals-hello-child' );
-		}
-		?>
-	</h2>
-	<?php
-}
 
 /**
  * Die Liste selbst.
