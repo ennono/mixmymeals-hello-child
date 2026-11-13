@@ -343,6 +343,69 @@ function mmm_render_locked_single(): bool {
 }
 
 /**
+ * Passwortschutz, der nicht am Template hängt.
+ *
+ * mmm_render_locked_single() wird aus den Single-Templates dieses Themes
+ * gerufen. Sobald eine Einzelansicht aus dem Elementor Theme Builder kommt,
+ * läuft die Theme-Datei nicht mehr — und damit auch die Abfrage nicht. Ein
+ * geschütztes Rezept oder ein geschützter Plan stünde dann vollständig da:
+ * Hero, Zutaten, Zubereitung, Einkaufsliste.
+ *
+ * WordPress schützt von sich aus nur the_content(); alles, was dieses Theme
+ * und das Plugin daneben ausgeben, muss selbst fragen (siehe CLAUDE.md des
+ * Plugins, „Core protects the_content() and nothing else"). Deshalb steht die
+ * Entscheidung hier, vor dem Template: Ist der Beitrag gesperrt, gibt diese
+ * Seite das Formular aus und endet — gleich, wer das Template stellt.
+ *
+ * Die Templates dürfen ihren eigenen Aufruf behalten; sie kommen nach dieser
+ * Weiche gar nicht mehr an die Reihe.
+ *
+ * @return void
+ */
+function mmm_guard_locked_singles(): void {
+
+	if ( is_embed() || is_feed() || is_admin() ) {
+		return;
+	}
+
+	$mmm_types = array( 'mmm_recipe', 'mmm_meal_plan', 'mmm_meal', 'mmm_ingredient', 'mmm_equipment' );
+
+	if ( ! is_singular( $mmm_types ) ) {
+		return;
+	}
+
+	$mmm_id = (int) get_queried_object_id();
+
+	// Dieselbe Frage wie in mmm_render_locked_single(): das Plugin kennt den
+	// Besucher, der das Passwort eingegeben hat, WordPress allein nicht.
+	$mmm_locked = is_callable( array( 'Mixmymeals_Post_Types', 'is_locked' ) )
+		? Mixmymeals_Post_Types::is_locked( $mmm_id )
+		: post_password_required( $mmm_id );
+
+	if ( ! $mmm_locked ) {
+		return;
+	}
+
+	get_header();
+
+	echo '<div id="primary" ';
+	mmm_primary_class();
+	echo '>';
+
+	if ( have_posts() ) {
+		the_post();
+		mmm_render_locked_single();
+		rewind_posts();
+	}
+
+	echo '</div>';
+
+	get_footer();
+	exit;
+}
+add_action( 'template_redirect', 'mmm_guard_locked_singles', 20 );
+
+/**
  * Die Abschnitte einer Einzelseite ausgeben. Das ist alles, was in den
  * Templates noch steht.
  *
