@@ -179,4 +179,134 @@ if ( class_exists( 'mixmymeals' ) ) {
 		}
 	);
 
+	/**
+	 * Shortcode [mmm_section]: ein Abschnitt — oder eine ganze Seite — aus
+	 * der Abschnitts-Registry dieses Themes.
+	 *
+	 * Die Inhalte zu Rezepten, Plänen, Mahlzeiten und Archiven bleiben
+	 * Shortcodes; Elementor ordnet sie nur an. Bis zum Umstieg riefen die
+	 * Templates mmm_render_single_sections() beziehungsweise
+	 * mmm_render_archive_sections(); eine Vorlage im Theme Builder kann nur
+	 * Shortcodes setzen, keine PHP-Funktionen.
+	 *
+	 * Beide Registries hängen am selben Filter (mmm_single_section_registry,
+	 * die Archive melden sich dort aus includes/archive-sections.php an).
+	 * Deshalb genügt dieser eine Shortcode für alle Seitentypen, und ein
+	 * später hinzukommender Block ist ohne Änderung hier erreichbar.
+	 *
+	 *   [mmm_section]                       alle Abschnitte des aktuellen
+	 *                                       Seitentyps, in der Reihenfolge und
+	 *                                       mit den Häkchen aus Design →
+	 *                                       Theme-Einstellungen. Das ist die
+	 *                                       Seite, wie sie heute aussieht,
+	 *                                       in einem Widget.
+	 *   [mmm_section block="steps"]         nur dieser Abschnitt, Typ wird
+	 *                                       aus der Seite erkannt.
+	 *   [mmm_section type="recipe" block="steps"]   ausdrücklich.
+	 *
+	 * Ein ausdrücklich gesetzter Block wird immer ausgegeben, auch wenn er
+	 * unter Theme-Einstellungen ausgehakt ist: Wer ihn in Elementor
+	 * hinstellt, hat die Anordnung dort schon entschieden, und ein
+	 * stillschweigend leeres Widget wäre das schlechtere Verhalten.
+	 *
+	 * @param array|string $atts type, block.
+	 * @return string
+	 */
+	add_shortcode(
+		'mmm_section',
+		function ( $atts = array() ) {
+
+			$atts = shortcode_atts(
+				array(
+					'type'  => '',
+					'block' => '',
+				),
+				$atts,
+				'mmm_section'
+			);
+
+			$type  = sanitize_key( (string) $atts['type'] );
+			$block = sanitize_key( (string) $atts['block'] );
+
+			if ( '' === $type ) {
+				$type = mmm_section_shortcode_type();
+			}
+
+			if ( '' === $type || ! function_exists( 'mmm_single_section_registry' ) ) {
+				return mmm_section_shortcode_hint(
+					__( 'No page type: name it, for example [mmm_section type="recipe"].', 'mixmymeals-hello-child' )
+				);
+			}
+
+			// Ohne Block: die ganze Seite, wie die Templates sie bisher bauten.
+			if ( '' === $block ) {
+				ob_start();
+				mmm_render_single_sections( $type );
+
+				return (string) ob_get_clean();
+			}
+
+			$registry = mmm_single_section_registry( $type );
+
+			if ( ! isset( $registry[ $block ]['render'] ) || ! is_callable( $registry[ $block ]['render'] ) ) {
+				return mmm_section_shortcode_hint(
+					sprintf(
+						/* translators: 1: block slug, 2: page type, 3: list of known slugs. */
+						__( 'Unknown section "%1$s" for "%2$s". Available: %3$s', 'mixmymeals-hello-child' ),
+						$block,
+						$type,
+						implode( ', ', array_keys( $registry ) )
+					)
+				);
+			}
+
+			ob_start();
+			call_user_func( $registry[ $block ]['render'] );
+
+			return (string) ob_get_clean();
+		}
+	);
+}
+
+/**
+ * Der Seitentyp der gerade angezeigten Seite für [mmm_section].
+ *
+ * Einzelansichten zuerst, dann die Archive über ihre eigene Weiche.
+ *
+ * @return string '' außerhalb der bekannten Seiten.
+ */
+function mmm_section_shortcode_type(): string {
+
+	$singles = array(
+		'mmm_recipe'    => 'recipe',
+		'mmm_meal'      => 'meal',
+		'mmm_meal_plan' => 'plan',
+	);
+
+	foreach ( $singles as $post_type => $type ) {
+		if ( is_singular( $post_type ) ) {
+			return $type;
+		}
+	}
+
+	return function_exists( 'mmm_archive_section_type' ) ? mmm_archive_section_type() : '';
+}
+
+/**
+ * Hinweis für Redakteure, für Besucher nichts.
+ *
+ * Dieselbe Regel wie bei den Einbettungen des Plugins: Ein Tippfehler im
+ * Shortcode soll auf der Seite auffallen, aber nur denen, die ihn beheben
+ * können.
+ *
+ * @param string $text Klartext.
+ * @return string
+ */
+function mmm_section_shortcode_hint( string $text ): string {
+
+	if ( ! current_user_can( 'edit_posts' ) ) {
+		return '';
+	}
+
+	return '<p class="mmm-section--missing">' . esc_html( $text ) . '</p>';
 }
