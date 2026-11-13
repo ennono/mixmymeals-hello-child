@@ -23,6 +23,7 @@ $GLOBALS['caps'] = true;
 $GLOBALS['singular'] = '';
 $GLOBALS['calls'] = array();
 $GLOBALS['post_id'] = 0;
+$GLOBALS['actions'] = array();
 
 function add_shortcode( $tag, $cb ) { $GLOBALS['sc'][ $tag ] = $cb; }
 function do_sc( $tag, $atts = array() ) { return call_user_func( $GLOBALS['sc'][ $tag ], $atts ); }
@@ -41,6 +42,12 @@ function home_url( $p = '' ) { return 'https://example.test' . $p; }
 
 function get_the_ID() { return $GLOBALS['post_id'] ?? 0; }
 function get_template_part( $slug, $name = null ) { echo '<article>KARTE ' . $GLOBALS['post_id'] . '</article>'; }
+function has_action( $tag ) { return ! empty( $GLOBALS['actions'][ $tag ] ); }
+function do_action( $tag ) { foreach ( $GLOBALS['actions'][ $tag ] ?? array() as $cb ) { $cb(); } }
+function mmm_archive_header() { echo '<section class="mmm-l-archive-description">KOPF</section>'; }
+function mmm_primary_content_top() { do_action( 'mmm_primary_content_top' ); }
+function mmm_primary_content_bottom() { do_action( 'mmm_primary_content_bottom' ); }
+function mmm_content_none_message() { return 'Nichts gefunden.'; }
 function mmm_archive_section_type() { return $GLOBALS['singular'] === 'archive_plan' ? 'plan_archive' : ''; }
 function mmm_single_section_registry( $type ) {
     $r = array(
@@ -114,6 +121,16 @@ $out = do_sc( 'mmm_card', array() );
 check( 'gibt die Karte des Beitrags aus', strpos( $out, 'KARTE 7022' ) !== false, $out );
 $GLOBALS['post_id'] = 0;
 check( 'außerhalb einer Schleife nichts', '' === do_sc( 'mmm_card', array() ) );
+
+echo "8. Gerüst der Archive\n";
+check( '[mmm_archive_header] gibt den Kopf aus', strpos( do_sc( 'mmm_archive_header' ), 'mmm-l-archive-description' ) !== false );
+$GLOBALS['actions']['mmm_primary_content_bottom'][] = function () { echo '<section class="mmm-archive-intro">EINLEITUNG</section>'; };
+check( '[mmm_content_bottom] feuert den Hook', strpos( do_sc( 'mmm_content_bottom' ), 'EINLEITUNG' ) !== false );
+check( '[mmm_content_top] ohne Hooks: leer', '' === do_sc( 'mmm_content_top' ) );
+check( '[mmm_content_none] ohne Hook: die Meldung', strpos( do_sc( 'mmm_content_none' ), 'Nichts gefunden.' ) !== false );
+$GLOBALS['actions']['mmm_content_none'][] = function () { echo 'EIGENER-LEERSTAND'; };
+$out = do_sc( 'mmm_content_none' );
+check( '[mmm_content_none] mit Hook: der Hook statt der Meldung', strpos( $out, 'EIGENER-LEERSTAND' ) !== false && strpos( $out, 'Nichts gefunden.' ) === false );
 
 echo "\n$ok ok, $fail fehlgeschlagen\n";
 exit( $fail ? 1 : 0 );

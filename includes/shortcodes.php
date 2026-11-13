@@ -180,6 +180,76 @@ if ( class_exists( 'mixmymeals' ) ) {
 	);
 
 	/**
+	 * Shortcodes für das Gerüst der Archive: Kopf, Anfang, Ende, Leerstand.
+	 *
+	 * Die Archiv-Templates riefen mmm_archive_header(), mmm_primary_content_top()
+	 * und mmm_primary_content_bottom(); an diesen Stellen hängen Hooks, die
+	 * unter einer Elementor-Vorlage sonst nicht mehr feuern:
+	 *
+	 *   [mmm_archive_header]   Titel, die Kopf-Blöcke aus der Registry
+	 *                          (Beschreibung, Suchfeld, Filter — Reihenfolge
+	 *                          und Häkchen aus Design → Theme-Einstellungen),
+	 *                          die Archivbeschreibung und die Chips der aktiven
+	 *                          Filter, in der gestalteten Kopffläche.
+	 *   [mmm_content_top]      alles an mmm_primary_content_top
+	 *   [mmm_content_bottom]   alles an mmm_primary_content_bottom — auf der
+	 *                          ungefilterten Rezeptübersicht die Einleitung,
+	 *                          die dort unter der Liste steht.
+	 *   [mmm_content_none]     der Hinweis für eine leere Liste; gehört in den
+	 *                          Leerzustand der Elementor-Schleife.
+	 *
+	 * Die Mechanik dahinter (mmm_archive_sections_take_over() und
+	 * mmm_move_recipe_archive_intro() an „wp") hängt nicht am Template und
+	 * läuft unter Elementor unverändert.
+	 */
+	$mmm_buffered = static function ( callable $render ): string {
+		ob_start();
+		$render();
+		return (string) ob_get_clean();
+	};
+
+	add_shortcode(
+		'mmm_archive_header',
+		static function () use ( $mmm_buffered ) {
+			return function_exists( 'mmm_archive_header' ) ? $mmm_buffered( 'mmm_archive_header' ) : '';
+		}
+	);
+
+	add_shortcode(
+		'mmm_content_top',
+		static function () use ( $mmm_buffered ) {
+			return function_exists( 'mmm_primary_content_top' ) ? $mmm_buffered( 'mmm_primary_content_top' ) : '';
+		}
+	);
+
+	add_shortcode(
+		'mmm_content_bottom',
+		static function () use ( $mmm_buffered ) {
+			return function_exists( 'mmm_primary_content_bottom' ) ? $mmm_buffered( 'mmm_primary_content_bottom' ) : '';
+		}
+	);
+
+	add_shortcode(
+		'mmm_content_none',
+		static function () use ( $mmm_buffered ) {
+
+			if ( has_action( 'mmm_content_none' ) ) {
+				return $mmm_buffered(
+					static function () {
+						do_action( 'mmm_content_none' );
+					}
+				);
+			}
+
+			$message = function_exists( 'mmm_content_none_message' )
+				? mmm_content_none_message()
+				: __( 'Nothing found here.', 'mixmymeals-hello-child' );
+
+			return '<section class="no-results not-found"><p>' . esc_html( $message ) . '</p></section>';
+		}
+	);
+
+	/**
 	 * Shortcode [mmm_card]: eine Karte der Archivliste.
 	 *
 	 * template-parts/card.php ist das Kartengerüst für alle Inhaltstypen —
