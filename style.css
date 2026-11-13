@@ -3,7 +3,7 @@ Theme Name: MixMyMeals Hello Child
 Author: Timo Fricke
 Author URI: https://www.mixmymeals.de
 Description: Child-Theme für MixMyMeals auf Basis von Hello Elementor. Header und Footer kommen aus dem Theme Builder von Elementor Pro, die Seiten des Plugins aus den Templates dieses Themes.
-Version: 2.0.0
+Version: 2.0.1
 Requires PHP: 8.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -4649,10 +4649,13 @@ a:focus       { color: var(--mmm-green-700); }
 
 /* ==========================================================
    REZEPT-ARCHIV: nach Kategorien gruppierte Übersicht
-   ([mmm_recipes_index] in archive-mmm_recipe.php). Die Karten erben das
-   Aussehen der bisherigen Archivkarten (.post-thumb / .post-content /
-   .entry-title) über die body-Klasse .mmm-recipe-archive — hier nur die
-   Gruppierung, Überschriften und die Karten-Hülle.
+   ([mmm_recipes_index] in archive-mmm_recipe.php).
+
+   Bis MixMyMeals 4.0.0 druckte der Shortcode die Klassen des Eltern-Themes
+   Astra (.post-thumb / .post-content / .entry-title), und die Karten erbten
+   ihr Aussehen über die body-Klasse .mmm-recipe-archive. Seit 4.0.1 trägt er
+   eigene mmm-*-Namen, also steht das Aussehen hier — dieselben Maße wie die
+   Archivkarten, nur ohne !important: gegen die eigenen Klassen kämpft nichts.
    ========================================================== */
 .mmm-recipes-index {
   max-width: var(--mmm-maxw);
@@ -4684,12 +4687,45 @@ a:focus       { color: var(--mmm-green-700); }
   box-shadow: var(--mmm-shadow-sm);
   overflow: hidden;
 }
-.mmm-recipes-index__card .post-content {
+.mmm-recipes-index__media {
+  display: block;
+  width: 34%;
+  align-self: stretch;
+}
+.mmm-recipes-index__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 210px;
+  object-fit: cover;
+}
+.mmm-recipes-index__body {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: var(--mmm-s5) var(--mmm-s6);
 }
 /* Karten ohne Beitragsbild: Inhalt nimmt die volle Breite ein. */
-.mmm-recipes-index__card:not(:has(.post-thumb)) .post-content {
-  width: 100% !important;
+.mmm-recipes-index__card--noimg .mmm-recipes-index__body {
+  width: 100%;
+}
+.mmm-recipes-index__name {
+  font-family: var(--mmm-font-display);
+  font-weight: var(--mmm-fw-semibold);
+  font-size: var(--mmm-font-xl);
+  line-height: 1.15;
+  margin: 0 0 var(--mmm-s2);
+}
+.mmm-recipes-index__name a       { color: var(--mmm-ink); transition: color .15s; }
+.mmm-recipes-index__name a:hover { color: var(--mmm-green-700); }
+
+/* Handy (≤544px): Bild und Inhalt untereinander statt nebeneinander, wie bei
+   den Archivkarten. */
+@media (max-width: 544px) {
+  .mmm-recipes-index__media,
+  .mmm-recipes-index__body { width: 100%; }
+  .mmm-recipes-index__media img { min-height: 180px; }
 }
 
 /* ==========================================================

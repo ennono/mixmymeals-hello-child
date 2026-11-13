@@ -8,7 +8,7 @@
  * @since 1.0.0
  */
 
-define( 'MMM_CHILD_THEME_VERSION', '2.0.0' );
+define( 'MMM_CHILD_THEME_VERSION', '2.0.1' );
 
 require_once 'includes/layout.php';
 require_once 'includes/theme-settings.php';
